@@ -51,7 +51,7 @@ class Oboe_Table extends Oboe_ElementComposite implements Oboe_Item_Body,
      *
      * @param Oboe_Item_Table The item to add to the table
      */
-    public function add($element) {
+    public function add($element, $push = true) {
         self::_checkElement($this, $element);
         if (!is_object($element)) {
             throw new Oboe_Exception('Only objects can be added to a '.
@@ -60,6 +60,7 @@ class Oboe_Table extends Oboe_ElementComposite implements Oboe_Item_Body,
 
         $type = get_class($element);
         switch ($type) {
+
             case 'Oboe_Table_Head':
             if ($this->_head !== null) {
                 throw new Oboe_Exception(
@@ -70,7 +71,11 @@ class Oboe_Table extends Oboe_ElementComposite implements Oboe_Item_Body,
             break;
 
             case 'Oboe_Table_Body':
-            $this->_bodies[] = $element;
+            if ($push) {
+              $this->_bodies[] = $element;
+            } else {
+              array_unshift($this->_bodies, $element);
+            }
             break;
 
             case 'Oboe_Table_Foot':

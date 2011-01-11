@@ -105,10 +105,10 @@ class Oboe_Page extends Oboe_ElementComposite {
      */
 
     /* Reference to the <head> singleton */
-    private $_head;
+    protected $_head;
 
     /* Reference to the <body> singleton */
-    private $_body;
+    protected $_body;
 
     /* Constructor for the document */
     protected function __construct() {
@@ -140,14 +140,14 @@ class Oboe_Page extends Oboe_ElementComposite {
     /**
      * Disallow adding to the page directly.
      */
-    public function add($element) {
+    public function add($element, $push = true) {
         throw new Oboe_Exception(
             'Elements can not be added directly to the page');
     }
 
     /**
      * This method overrides the remove all method to remove all from the
-     * <body> and <head> elements.
+     * &lt;body&gt; and &lt;head&gt; elements.
      */
     public function removeAll() {
         $this->_head->removeAll();
