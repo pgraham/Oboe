@@ -41,19 +41,4 @@ class TextArea extends ElementWrapper implements Item\Form {
       $this->setElement($text);
     }
   }
-
-  /**
-   * Override the parent's toString method to make sure that the given text
-   * doesn't have any whitespace added to it
-   *
-   * @return string
-   */
-  public function __toString() {
-    $str = str_replace("\n", '', self::openTag($this));
-    if (array_key_exists(0, $this->_elements)) {
-      $str.= $this->_elements[0];
-    }
-    $str.= str_replace("\t", '', self::closeTag($this));
-    return $str;
-  }
 }

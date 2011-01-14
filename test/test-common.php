@@ -16,6 +16,5 @@
  * @package OboeTest
  */
 
-require_once 'PHPUnit/Framework.php';
-require_once dirname(dirname(__FILE__)).'/src/Oboe/Autoloader.php';
-require_once dirname(__FILE__).'/OboeTest/Autoloader.php';
+require_once __DIR__ . '/../src/Autoloader.php';
+require_once __DIR__ . '/Autoloader.php';

@@ -44,6 +44,6 @@ class Javascript extends ElementBase implements Item\Head {
    * @return HTML markup for the element
    */
   public function __toString() {
-    return substr(parent::__toString(), 0, -3).'></script>'."\n";
+    return substr(parent::__toString(), 0, -2).'></script>';
   }
 }

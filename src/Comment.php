@@ -41,7 +41,6 @@ class Comment implements Item\Document, Item\Head, Item\Body, Item\Form {
    * @return string
    */
   public function __toString() {
-    $tabs = Text\Tabs::getTabs();
-    return $tabs.'<!-- '.$this->_comment.' -->'."\n";
+    return '<!-- '.$this->_comment.' -->';
   }
 }

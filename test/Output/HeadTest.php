@@ -1,0 +1,71 @@
+<?php
+namespace OboeTest\Output;
+use \Oboe\Head;
+use \OboeTest\Mock;
+/**
+ * =============================================================================
+ * Copyright (c) 2010, Philip Graham
+ * All rights reserved.
+ *
+ * This file is part of Oboe and is licensed by the Copyright holder under the
+ * 3-clause BSD License.  The full text of the license can be found in the
+ * LICENSE.txt file included in the root directory of this distribution or at
+ * the link below.
+ * =============================================================================
+ *
+ * @license http://www.opensource.org/licenses/bsd-license.php
+ * @package OboeTest
+ * @subpackage Output
+ */
+
+require_once __DIR__ . '/../test-common.php';
+
+/**
+ * This class tests the output of the Oboe_Head class.
+ *
+ * @author Philip Graham <philip@lightbox.org>
+ * @package OboeTest
+ * @subpackage Output
+ */
+class HeadTest extends \PHPUnit_Framework_TestCase {
+
+    protected function setUp() {
+        // Empty the head before each test
+        $head = Head::getInstance();
+        $head->removeAll();
+    }
+
+    /**
+     * It's not permissible to add arbitrary test to the <head> element.
+     *
+     * @expectedException Oboe\Exception
+     */
+    public function testAddString() {
+        $head = Head::getInstance();
+        $head->add('Invalid head string');
+    }
+
+    public function testSingletonOutput() {
+        $head1 = Head::getInstance();
+        $head2 = Head::getInstance();
+
+        $head1->add(new Mock\HeadElement());
+
+        $output1 = $head1->__toString();
+        $output2 = $head2->__toString();
+        $this->assertEquals($output1, $output2, 'Outputs did not match');
+        $expected = '<head><headele/></head>';
+        $this->assertEquals($expected, $output1,
+            'Invalid ouput for head element');
+    }
+
+    public function testSetTitle() {
+        $head = Head::getInstance();
+        $head->setTitle('Look ma, a web page!');
+
+        $output = $head->__toString();
+        $expected = '<head><title>Look ma, a web page!</title></head>';
+        $this->assertEquals($expected, $output,
+            'Invalid output for head with a title specified');
+    }
+}

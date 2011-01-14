@@ -130,12 +130,11 @@ class Page extends ElementComposite {
    * @return string
    */
   public function __toString() {
-    Text\Tabs::reset();
     $docType = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
     $docType.= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"'
       . ' "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">'."\n";
 
-    return $docType.parent::__toString();
+    return $docType . parent::__toString();
   }
 
   /**

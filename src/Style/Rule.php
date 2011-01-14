@@ -47,12 +47,12 @@ class Rule implements Item\Document {
    * @return string CSS representing the encapsulated rule
    */
   public function __toString() {
-    $str = $this->_selector.'{'."\n";
+    $str = $this->_selector . '{';
 
     foreach ($this->_styles AS $styleProp) {
-      $str.= "\t".$styleProp.';'."\n";
+      $str.= $styleProp.';';
     }
-    $str = substr($str, 0, -2)."\n".'}'."\n";
+    $str = substr($str, 0, -1) . '}';
     return $str;
   }
 

@@ -29,12 +29,6 @@ class VSpace extends ElementBase implements Item\Body, Item\Form {
   /* This is the number of <br/> elements to ouptut. */
   private $_num;
 
-  /*
-   * Boolean indicating whether or not the vertical space is output with
-   * tabbing and a line break.
-   */
-  private $_ownLine;
-
   /**
    * Constructor.
    *
@@ -42,10 +36,9 @@ class VSpace extends ElementBase implements Item\Body, Item\Form {
    * @param boolean Whether or not the vertical space is output with tabbing
    *     and a line break, default true.
    */
-  public function __construct($num = 1, $ownLine = true) {
+  public function __construct($num = 1) {
     parent::__construct('br', null, null);
     $this->_num = $num;
-    $this->_ownLine = $ownLine;
   }
 
   /**
@@ -58,9 +51,6 @@ class VSpace extends ElementBase implements Item\Body, Item\Form {
     $vSpace = '';
     for($i = 0; $i < $this->_num; $i++) {
       $vSpace.= parent::__toString();
-    }
-    if ($this->_ownLine) {
-      $vSpace = Tabs::getTabs().$vSpace."\n";
     }
     return $vSpace;
   }

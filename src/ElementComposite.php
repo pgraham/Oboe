@@ -58,19 +58,10 @@ abstract class ElementComposite extends ElementBase {
    * @return string
    */
   public function __toString() {
-    $tabs = Text\Tabs::getTabs();
     $elementStr = self::openTag($this);
-    Text\Tabs::incTabs();
     foreach ($this->_elements AS $element) {
-      // Add proper indentation to strings
-      if(is_string($element)) {
-        $tabs = Text\Tabs::getTabs();
-        $element = $tabs.$element."\n";
-      }
-      $elementStr.= $element;
+      $elementStr .= $element;
     }
-    Text\Tabs::decTabs();
-    $tabs = Text\Tabs::getTabs();
     $elementStr.= self::closeTag($this);
     return $elementStr;
   }

@@ -29,22 +29,13 @@ class HSpace implements Item\Document, Item\Body, Item\Form {
   /* The amount of white space to output */
   private $_amount;
     
-  /*
-   * Whether or not extra white space should be output so that the element's
-   * output appears on its own line.  Default, true.
-   */
-  private $_ownLine;
-
   /**
    * Constructor.
    *
    * @param integer The number of spaces to output.
-   * @param boolean - Whether or not to output the space on it's own line in
-   *     the page source.
    */
-  public function __construct($amount = 1, $ownLine = true) {
+  public function __construct($amount = 1) {
     $this->_amount = $amount;
-    $this->_ownLine = $ownLine;
   }
 
   /** 
@@ -55,15 +46,8 @@ class HSpace implements Item\Document, Item\Body, Item\Form {
    */
   public function __toString() {
     $hSpace = '';
-    if($this->_ownLine) {
-      $tabs = Tabs::getTabs();
-      $hSpace.= $tabs;
-    }
     for($i = 0; $i < $this->_amount; $i++) {
       $hSpace.= '&nbsp;';
-    }
-    if($this->_ownLine) {
-      $hSpace.= "\n";
     }
     return $hSpace;
   }

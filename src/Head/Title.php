@@ -1,7 +1,6 @@
 <?php
 namespace Oboe\Head;
 use \Oboe\Item;
-use \Oboe\Text\Tabs;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -44,7 +43,6 @@ class Title implements Item\Document, Item\Head {
    * @return string
    */
   public function __toString() {
-    return Tabs::getTabs().
-      '<title>'.$this->_title.'</title>'."\n";
+    return '<title>'.$this->_title.'</title>';
   }
 }

@@ -63,7 +63,7 @@ abstract class ElementBase implements Item\Document {
     $str = self::openTag($this);
 
     // Make the opening tag self closing
-    $str = substr($str, 0, -2).'/>'."\n";
+    $str = substr($str, 0, -1).'/>';
     return $str;
   }
 
@@ -99,8 +99,10 @@ abstract class ElementBase implements Item\Document {
       return $this->getClass();
     } else if ($attribute == 'style') {
       return $this->getStyle();
-    } else {
+    } else if (array_key_exists($attribute, $this->_attributes)) {
       return $this->_attributes[$attribute];
+    } else {
+      return null;
     }
   }
 
@@ -226,8 +228,7 @@ abstract class ElementBase implements Item\Document {
    * @return The opening tag for the given element
    */
   protected static function openTag(ElementBase $element) {
-    $tabs = Text\Tabs::getTabs();
-    $str = $tabs.'<'.$element->_tag;
+    $str = '<'.$element->_tag;
     if ($element->_id !== null) {
       $str.= ' id="'.$element->_id.'"';
     }
@@ -244,7 +245,7 @@ abstract class ElementBase implements Item\Document {
     foreach ($element->_attributes AS $attribute => $value) {
       $attributes.= ' '.$attribute.'="'.$value.'"';
     }
-    $str.= $attributes.'>'."\n";
+    $str.= $attributes.'>';
     return $str;
   }
 
@@ -255,8 +256,7 @@ abstract class ElementBase implements Item\Document {
    * @return The closing tag for the given element
    */
   protected static function closeTag(ElementBase $element) {
-    $tabs = Text\Tabs::getTabs();
-    return $tabs.'</'.$element->_tag.'>'."\n";
+    return '</'.$element->_tag.'>';
   }
 
   /**

@@ -38,17 +38,4 @@ class Preformatted extends ElementWrapper implements Item\Body, Item\Form {
     $this->_objectTypes = array();
     $this->setElement($text);
   }
-
-  /**
-   * Override the toString() method to not output extra tabs and line breaks
-   * inside of the pre tags.
-   *
-   * @return string
-   */
-  public function __toString() {
-    $elementStr = substr($this->openTag($this), 0, -1);
-    $elementStr.= $this->_elements[0];
-    $elementStr.= '</pre>'."\n";
-    return $elementStr;
-  }
 }

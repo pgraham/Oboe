@@ -41,15 +41,4 @@ class SelectOption extends ElementWrapper {
       $this->setAttribute('selected');
     }
   }
-
-  /**
-   * Wraps the ElementComposite's toString method to remove any
-   * \n, \r or \t characters in the output
-   *
-   * @return string
-   * @todo - This probably isn't exactly right
-   */
-  public function __toString() {
-    return preg_replace('/[\n\r\t]/', '', parent::__toString());
-  }
 }

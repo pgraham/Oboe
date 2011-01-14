@@ -72,8 +72,6 @@ class Head extends ElementComposite {
       $this->add(new Head\Title($this->_title),
         ElementComposite::UNSHIFT);
     }
-
-    Text\Tabs::reset();
     return parent::__toString();
   }
 
