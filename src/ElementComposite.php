@@ -15,7 +15,8 @@ namespace Oboe;
  * @package Oboe
  */
 /**
- * This class encapsulates functionality common to elements that are composed of * zero or more elements.
+ * This class encapsulates functionality common to elements that are composed of
+ * zero or more elements.
  *
  * @author Philip Graham <philip@lightbox.org>
  * @package Oboe
