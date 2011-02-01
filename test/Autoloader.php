@@ -23,28 +23,24 @@ namespace OboeTest;
  */
 class Autoloader {
 
-    /* This is the base path where the Oboe_* test cases are found. */
-    public static $basePath = __DIR__;
+  /* This is the base path where the Oboe_* test cases are found. */
+  public static $basePath = __DIR__;
 
-    /**
-     * Autoload function for the Oboe_ * test cases.
-     *
-     * @param string - the name of the test case to load
-     */
-    public static function loadClass($className) {
-        $pathComponents = explode('\\', $className);
-
-        // Make sure we're in the right package
-        $base = array_shift($pathComponents);
-        if ($base != 'OboeTest') {
-            return;
-        }
-
-        $logicalPath = implode('/', $pathComponents);
-        $fullPath = self::$basePath.'/'.$logicalPath.'.php';
-        if (file_exists($fullPath)) {
-            require_once $fullPath;
-        }
+  /**
+   * Autoload function for the Oboe_ * test cases.
+   *
+   * @param string - the name of the test case to load
+   */
+  public static function loadClass($className) {
+    if (substr($className, 0, 9) != 'OboeTest\\') {
+      return;
     }
+
+    $logicalPath = str_replace('\\', '/', $className);
+    $fullPath = self::$basePath.'/'.$logicalPath.'.php';
+    if (file_exists($fullPath)) {
+        require_once $fullPath;
+    }
+  }
 }
 spl_autoload_register(array('OboeTest\Autoloader', 'loadClass'));
