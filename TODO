@@ -1,0 +1,1 @@
+- Add addToBody method to Item\Body interface and addToHead method to Item\Head   interface.

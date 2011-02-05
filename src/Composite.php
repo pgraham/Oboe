@@ -27,6 +27,11 @@ abstract class Composite implements Item\Document {
   /* The base element for the widget */
   protected $elm;
 
+  /**
+   * Output the composite.
+   *
+   * @return string HTML representation of the composite's element.
+   */
   public function __toString() {
     if ($this->elm === null) {
       throw new Exception(
@@ -36,6 +41,11 @@ abstract class Composite implements Item\Document {
     return $this->elm->__toString();
   }
 
+  /**
+   * Set the composite's element.  This method must be called once.
+   *
+   * @param Item\Document $elm The element
+   */
   public function initElement(Item\Document $elm) {
     if ($this->elm !== null) {
       throw new Exception(
@@ -43,5 +53,19 @@ abstract class Composite implements Item\Document {
     }
 
     $this->elm = $elm;
+  }
+
+  /**
+   * Add this element to the body.
+   */
+  public function addToBody() {
+    Page::addElementToBody($this);
+  }
+
+  /**
+   * Add this element to the head.
+   */
+  public function addToHead() {
+    Page::addElementToHead($this);
   }
 }

@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,6 +13,8 @@ namespace Oboe;
  * @license http://www.opensource.org/licenses/bsd-license.php
  * @package Oboe
  */
+namespace Oboe;
+
 /**
  * This class encapulates a <form> element.
  *
