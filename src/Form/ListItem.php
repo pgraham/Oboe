@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Form;
-use \Oboe\ElementWrapper;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,28 +11,29 @@ use \Oboe\ElementWrapper;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\form;
+use \oboe\ElementWrapper;
+
 /**
  * This class ecapsulates a <li> element when it's part of a form.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
 class ListItem extends ElementWrapper {
 
   /**
    * Constructor.
    *
-   * @param Oboe_IPageItem The element to output inside the <li> tag
-   * @param string The value of the element's id attribute
-   * @param string The value of the element's class attribute.
+   * @param mixed $item The element to output inside the <li> tag
+   * @param string $id The value of the element's id attribute
+   * @param string $class The value of the element's class attribute.
    */
   public function __construct($item, $id = null, $class = null) {
     parent::__construct('li', $id, $class);
-    $this->_objectTypes = array('Oboe\Item\Form');
+    $this->_objectTypes = array('oboe\item\form');
     $this->setElement($item);
   }
 }

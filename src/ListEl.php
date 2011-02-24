@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,23 +11,25 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapsulates a List element, either <<ol>> or <<ul>>, That can be
  * added to the Body.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
-class ListEl extends BaseList implements Item\Body {
+class ListEl extends BaseList implements item\Body {
     
   /**
-   * This list uses Oboe_ListItem instances as its wrapper class.
+   * This list uses oboe\ListItem instances as its wrapper class.
    *
    * @return string
    */
   protected function getWrapperClass() {
-    return 'Oboe\ListItem';
+    return 'oboe\ListItem';
   }
 }

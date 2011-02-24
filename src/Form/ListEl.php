@@ -1,7 +1,4 @@
 <?php
-namespace Oboe\Form;
-use \Oboe\BaseList;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,15 +11,17 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\Form;
+use \oboe\BaseList;
+use \oboe\Item;
+
 /**
  * This class encapsulates a list element, either &lt;ul&gt; or &lt;ol&gt;.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
 class ListEl extends BaseList implements Item\Form {
 
@@ -32,6 +31,6 @@ class ListEl extends BaseList implements Item\Form {
      * @return string
      */
     public function getWrapperClass() {
-        return 'Oboe\Form\ListItem';
+        return 'oboe\form\ListItem';
     }
 }

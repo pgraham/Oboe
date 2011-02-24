@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,17 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapsulates a <style> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
-class Style extends ElementComposite implements Item\Head, Item\Body {
+class Style extends ElementComposite implements item\Head, item\Body {
 
   /* Array of style rules belonging to the style element */
   private $_rules;
@@ -30,7 +31,7 @@ class Style extends ElementComposite implements Item\Head, Item\Body {
    */
   public function __construct() {
     parent::__construct('style');
-    $this->_objectTypes = array('Oboe\Style\Rule');
+    $this->_objectTypes = array('oboe\style\Rule');
     $this->_rules = array();
   }
 
@@ -51,34 +52,34 @@ class Style extends ElementComposite implements Item\Head, Item\Body {
    * Override the add() method to allow for a more expresive signature and to
    * store rules in an intermediate location until output.
    *
-   * @param mixed Either a StyleRule or a string selector of a style
-   *     rule, if a StyleRule object is provided it will override any
+   * @param mixed Either a style\Rule or a string selector of a style
+   *     rule, if a style\Rule object is provided it will override any
    *     existing properties with the same selector, otherwise the property is
    *     added (possibling overriding the property value) to any existing
    *     rule.
    * @param mixed if a string selector is provided for the first parameter
-   *     this can either be a StyleProperty to add to the rule or the
+   *     this can either be a style\Property to add to the rule or the
    *     name of the property to add to the rule
    * @param mixed if a string selector and string property name are provided
    *     this is the property value
-   * @return StyleRule The object that was added
+   * @return style\Rule The object that was added
    */
   public function add($rule, $property = null, $value = null) {
-    if ($rule instanceof Style\Rule) {
+    if ($rule instanceof style\Rule) {
       $this->_rules[$rule->getSelector()] = $rule;
       return $rule;
     } else {
       if (array_key_exists($rule, $this->_rules)) {
         $ruleObj = $this->_rules[$rule];
       } else {
-        $ruleObj = new Style\Rule($rule);
+        $ruleObj = new style\Rule($rule);
         $this->_rules[$rule] = $ruleObj;
       }
 
-      if ($property instanceof Style\Property) {
+      if ($property instanceof style\Property) {
         $ruleObj->add($property);
       } else {
-        $ruleObj->add(new Style\Property($property, $value));
+        $ruleObj->add(new style\Property($property, $value));
       }
       return $ruleObj;
     }

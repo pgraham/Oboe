@@ -1,7 +1,4 @@
 <?php
-namespace Oboe\Head;
-use \Oboe\ElementBase;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,18 +11,20 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Head
+ * @package oboe/head
  */
+namespace oboe\head;
+use \oboe\ElementBase;
+use \oboe\item;
+
 /**
  * This class encapsulates a <script/> element for adding a reference to an
  * external javascript to the <head> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Head
+ * @package oboe/head
  */
-class Javascript extends ElementBase implements Item\Head {
+class Javascript extends ElementBase implements item\Head {
 
   /**
    * Constructor.

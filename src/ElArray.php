@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,8 +11,10 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapsulates a group of Item\Body objects.
  * This class is useful for passing more than one object to a method that only
@@ -22,7 +23,7 @@ namespace Oboe;
  * ONLY NUMERIC, INCREMENTAL ACCESS IS SUPPORTED.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
 class ElArray implements Item\Document, Item\Body, \ArrayAccess, \Countable,
   \Iterator

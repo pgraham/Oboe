@@ -1,5 +1,4 @@
 <?php
-namespace Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,14 +11,14 @@ namespace Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Item
+ * @package oboe/item
  */
+namespace oboe\item;
+
 /**
  * Marker interface for elements that can be added to the <head> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Item
+ * @package oboe/item
  */
 interface Head {}

@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Form;
-use \Oboe\ElementWrapper;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,15 +11,16 @@ use \Oboe\ElementWrapper;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\form;
+use \oboe\ElementWrapper;
+
 /**
  * This class encapsulates an <option> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
 class SelectOption extends ElementWrapper {
 

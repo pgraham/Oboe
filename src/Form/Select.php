@@ -1,7 +1,4 @@
 <?php
-namespace Oboe\Form;
-use \Oboe\ElementComposite;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,17 +11,19 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\form;
+use \oboe\ElementComposite;
+use \oboe\item;
+
 /**
  * This class encapsulates a <select> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
-class Select extends ElementComposite implements Item\Form {
+class Select extends ElementComposite implements item\Form {
 
   /**
    * Constructor.
@@ -34,7 +33,7 @@ class Select extends ElementComposite implements Item\Form {
   public function __construct($name) {
     parent::__construct('select');
     $this->setAttribute('name', $name);
-    $this->_objectTypes = array('Oboe\Form\SelectOption');
+    $this->_objectTypes = array('oboe\form\SelectOption');
     $this->_allowText = false;
   }
 
@@ -49,7 +48,7 @@ class Select extends ElementComposite implements Item\Form {
    * @param boolean Whether or not the added option should be selected by
    *     default, ignored of the first parameter is a SelectOption
    * @param boolean Whether to push or shift the element into the container
-   * @return Oboe_Form_SelectOption The <option> element that was added to the
+   * @return oboe\form\SelectOption The <option> element that was added to the
    *     <select> element
    */
   public function add($element, $lbl = null, $selected = false, $push = true) {

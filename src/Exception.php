@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,13 +11,35 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class is used for exceptions that occur from within the library's
  * classes.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
-class Exception extends \Exception {}
+class Exception extends \Exception {
+
+  /**
+   * Create a new oboe exception
+   *
+   * @param string $msg The exception's message.
+   * @param integer|Exception $code Either the exception's code or the causing
+   *     exception.
+   * @param Exception $previous The exception that is the reason this exception
+   *     is being thrown.
+   */
+  public function __construct($msg, $code = 0, \Exception $previous = null) {
+    $msg = 'Oboe: ' . $msg;
+
+    if ($code instanceof \Exception) {
+      $previous = $code;
+      $code = 0;
+    }
+    parent::__construct($msg, $code, $previous);
+  }
+}

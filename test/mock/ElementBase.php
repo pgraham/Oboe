@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Mock;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,28 +11,23 @@ namespace OboeTest\Mock;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Mock
+ * @package oboe/test/mock
  */
+namespace oboe\test\mock;
+
 /**
  * This class is a mock used for testing the concrete methods of the
- * Oboe_ElementWrapper class.
+ * oboe\ElementBase class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Mock
+ * @package oboe/test/mock
  */
-class ElementWrapper extends \Oboe\ElementWrapper {
+class ElementBase extends \oboe\ElementBase {
 
     /**
-     * Constructor.  Initializes the object with a tagname of 'mock'.
+     * Constructor.  Initializes the element with a tagname of 'mock'.
      */
-    public function __construct($element = null, $id = null, $class = null) {
+    public function __construct($id = null, $class = null) {
         parent::__construct('mock', $id, $class);
-        $this->_objectTypes = array('OboeTest\Mock\ElementWrapper');
-
-        if ($element !== null) {
-            $this->setElement($element);
-        }
     }
 }

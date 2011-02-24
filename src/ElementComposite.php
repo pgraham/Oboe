@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,14 +11,16 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapsulates functionality common to elements that are composed of
  * zero or more elements.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
 abstract class ElementComposite extends ElementBase {
 
@@ -33,7 +34,7 @@ abstract class ElementComposite extends ElementBase {
   protected $_elements = array();
 
   /** Array of object types that can be added to the composite */
-  protected $_objectTypes = array('Oboe\Item\Body');
+  protected $_objectTypes = array('oboe\item\Body');
 
   /**
    * Boolean indicating whether or not text can be added directly to the

@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,16 +11,18 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapsulates a <table> element. The table class can contain at
  * most one <thead> and <tfoot> elements and one or more <tbody> elements
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
-class Table extends ElementComposite implements Item\Body, Item\Form {
+class Table extends ElementComposite implements item\Body, item\Form {
 
   /* The table's <thead> element */
   private $_head;
@@ -38,9 +39,9 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
   public function __construct($id = null, $class = null) {
     parent::__construct('table', $id, $class);
     $this->_objectTypes = array(
-      'Oboe\Table\Head',
-      'Oboe\Table\Body',
-      'Oboe\Table\Foot'
+      'oboe\table\Head',
+      'oboe\table\Body',
+      'oboe\table\Foot'
     );
     $this->_bodies = array();
   }
@@ -48,7 +49,7 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
   /**
    * Override the add() method to enforce table structure rules.
    *
-   * @param Item\Table The item to add to the table
+   * @param item\Table The item to add to the table
    */
   public function add($element, $push = true) {
     self::_checkElement($this, $element);
@@ -60,14 +61,14 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
     $type = get_class($element);
     switch ($type) {
 
-      case 'Oboe\Table\Head':
+      case 'oboe\table\Head':
       if ($this->_head !== null) {
         throw new Exception('Only one head can be added to a table');
       }
       $this->_head = $element;
       break;
 
-      case 'Oboe\Table\Body':
+      case 'oboe\table\Body':
       if ($push) {
         $this->_bodies[] = $element;
       } else {
@@ -75,7 +76,7 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
       }
       break;
 
-      case 'Oboe\Table\Foot':
+      case 'oboe\table\Foot':
       if ($this->_foot !== null) {
         throw new Exception('Only one foot can be added to a table');
       }
@@ -127,11 +128,11 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
    */
   public function addHeader($header) {
     if ($this->_head === null) {
-      $this->add(new Table\Head());
+      $this->add(new table\Head());
     }
 
     $tHeadRow = $this->_head->getDefaultRow();
-    $tHeader = new Table\Data($header);
+    $tHeader = new table\Data($header);
     $tHeadRow->add($tHeader);
     return $tHeader;
   }
@@ -139,11 +140,11 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
   /**
    * Adds a row to the table body and returns it.
    *
-   * @return Table\Row
+   * @return table\Row
    */
   public function addRow() {
     $this->_checkBody();
-    $row = new Table\Row();
+    $row = new table\Row();
     $this->_bodies[0]->add($row);
     return $row;
   }
@@ -156,18 +157,18 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
    *     doesn't exist it will be created.
    * @param string The value of the cell element's id attribute
    * @param string The value of the cell element's class attribute
-   * @return Table\Data
+   * @return table\Data
    */
   public function addCell($rowIndex, $cellContents = null) {
     $this->_checkBody();
 
     $row = $this->_bodies[0]->getRow($rowIndex);
     if ($row === null) {
-      $row = new Table\Row();
+      $row = new table\Row();
       $this->_bodies[0]->add($row);
     }
 
-    $cell = new Table\Data($cellContents);
+    $cell = new table\Data($cellContents);
     $row->add($cell);
     return $cell;
   }
@@ -184,14 +185,14 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
     $tArr = array();
 
     if ($numHeaders > 0) {
-      $tHead = new Table\Head();
+      $tHead = new table\Head();
       $tHeadRow = $tHead->getDefaultRow();
 
       $this->add($tHead);
       $tArr['head']['ele'] = $tHead;
 
       for ($i = 0; $i < $numHeaders; $i++) {
-        $header = new Table\Data();
+        $header = new table\Data();
         $tHeadRow->add($header);
         $tArr['head'][$i] = $header;
       }
@@ -201,15 +202,15 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
       return $tArr;
     }
 
-    $tBody = new Table\Body();
+    $tBody = new table\Body();
     $this->add($tBody);
     $tArr['ele'] = $tBody;
     for ($i = 0; $i < $numRows; $i++) {
-      $row = new Table\Row();
+      $row = new table\Row();
       $tArr[$i]['ele'] = $row;
 
       for ($j = 0; $j < $numCols; $j++) {
-        $cell = new Table\Data();
+        $cell = new table\Data();
         $row->add($cell);
         $tArr[$i][$j] = $cell;
       }
@@ -230,7 +231,7 @@ class Table extends ElementComposite implements Item\Body, Item\Form {
   /* This function ensures that the table has at least one tbody element */
   private function _checkBody() {
     if (count($this->_bodies) == 0) {
-      $this->add(new Table\Body());
+      $this->add(new table\Body());
     }
   }
 }

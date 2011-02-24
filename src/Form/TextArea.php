@@ -1,7 +1,4 @@
 <?php
-namespace Oboe\Form;
-use \Oboe\ElementWrapper;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,17 +11,19 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\form;
+use \oboe\ElementWrapper;
+use \oboe\item;
+
 /**
  * This class encapsulates a <textarea> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
-class TextArea extends ElementWrapper implements Item\Form {
+class TextArea extends ElementWrapper implements item\Form {
 
   /**
    * Constructor.

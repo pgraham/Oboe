@@ -1,5 +1,4 @@
 <?php
-namespace Oboe\Form;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,15 @@ namespace Oboe\Form;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\form;
+
 /**
  * This class encapsulates a <input/> element with type="text".
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
 class TextInput extends Input {
 

@@ -13,16 +13,16 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  * @package oboe
  */
-namespace Oboe;
+namespace oboe;
 
 /**
- * This class allows for a widget to be created by extending an Oboe element
+ * This class allows for a widget to be created by extending an oboe element
  * without exposing the interface of the element.
  *
  * @author Philip Graham <philip@lightbox.org>
  * @package oboe
  */
-abstract class Composite implements Item\Document {
+abstract class Composite implements item\Document {
 
   /* The base element for the widget */
   protected $elm;
@@ -44,9 +44,9 @@ abstract class Composite implements Item\Document {
   /**
    * Set the composite's element.  This method must be called once.
    *
-   * @param Item\Document $elm The element
+   * @param item\Document $elm The element
    */
-  public function initElement(Item\Document $elm) {
+  public function initElement(item\Document $elm) {
     if ($this->elm !== null) {
       throw new Exception(
         'Cannot initialize a Composite\'s element more than once');

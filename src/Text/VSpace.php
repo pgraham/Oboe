@@ -1,7 +1,4 @@
 <?php
-namespace Oboe\Text;
-use \Oboe\ElementBase;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,17 +11,19 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Text
+ * @package oboe/text
  */
+namespace oboe\text;
+use \oboe\ElementBase;
+use \oboe\item;
+
 /**
  * This class encapsulates a specified number of <br/> elements.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Text
+ * @package oboe/text
  */
-class VSpace extends ElementBase implements Item\Body, Item\Form {
+class VSpace extends ElementBase implements item\Body, item\Form {
 
   /* This is the number of <br/> elements to ouptut. */
   private $_num;

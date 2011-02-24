@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,34 +11,32 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
- * This class provides the autoloader for the Oboe classes.
+ * This class provides the autoloader for the oboe classes.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
 class Autoloader {
 
-  /* This is the base path where the Oboe class files are found. */
+  /* This is the base path where the oboe class files are found. */
   public static $basePath = __DIR__;
 
   /**
-   * Autoload function for Oboe_* class files.
+   * Autoload function for oboe class files.
    *
    * @param string - the name of the class to load
    */
   public static function loadClass($className) {
-    $pathComponents = explode('\\', $className);
-
-    // Make sure we're in the right package
-    $base = array_shift($pathComponents);
-    if ($base != 'Oboe') {
+    if (substr($className, 0, 5) != 'oboe\\') {
       return;
     }
 
-    $logicalPath = implode('/', $pathComponents);
+    $logicalPath = str_replace('\\', '/', substr($className, 5));
     $fullPath = self::$basePath.'/'.$logicalPath.'.php';
     if (file_exists($fullPath)) {
       require_once $fullPath;
@@ -48,4 +45,4 @@ class Autoloader {
 }
 
 # Static initializer
-spl_autoload_register(array('Oboe\Autoloader', 'loadClass'));
+spl_autoload_register(array('oboe\Autoloader', 'loadClass'));

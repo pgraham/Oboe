@@ -1,5 +1,4 @@
 <?php
-namespace Oboe\Head;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,15 @@ namespace Oboe\Head;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Head
+ * @package oboe/head
  */
+namespace oboe\head;
+
 /**
  * This class encapsulates a favorites icon element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Head
+ * @package oboe/head
  */
 class FavIcon extends Link {
 

@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Head;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,17 +11,18 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Head
+ * @package oboe/head
  */
+namespace oboe\head;
+use \oboe\item;
+
 /**
  * This class encapsulates a &lt;title&gt; element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Head
+ * @package oboe/head
  */
-class Title implements Item\Document, Item\Head {
+class Title implements item\Document, item\Head {
 
   /* The title */
   private $_title;

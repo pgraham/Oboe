@@ -11,15 +11,15 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
-namespace Oboe;
+namespace oboe;
 
 /**
  * This class encapulates a <form> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
 class Form extends ElementWrapper implements Item\Body {
 
@@ -56,7 +56,7 @@ class Form extends ElementWrapper implements Item\Body {
 
     // Set the wrapper's element to a Form_Div
     $this->_container = new Form\Div(null, self::DIV_CSS_CLASS);
-    $this->_objectTypes = array('Oboe\Form\Div');
+    $this->_objectTypes = array('oboe\form\Div');
     $this->_elements[0] = $this->_container;
   }
 

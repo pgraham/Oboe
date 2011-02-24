@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,14 +11,16 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapsulates the <head> element.  Since a document can only have
  * one <head> element it is implemented as a singleton.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
 class Head extends ElementComposite {
     
@@ -32,9 +33,9 @@ class Head extends ElementComposite {
   private static $_instance;
     
   /**
-   * Getter for the Oboe_Head singleton.
+   * Getter for the Head singleton.
    *
-   * @return Oboe_Head Singleton.
+   * @return Head Singleton.
    */
   public static function getInstance() {
     if (self::$_instance === null) {
@@ -56,8 +57,8 @@ class Head extends ElementComposite {
   protected function __construct() {
     parent::__construct('head', null, null);
 
-    // This object only accepts Oboe_Item_Header implementations
-    $this->_objectTypes = array('Oboe\Item\Head');
+    // This object only accepts oboe_Item_Header implementations
+    $this->_objectTypes = array('oboe\item\Head');
     $this->_allowText = false;
   }
 

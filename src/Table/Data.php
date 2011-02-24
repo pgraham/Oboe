@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Table;
-use \Oboe\ElementWrapper;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,15 +11,16 @@ use \Oboe\ElementWrapper;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
+namespace oboe\table;
+use \oboe\ElementWrapper;
+
 /**
  * This class encapsulates a <td> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
 class Data extends ElementWrapper {
 

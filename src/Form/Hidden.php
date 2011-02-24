@@ -1,5 +1,4 @@
 <?php
-namespace Oboe\Form;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,15 @@ namespace Oboe\Form;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\Form;
+
 /**
  * This class encapsulates an <input/> item with type="hidden".
  *
  * @author <a href="mailto:philip@lightbox.com">Philip Graham</a>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
 class Hidden extends Input {
 

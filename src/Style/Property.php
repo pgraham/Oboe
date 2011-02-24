@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Style;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,17 +11,18 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Style
+ * @package oboe/style
  */
+namespace oboe\style;
+use \oboe\item;
+
 /**
  * This class encapsulates a css style propery -> value combination.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Style
+ * @package oboe/style
  */
-class Property implements Item\Document {
+class Property implements item\Document {
     
   /* The property */
   private $_name;

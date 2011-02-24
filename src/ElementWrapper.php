@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,17 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapulates the basic functionality for elements that contain a
  * single element.  It extends the ElementComposite class to enforce that at
  * most one element is added to the wrapped element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  * @todo refactor this class to require an element
  */
 abstract class ElementWrapper extends ElementComposite {

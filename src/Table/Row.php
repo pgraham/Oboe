@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Table;
-use \Oboe\ElementComposite;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,15 +11,16 @@ use \Oboe\ElementComposite;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
+namespace oboe\table;
+use \oboe\ElementComposite;
+
 /**
  * This class encapsulates a <tr> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
 class Row extends ElementComposite {
 
@@ -33,7 +32,7 @@ class Row extends ElementComposite {
    */
   public function __construct($id = null, $class = null) {
     parent::__construct('tr', $id, $class);
-    $this->_objectTypes = array('Oboe\Table\Data');
+    $this->_objectTypes = array('oboe\table\Data');
     $this->_allowText = false;
   }
 }

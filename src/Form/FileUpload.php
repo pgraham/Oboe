@@ -1,5 +1,4 @@
 <?php
-namespace Oboe\Form;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,15 @@ namespace Oboe\Form;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\form;
+
 /**
  * This class encapsulates an <input/> element with type="file".
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
 class FileUpload extends Input {
 
@@ -28,7 +27,7 @@ class FileUpload extends Input {
   const CSS_CLASS = 'file';
 
   /**
-   * Constructor.  Any form that contains a Oboe_Form_FileUpload needs to have
+   * Constructor.  Any form that contains a oboe\form\FileUpload needs to have
    * <code>
    * $form->setHasFileUpload();
    * </code>

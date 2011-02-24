@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,16 +11,18 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class encapsulate an HTML comment. Comments are output between
  * <!-- ... --> tags
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
-class Comment implements Item\Document, Item\Head, Item\Body, Item\Form {
+class Comment implements item\Document, item\Head, item\Body, item\Form {
 
   /* The encapsulated comment */
   private $_comment;

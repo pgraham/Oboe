@@ -1,7 +1,4 @@
 <?php
-namespace Oboe\Form;
-use \Oboe\ElementComposite;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,17 +11,19 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
+namespace oboe\form;
+
+use \oboe\ElementComposite;
+use \oboe\item;
 /**
  * This class encapsulates a <div> element that can be added to <form> elements.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Form
+ * @package oboe/form
  */
-class Div extends ElementComposite implements Item\Form {
+class Div extends ElementComposite implements item\Form {
 
   /**
    * Constructor.
@@ -35,7 +34,7 @@ class Div extends ElementComposite implements Item\Form {
   public function __construct($id = null, $class = null) {
     parent::__construct('div', $id, $class);
 
-    // Form div's can also accept IFormItem's
-    $this->_objectTypes[] = 'Oboe\Item\Form';
+    // Form div's can also accept item\Form objects
+    $this->_objectTypes[] = 'oboe\item\form';
   }
 }

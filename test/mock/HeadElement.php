@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Mock;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,19 +11,20 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Mock
+ * @package oboe/test/mock
  */
+namespace oboe\test\mock;
+use \oboe\item;
+
 /**
  * This class is a mock of a Oboe_Item_Head object used to test the
- * Oboe_Head class.
+ * oboe\Head class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Mock
+ * @package oboe/test/mock
  */
-class HeadElement extends \Oboe\ElementBase implements Item\Document,
-  Item\Head
+class HeadElement extends \oboe\ElementBase implements item\Document,
+  item\Head
 {
 
   public function __construct() {

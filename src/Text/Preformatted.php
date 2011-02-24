@@ -1,7 +1,4 @@
 <?php
-namespace Oboe\Text;
-use \Oboe\ElementWrapper;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,17 +11,19 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Text
+ * @package oboe/text
  */
+namespace oboe\text;
+use \oboe\ElementWrapper;
+use \oboe\item;
+
 /**
  * This class encapsulates a <<pre>> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Text
+ * @package oboe/text
  */
-class Preformatted extends ElementWrapper implements Item\Body, Item\Form {
+class Preformatted extends ElementWrapper implements item\Body, item\Form {
 
   /**
    * Constructor.

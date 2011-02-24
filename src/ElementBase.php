@@ -1,5 +1,4 @@
 <?php
-namespace Oboe;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,16 +11,18 @@ namespace Oboe;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
+ * @package oboe
  */
+namespace oboe;
+
 /**
  * This class implements attribute getters and setters.  It also provides
  * syntactic sugar for the id, class and style attributes.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
+ * @package oboe
  */
-abstract class ElementBase implements Item\Document {
+abstract class ElementBase implements item\Document {
 
   /** The element's tag name */
   protected $_tag;
@@ -70,7 +71,7 @@ abstract class ElementBase implements Item\Document {
   /**
    * This method adds the element to the <body> element.  In order for this
    * method to work the implementing class needs to implement the
-   * Item\Body interface.
+   * item\Body interface.
    */
   public function addToBody() {
     Page::addElementToBody($this);
@@ -79,7 +80,7 @@ abstract class ElementBase implements Item\Document {
   /**
    * This method adds the element to the <head> element.  In order for this
    * method to work the implementing class needs to implement the
-   * Item\Head interface.
+   * item\Head interface.
    */
   public function addToHead() {
     Page::addElementToHead($this);

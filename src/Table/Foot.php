@@ -1,5 +1,4 @@
 <?php
-namespace Oboe\Table;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,15 @@ namespace Oboe\Table;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
+namespace oboe\table;
+
 /**
  * This class encapsulates a <tfoot> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
 class Foot extends RowContainer {
 

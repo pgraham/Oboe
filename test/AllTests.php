@@ -14,6 +14,9 @@ namespace OboeTest;
  * @license http://www.opensource.org/licenses/bsd-license.php
  * @package OboeTest
  */
+namespace oboe\test;
+
+use \PHPUnit_Framework_TestSuite as TestSuite;
 
 require_once __DIR__ . '/test-common.php';
 
@@ -26,10 +29,10 @@ require_once __DIR__ . '/test-common.php';
 class AllTests {
 
     public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite('Oboe Test Suite');
+        $suite = new TestSuite('Oboe Test Suite');
         
-        $suite->addTest(Output\AllTests::suite());
-        $suite->addTest(Struct\AllTests::suite());
+        $suite->addTest(output\AllTests::suite());
+        $suite->addTest(struct\AllTests::suite());
 
         return $suite;
     }

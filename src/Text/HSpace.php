@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Text;
-use \Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,18 +11,19 @@ use \Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Text
+ * @package oboe/text
  */
+namespace oboe\text;
+use \oboe\item;
+
 /**
  * This class outputs horizontal space.  It is created by outputing
  * the specified number of html space entities (&amp;nbsp;).
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Text
+ * @package oboe/text
  */
-class HSpace implements Item\Document, Item\Body, Item\Form {
+class HSpace implements item\Document, item\Body, item\Form {
 
   /* The amount of white space to output */
   private $_amount;

@@ -1,5 +1,4 @@
 <?php
-namespace Oboe\Item;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,16 +11,16 @@ namespace Oboe\Item;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Item
+ * @package oboe/item
  */
+namespace oboe\item;
+
 /**
  * This interface abstracts the __toString() method for any classes that
  * represent an element that can belong to a generated (X)HTML document.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Item
+ * @package oboe/item
  */
 interface Document {
 

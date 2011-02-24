@@ -12,8 +12,9 @@ namespace OboeTest;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
+ * @package oboe/test
  */
+namespace oboe\test;
 
 /**
  * Autoloader for test cases and mock classes.
@@ -32,15 +33,15 @@ class Autoloader {
    * @param string - the name of the test case to load
    */
   public static function loadClass($className) {
-    if (substr($className, 0, 9) != 'OboeTest\\') {
+    if (substr($className, 0, 10) != 'oboe\\test\\') {
       return;
     }
 
-    $logicalPath = str_replace('\\', '/', $className);
+    $logicalPath = str_replace('\\', '/', substr($className, 10));
     $fullPath = self::$basePath.'/'.$logicalPath.'.php';
     if (file_exists($fullPath)) {
         require_once $fullPath;
     }
   }
 }
-spl_autoload_register(array('OboeTest\Autoloader', 'loadClass'));
+spl_autoload_register(array('oboe\test\Autoloader', 'loadClass'));

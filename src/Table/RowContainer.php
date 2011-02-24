@@ -1,6 +1,4 @@
 <?php
-namespace Oboe\Table;
-use \Oboe\ElementComposite;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,17 +11,18 @@ use \Oboe\ElementComposite;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
+namespace oboe\table;
+use \oboe\ElementComposite;
+
 /**
  * This class encapsulates the functionality common to elements that contain
  * <tr> elements.  These include <thead>, <tfoot> and
  * <tbody> elements.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package Oboe
- * @subpackage Table
+ * @package oboe/table
  */
 abstract class RowContainer extends ElementComposite {
 
@@ -36,7 +35,7 @@ abstract class RowContainer extends ElementComposite {
    */
   public function __construct($tag, $id = null, $class = null) {
     parent::__construct($tag, $id, $class);
-    $this->_objectTypes = array('Oboe\Table\Row');
+    $this->_objectTypes = array('oboe\table\Row');
     $this->_allowText = false;
   }
 
