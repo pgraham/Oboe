@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Struct;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,9 +11,11 @@ namespace OboeTest\Struct;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Struct
+ * @package oboe/test/struct;
  */
+namespace oboe\test\struct;
+
+use \PHPUnit_Framework_TestSuite as TestSuite;
 
 require_once __DIR__ . '/../test-common.php';
 
@@ -23,15 +24,14 @@ require_once __DIR__ . '/../test-common.php';
  * methods.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Struct
+ * @package oboe/test/struct;
  */
 class AllTests { 
-    public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite('Oboe Structure Test Suite');
+  public static function suite() {
+    $suite = new TestSuite('Oboe Structure Test Suite');
 
-        $suite->addTestSuite('OboeTest\Struct\ElementBaseTest');
+    $suite->addTestSuite('oboe\test\struct\ElementBaseTest');
 
-        return $suite;
-    }
+    return $suite;
+  }
 }

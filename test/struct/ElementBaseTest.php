@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Struct;
-use \OboeTest\Mock;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,30 +11,33 @@ use \OboeTest\Mock;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Struct
+ * @package oboe/test/struct
  */
+namespace oboe\test\struct;
+
+use \oboe\test\mock\HeadElement;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
 /**
- * This class tests the structure building methods of the Oboe_ElementBase
+ * This class tests the structure building methods of the oboe\ElementBase
  * abstract class using mocks
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Struct
+ * @package oboe/test/struct
  */
-class ElementBaseTest extends \PHPUnit_Framework_TestCase {
+class ElementBaseTest extends TestCase {
 
-    public function testAddToHead() {
-        $mock = new Mock\HeadElement();
+  public function testAddToHead() {
+    $mock = new HeadElement();
 
-        try {
-            $mock->addToHead();
-        } catch (Exception $e) {
-            $this->fail('Exception caught adding element to head using '
-                .'shortcut method: '.$e->__toString());
-        }
+    try {
+      $mock->addToHead();
+    } catch (Exception $e) {
+      $this->fail('Exception caught adding element to head using '
+        .'shortcut method: '.$e->__toString());
     }
+  }
 }
