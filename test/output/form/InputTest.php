@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\Input;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,27 +11,29 @@ use \Oboe\Form\Input;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\Input;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Form_Input element.
+ * This class tests the output of the oboe\form\Input element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
-class InputTest extends \PHPUnit_Framework_TestCase {
+class InputTest extends TestCase {
 
-    public function testOutput() {
-        $input = new Input('input', 'input', 'input', 'input');
-        $output = $input->__toString();
-        $expected = '<input class="input" type="input" name="input" '.
-            'value="input"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for input element');
-    }
+  public function testOutput() {
+    $input = new Input('input', 'input', 'input', 'input');
+    $output = $input->__toString();
+    $expected = '<input class="input" type="input" name="input" '.
+      'value="input"/>';
+    $this->assertEquals($expected, $output, 'Invalid output for input element');
+  }
 }

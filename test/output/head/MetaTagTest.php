@@ -17,7 +17,7 @@ namespace oboe\test\output\head;
 
 use \oboe\head\MetaTag;
 
-use \PHPUnit_Framework_TestCase;
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 

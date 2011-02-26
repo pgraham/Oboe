@@ -13,7 +13,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  * @package oboe/test/output
  */
-namepsace oboe\test\output;
+namespace oboe\test\output;
 
 use \oboe\Divider;
 
