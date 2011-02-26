@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\Password;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,27 +11,29 @@ use \Oboe\Form\Password;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\Password;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Form_Password element.
+ * This class tests the output of the oboe\form\Password element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
-class PasswordTest extends \PHPUnit_Framework_TestCase {
+class PasswordTest extends TestCase {
 
-    public function testOutput() {
-        $pw = new Password('pass');
-        $output = $pw->__toString();
-        $expected = '<input class="password" type="password" name="pass"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for password input element');
-    }
+  public function testOutput() {
+    $pw = new Password('pass');
+    $output = $pw->__toString();
+    $expected = '<input class="password" type="password" name="pass"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for password input element');
+  }
 }

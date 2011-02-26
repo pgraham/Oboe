@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Style;
-use \Oboe\Style\Property;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,27 +11,30 @@ use \Oboe\Style\Property;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe\test\output\style
  */
+namespace oboe\test\output\style;
+
+use \oboe\style\Property;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_StyleProperty class.
+ * This class tests the output of the oboe\StyleProperty class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe\test\output\style
  */
-class PropertyTest extends \PHPUnit_Framework_TestCase {
+class PropertyTest extends TestCase {
 
-    public function testOutput() {
-        $property = new Property('position', 'absolute');
-        $output = $property->__toString();
-        $expected = 'position:absolute';
+  public function testOutput() {
+    $property = new Property('position', 'absolute');
+    $output = $property->__toString();
+    $expected = 'position:absolute';
 
-        $this->assertEquals($expected, $output,
-            'Invalid output for style property');
-    }
+    $this->assertEquals($expected, $output,
+      'Invalid output for style property');
+  }
 }

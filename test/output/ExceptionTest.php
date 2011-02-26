@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Exception;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,9 +11,13 @@ use \Oboe\Exception;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\Exception;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ .'/../test-common.php';
 
@@ -23,17 +25,16 @@ require_once __DIR__ .'/../test-common.php';
  * This class tests the Oboe_Exception class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class ExceptionTest extends \PHPUnit_Framework_TestCase {
+class ExceptionTest extends TestCase {
 
-    public function testException() {
-        try {
-            throw new Exception('I am a content exception');
-        } catch (Exception $e) {
-            $this->assertEquals('I am a content exception', $e->getMessage(),
-                'Invalid message for caught exception');
-        }
+  public function testException() {
+    try {
+      throw new Exception('I am a content exception');
+    } catch (Exception $e) {
+      $this->assertEquals('I am a content exception', $e->getMessage(),
+        'Invalid message for caught exception');
     }
+  }
 }

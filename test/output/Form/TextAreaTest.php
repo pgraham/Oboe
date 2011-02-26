@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\TextArea;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,10 +11,13 @@ use \Oboe\Form\TextArea;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\TextArea;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
@@ -24,26 +25,24 @@ require_once __DIR__ . '/../../test-common.php';
  * This class tests the output of the Oboe_Form_TextArea element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
-class TextAreaTest extends \PHPUnit_Framework_TestCase {
+class TextAreaTest extends TestCase {
 
-    public function testEmptyOutput() {
-        $text = new TextArea('myArea');
-        $output = $text->__toString();
-        $expected = '<textarea name="myArea"></textarea>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for textarea element');
-    }
+  public function testEmptyOutput() {
+    $text = new TextArea('myArea');
+    $output = $text->__toString();
+    $expected = '<textarea name="myArea"></textarea>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for textarea element');
+  }
 
-    public function testInitialValueOutput() {
-        $iniTxt = 'This is some initial text, look at how inspiring it is!';
-        $text = new TextArea('myArea', $iniTxt);
-        $output = $text->__toString();
-        $expected = '<textarea name="myArea">'.$iniTxt.'</textarea>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for textarea element with initial value');
-    }
+  public function testInitialValueOutput() {
+    $iniTxt = 'This is some initial text, look at how inspiring it is!';
+    $text = new TextArea('myArea', $iniTxt);
+    $output = $text->__toString();
+    $expected = '<textarea name="myArea">'.$iniTxt.'</textarea>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for textarea element with initial value');
+  }
 }

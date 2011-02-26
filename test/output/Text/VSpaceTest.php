@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Text;
-use \Oboe\Text\VSpace;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,29 @@ use \Oboe\Text\VSpace;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
+namespace oboe\test\output\text;
+
+use \oboe\text\VSpace;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Text_VSpace class.
+ * This class tests the output of the oboe\text\VSpace class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
-class VSpaceTest extends \PHPUnit_Framework_TestCase {
+class VSpaceTest extends TestCase {
 
-    public function testOutput() {
-        $vSpace = new VSpace();
-        $output = $vSpace->__toString();
-        $expected = '<br/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for vertical space element');
-    }
+  public function testOutput() {
+    $vSpace = new VSpace();
+    $output = $vSpace->__toString();
+    $expected = '<br/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for vertical space element');
+  }
 }

@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,10 +11,11 @@ namespace OboeTest\Output\Form;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \PHPUnit_Framework_TestSuite as TestSuite;
 
 require_once __DIR__ . '/../../test-common.php';
 
@@ -23,29 +23,27 @@ require_once __DIR__ . '/../../test-common.php';
  * This class builds the suite of all OboeTest_Output_Form_* test cases.
  *
  * @author <a href="mailto:philip@lightbox.org">Philip Graham</a>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
 class AllTests {
 
     public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite('Oboe Form Output Test Suite');
+        $suite = new TestSuite('Oboe Form Output Test Suite');
 
-        $suite->addTestSuite('OboeTest\Output\Form\InputTest');
-        $suite->addTestSuite('OboeTest\Output\Form\ButtonTest');
-        $suite->addTestSuite('OboeTest\Output\Form\DivTest');
-        $suite->addTestSuite('OboeTest\Output\Form\FileUploadTest');
-        $suite->addTestSuite('OboeTest\Output\Form\HiddenTest');
-        $suite->addTestSuite('OboeTest\Output\Form\ListElTest');
-        $suite->addTestSuite('OboeTest\Output\Form\ListItemTest');
-        $suite->addTestSuite('OboeTest\Output\Form\PasswordTest');
-        $suite->addTestSuite('OboeTest\Output\Form\SelectOptionTest');
-        $suite->addTestSuite('OboeTest\Output\Form\SelectTest');
-        $suite->addTestSuite('OboeTest\Output\Form\SpanTest');
-        $suite->addTestSuite('OboeTest\Output\Form\SubmitTest');
-        $suite->addTestSuite('OboeTest\Output\Form\TextAreaTest');
-        $suite->addTestSuite('OboeTest\Output\Form\TextInputTest');
+        $suite->addTestSuite('oboe\test\output\form\InputTest');
+        $suite->addTestSuite('oboe\test\output\form\ButtonTest');
+        $suite->addTestSuite('oboe\test\output\form\DivTest');
+        $suite->addTestSuite('oboe\test\output\form\FileUploadTest');
+        $suite->addTestSuite('oboe\test\output\form\HiddenTest');
+        $suite->addTestSuite('oboe\test\output\form\ListElTest');
+        $suite->addTestSuite('oboe\test\output\form\ListItemTest');
+        $suite->addTestSuite('oboe\test\output\form\PasswordTest');
+        $suite->addTestSuite('oboe\test\output\form\SelectOptionTest');
+        $suite->addTestSuite('oboe\test\output\form\SelectTest');
+        $suite->addTestSuite('oboe\test\output\form\SpanTest');
+        $suite->addTestSuite('oboe\test\output\form\SubmitTest');
+        $suite->addTestSuite('oboe\test\output\form\TextAreaTest');
+        $suite->addTestSuite('oboe\test\output\form\TextInputTest');
 
         return $suite;
     }

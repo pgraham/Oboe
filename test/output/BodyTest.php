@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Body;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,9 +11,13 @@ use \Oboe\Body;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\Body;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
@@ -23,10 +25,9 @@ require_once __DIR__ . '/../test-common.php';
  * This class tests the output of the Oboe_Body class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class BodyTest extends \PHPUnit_Framework_TestCase {
+class BodyTest extends TestCase {
 
     public function testSingleton() {
         $body = Body::getInstance();

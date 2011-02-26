@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Head;
-use \Oboe\Head\Title;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,29 @@ use \Oboe\Head\Title;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
+namespace oboe\test\output\head;
+
+use \oboe\head\Title;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Head_Title class.
+ * This class tests the output of the oboe\head\Title class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
-class TitleTest extends \PHPUnit_Framework_TestCase {
-    
-    public function testOutput() {
-        $title = new Title('YAY!');
-        $output = $title->__toString();
-        $expected = '<title>YAY!</title>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for title element');
-    }
+class TitleTest extends TestCase {
+  
+  public function testOutput() {
+    $title = new Title('YAY!');
+    $output = $title->__toString();
+    $expected = '<title>YAY!</title>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for title element');
+  }
 }

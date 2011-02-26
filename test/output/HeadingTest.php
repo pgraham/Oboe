@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Heading;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,9 +11,13 @@ use \Oboe\Heading;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\Heading;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
@@ -23,19 +25,18 @@ require_once __DIR__ . '/../test-common.php';
  * This class tests the output of the Oboe_Heading class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class HeadingTest extends \PHPUnit_Framework_TestCase {
+class HeadingTest extends TestCase {
 
-    public function testOutput() {
-        for ($i = 1; $i <= 6; $i++) {
-            $heading = new Heading('Heading '.$i, $i);
+  public function testOutput() {
+    for ($i = 1; $i <= 6; $i++) {
+      $heading = new Heading('Heading '.$i, $i);
 
-            $output = $heading->__toString();
-            $expected = '<h'.$i.'>Heading '.$i.'</h'.$i.'>';
-            $this->assertEquals($expected, $output,
-                'Invalid output for heading '.$i.' element');
-        }
+      $output = $heading->__toString();
+      $expected = '<h'.$i.'>Heading '.$i.'</h'.$i.'>';
+      $this->assertEquals($expected, $output,
+        'Invalid output for heading '.$i.' element');
     }
+  }
 }

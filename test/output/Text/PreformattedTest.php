@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Text;
-use \Oboe\Text\Preformatted;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,29 @@ use \Oboe\Text\Preformatted;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
+namespace oboe\test\output\text;
+
+use \oboe\text\Preformatted;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Text_Preformatted class.
+ * This class tests the output of the oboe\text\Preformatted class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
-class PreformattedTest extends \PHPUnit_Framework_TestCase {
+class PreformattedTest extends TestCase {
 
-    public function testOutput() {
-        $pre = new Preformatted('Hello! everyone');
-        $output = $pre->__toString();
-        $expected = '<pre>Hello! everyone</pre>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for preformatted text');
-    }
+  public function testOutput() {
+    $pre = new Preformatted('Hello! everyone');
+    $output = $pre->__toString();
+    $expected = '<pre>Hello! everyone</pre>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for preformatted text');
+  }
 }

@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\Button;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,28 +11,29 @@ use \Oboe\Form\Button;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\Button;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class test the output of the Oboe_Form_Button class.
+ * This class test the output of the oboe\form\Button class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
-class ButtonTest extends \PHPUnit_Framework_TestCase {
-    
-    public function testOutput() {
-        $button = new Button('Click Me');
-        $output = $button->__toString();
-        $expected = '<input class="button" type="button" value="Click Me"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for button input element');
-    }
+class ButtonTest extends TestCase {
+  
+  public function testOutput() {
+    $button = new Button('Click Me');
+    $output = $button->__toString();
+    $expected = '<input class="button" type="button" value="Click Me"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for button input element');
+  }
 }

@@ -1,7 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Anchor;
-use \Oboe\Form\SelectOption;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,40 +11,43 @@ use \Oboe\Form\SelectOption;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\Anchor;
+use \oboe\form\SelectOption;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe\Form\SelectOption element
+ * This class tests the output of the oboe\form\SelectOption element
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
-class SelectOptionTest extends \PHPUnit_Framework_TestCase {
+class SelectOptionTest extends TestCase {
 
-    public function testOutput() {
-        $option = new SelectOption('option1', 'Option 1');
-        $output = $option->__toString();
-        $expected = '<option value="option1">Option 1</option>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for option element');
+  public function testOutput() {
+    $option = new SelectOption('option1', 'Option 1');
+    $output = $option->__toString();
+    $expected = '<option value="option1">Option 1</option>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for option element');
 
-        $option = new SelectOption('option2', 'Option 2', true);
-        $output = $option->__toString();
-        $expected = '<option value="option2" selected="selected">Option 2'.
-            '</option>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for selected option element');
-    }
+    $option = new SelectOption('option2', 'Option 2', true);
+    $output = $option->__toString();
+    $expected = '<option value="option2" selected="selected">Option 2</option>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for selected option element');
+  }
 
-    /**
-     * @expectedException Oboe\Exception
-     */
-    public function testAddObject() {
-        $option = new SelectOption('option1', new Anchor('#', 'Option 1'));
-    }
+  /**
+   * @expectedException Oboe\Exception
+   */
+  public function testAddObject() {
+    $option = new SelectOption('option1', new Anchor('#', 'Option 1'));
+  }
 }

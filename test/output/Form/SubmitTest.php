@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\Submit;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,29 @@ use \Oboe\Form\Submit;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\Submit;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Form_Submit element.
+ * This class tests the output of the oboe\form\Submit element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
-class SubmitTest extends \PHPUnit_Framework_TestCase {
+class SubmitTest extends TestCase {
 
-    public function testOutput() {
-        $button = new Submit('Click Me');
-        $output = $button->__toString();
-        $expected = '<input class="submit" type="submit" value="Click Me"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for submit input element');
-    }
+  public function testOutput() {
+    $button = new Submit('Click Me');
+    $output = $button->__toString();
+    $expected = '<input class="submit" type="submit" value="Click Me"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for submit input element');
+  }
 }

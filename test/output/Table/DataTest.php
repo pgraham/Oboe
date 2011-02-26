@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Table;
-use \Oboe\Table\Data;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,28 @@ use \Oboe\Table\Data;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
+namespace oboe\test\output\table;
+
+use \oboe\table\Data;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the Oboe_Table_Data class.
+ * This class tests the oboe\table\Data class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
-class DataTest extends \PHPUnit_Framework_TestCase {
-    
-    public function testOutput() {
-        $td = new Data('cell');
-        $output = $td->__toString();
-        $expected = '<td>cell</td>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for td element');
-    }
+class DataTest extends TestCase {
+  
+  public function testOutput() {
+    $td = new Data('cell');
+    $output = $td->__toString();
+    $expected = '<td>cell</td>';
+    $this->assertEquals($expected, $output, 'Invalid output for td element');
+  }
 }

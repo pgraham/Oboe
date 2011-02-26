@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Output\Text;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,29 +11,29 @@ namespace OboeTest\Output\Text;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
+namespace oboe\test\output\text;
+
+use \PHPUnit_Framework_TestSuite as TestSuite;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class build the suite of all Oboe\Text\* test cases.
+ * This class build the suite of all oboe\text\* test cases.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
 class AllTests {
 
-    public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite(
-          'Oboe Text Output Test Suite');
+  public static function suite() {
+    $suite = new TestSuite('Oboe Text Output Test Suite');
 
-        $suite->addTestSuite('OboeTest\Output\Text\HSpaceTest');
-        $suite->addTestSuite('OboeTest\Output\Text\PreformattedTest');
-        $suite->addTestSuite('OboeTest\Output\Text\VSpaceTest');
+    $suite->addTestSuite('oboe\test\output\text\HSpaceTest');
+    $suite->addTestSuite('oboe\test\output\text\PreformattedTest');
+    $suite->addTestSuite('oboe\test\output\text\VSpaceTest');
 
-        return $suite;
-    }
+    return $suite;
+  }
 }

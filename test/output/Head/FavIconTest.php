@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Head;
-use \Oboe\Head\FavIcon;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,9 +11,13 @@ use \Oboe\Head\FavIcon;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @pacage oboe/test/output/head
  */
+namespace oboe\test\output\head;
+
+use \Oboe\Head\FavIcon;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
@@ -23,17 +25,15 @@ require_once __DIR__ . '/../../test-common.php';
  * This class tests the output of the Oboe_Head_FavIcon element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Head
+ * @pacage oboe/test/output/head
  */
-class FavIconTest extends \PHPUnit_Framework_TestCase {
+class FavIconTest extends TestCase {
 
-    public function testOutput() {
-        $favIcon = new FavIcon('favicon.ico');
-        $output = $favIcon->__toString();
-        $expected = '<link rel="shortcut icon" href="favicon.ico"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for favicon element');
-    }
+  public function testOutput() {
+    $favIcon = new FavIcon('favicon.ico');
+    $output = $favIcon->__toString();
+    $expected = '<link rel="shortcut icon" href="favicon.ico"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for favicon element');
+  }
 }

@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Output\Head;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,31 +11,32 @@ namespace OboeTest\Output\Head;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
+namespace oboe\test\output\head;
+
+use \PHPUnit_Framework_TestSuite as TestSuite;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class builds the suite of all Oboe_Head_* test cases.
+ * This class builds the suite of all oboe\head\* test cases.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
 class AllTests {
     
-    public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite('Oboe Head Output Test Suite');
+  public static function suite() {
+    $suite = new TestSuite('Oboe Head Output Test Suite');
 
-        $suite->addTestSuite('OboeTest\Output\Head\FavIconTest');
-        $suite->addTestSuite('OboeTest\Output\Head\JavascriptTest');
-        $suite->addTestSuite('OboeTest\Output\Head\LinkTest');
-        $suite->addTestSuite('OboeTest\Output\Head\MetaTagTest');
-        $suite->addTestSuite('OboeTest\Output\Head\StyleSheetTest');
-        $suite->addTestSuite('OboeTest\Output\Head\TitleTest');
+    $suite->addTestSuite('oboe\test\output\head\FavIconTest');
+    $suite->addTestSuite('oboe\test\output\head\JavascriptTest');
+    $suite->addTestSuite('oboe\test\output\head\LinkTest');
+    $suite->addTestSuite('oboe\test\output\head\MetaTagTest');
+    $suite->addTestSuite('oboe\test\output\head\StyleSheetTest');
+    $suite->addTestSuite('oboe\test\output\head\TitleTest');
 
-        return $suite;
-    }
+    return $suite;
+  }
 }

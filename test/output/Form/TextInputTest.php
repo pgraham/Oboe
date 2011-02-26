@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\TextInput;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,9 +11,13 @@ use \Oboe\Form\TextInput;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\TextInput;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
@@ -23,23 +25,22 @@ require_once __DIR__ . '/../../test-common.php';
  * This class tests the output of the Oboe_Form_TextInput element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
-class TextInputTest extends \PHPUnit_Framework_TestCase {
+class TextInputTest extends TestCase {
 
-    public function testOutput() {
-        $text = new TextInput('input');
-        $output = $text->__toString();
-        $expected = '<input class="text" type="text" name="input"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for text input element');
+  public function testOutput() {
+    $text = new TextInput('input');
+    $output = $text->__toString();
+    $expected = '<input class="text" type="text" name="input"/>';
+    $this->assertEquals($expected, $output,
+        'Invalid output for text input element');
 
-        $text = new TextInput('input', 'Something revolutionary');
-        $output = $text->__toString();
-        $expected = '<input class="text" type="text" name="input" '.
-            'value="Something revolutionary"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for text input element');
-    }
+    $text = new TextInput('input', 'Something revolutionary');
+    $output = $text->__toString();
+    $expected = '<input class="text" type="text" name="input" '.
+      'value="Something revolutionary"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for text input element');
+  }
 }

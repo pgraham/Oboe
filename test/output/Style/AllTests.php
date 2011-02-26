@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Output\Style;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,28 +11,28 @@ namespace OboeTest\Output\Style;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/style
  */
+namespace oboe\test\output\style;
+
+use \PHPUnit_Framework_TestSuite as TestSuite;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class builds the suite of all OboeTest_Output_Style_* test cases.
+ * This class builds the suite of all oboe\test\output\style\* test cases.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/style
  */
 class AllTests {
 
-    public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite(
-            'Oboe Style Output Test Suite');
+  public static function suite() {
+    $suite = new TestSuite('Oboe Style Output Test Suite');
 
-        $suite->addTestSuite('OboeTest\Output\Style\PropertyTest');
-        $suite->addTestSuite('OboeTest\Output\Style\RuleTest');
+    $suite->addTestSuite('oboe\test\output\style\PropertyTest');
+    $suite->addTestSuite('oboe\test\output\style\RuleTest');
 
-        return $suite;
-    }
+    return $suite;
+  }
 }

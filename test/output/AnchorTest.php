@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Anchor;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,9 +11,12 @@ use \Oboe\Anchor;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\Anchor;
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
@@ -23,10 +24,9 @@ require_once __DIR__ . '/../test-common.php';
  * This class tests the output of the Oboe\Anchor class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class AnchorTest extends \PHPUnit_Framework_TestCase {
+class AnchorTest extends TestCase {
 
     public function testOutput() {
         $anchor = new Anchor('#', 'Click Me');

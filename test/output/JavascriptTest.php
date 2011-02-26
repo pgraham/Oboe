@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Javascript;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,9 +11,13 @@ use \Oboe\Javascript;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\Javascript;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
@@ -23,24 +25,23 @@ require_once __DIR__ . '/../test-common.php';
  * This class test the output of the Oboe_Javascript class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class JavascriptTest extends \PHPUnit_Framework_TestCase {
+class JavascriptTest extends TestCase {
 
-    public function testOutput() {
-        $javascript = new Javascript();
+  public function testOutput() {
+    $javascript = new Javascript();
 
-        $javascript->addCode('var i = 0;');
-        $output = $javascript->__toString();
-        $expected = '<script type="text/javascript">var i = 0;</script>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for javascript with body');
+    $javascript->addCode('var i = 0;');
+    $output = $javascript->__toString();
+    $expected = '<script type="text/javascript">var i = 0;</script>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for javascript with body');
 
-        $javascript->addCode('i++;');
-        $output = $javascript->__toString();
-        $expected = '<script type="text/javascript">var i = 0;i++;</script>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for javascript with appended body');
-    }
+    $javascript->addCode('i++;');
+    $output = $javascript->__toString();
+    $expected = '<script type="text/javascript">var i = 0;i++;</script>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for javascript with appended body');
+  }
 }

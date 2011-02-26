@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Output;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,15 +11,17 @@ namespace OboeTest\Output;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \PHPUnit_Framework_TestSuite as TestSuite;
 
 require_once __DIR__ . '/../test-common.php';
 
 /**
  * This class builds the suite of test cases that test the output and interface
- * of all OboeTest_Output_* classes.
+ * of all oboe\test\output classes.
  *
  * @author Philip Graham <philip@lightbox.org>
  * @package OboeTest
@@ -28,40 +29,40 @@ require_once __DIR__ . '/../test-common.php';
  */
 class AllTests {
 
-    public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite('Oboe Output Test Suite');
+  public static function suite() {
+    $suite = new TestSuite('Oboe Output Test Suite');
 
-        $suite->addTestSuite('OboeTest\Output\ElementBaseTest');
-        $suite->addTestSuite('OboeTest\Output\ElementCompositeTest');
-        $suite->addTestSuite('OboeTest\Output\ElementWrapperTest');
-        $suite->addTestSuite('OboeTest\Output\BaseListTest');
+    $suite->addTestSuite('oboe\test\output\ElementBaseTest');
+    $suite->addTestSuite('oboe\test\output\ElementCompositeTest');
+    $suite->addTestSuite('oboe\test\output\ElementWrapperTest');
+    $suite->addTestSuite('oboe\test\output\BaseListTest');
 
-        $suite->addTestSuite('OboeTest\Output\AnchorTest');
-        $suite->addTestSuite('OboeTest\Output\BodyTest');
-        $suite->addTestSuite('OboeTest\Output\CommentTest');
-        $suite->addTestSuite('OboeTest\Output\DividerTest');
-        $suite->addTestSuite('OboeTest\Output\DivTest');
-        $suite->addTestSuite('OboeTest\Output\ElArrayTest');
-        $suite->addTestSuite('OboeTest\Output\ExceptionTest');
-        $suite->addTestSuite('OboeTest\Output\FormTest');
-        $suite->addTestSuite('OboeTest\Output\HeadingTest');
-        $suite->addTestSuite('OboeTest\Output\HeadTest');
-        $suite->addTestSuite('OboeTest\Output\ImageTest');
-        $suite->addTestSuite('OboeTest\Output\JavascriptTest');
-        $suite->addTestSuite('OboeTest\Output\ListElTest');
-        $suite->addTestSuite('OboeTest\Output\ListItemTest');
-        $suite->addTestSuite('OboeTest\Output\PageTest');
-        $suite->addTestSuite('OboeTest\Output\ParagraphTest');
-        $suite->addTestSuite('OboeTest\Output\SpanTest');
-        $suite->addTestSuite('OboeTest\Output\StyleTest');
-        $suite->addTestSuite('OboeTest\Output\TableTest');
+    $suite->addTestSuite('oboe\test\output\AnchorTest');
+    $suite->addTestSuite('oboe\test\output\BodyTest');
+    $suite->addTestSuite('oboe\test\output\CommentTest');
+    $suite->addTestSuite('oboe\test\output\DividerTest');
+    $suite->addTestSuite('oboe\test\output\DivTest');
+    $suite->addTestSuite('oboe\test\output\ElArrayTest');
+    $suite->addTestSuite('oboe\test\output\ExceptionTest');
+    $suite->addTestSuite('oboe\test\output\FormTest');
+    $suite->addTestSuite('oboe\test\output\HeadingTest');
+    $suite->addTestSuite('oboe\test\output\HeadTest');
+    $suite->addTestSuite('oboe\test\output\ImageTest');
+    $suite->addTestSuite('oboe\test\output\JavascriptTest');
+    $suite->addTestSuite('oboe\test\output\ListElTest');
+    $suite->addTestSuite('oboe\test\output\ListItemTest');
+    $suite->addTestSuite('oboe\test\output\PageTest');
+    $suite->addTestSuite('oboe\test\output\ParagraphTest');
+    $suite->addTestSuite('oboe\test\output\SpanTest');
+    $suite->addTestSuite('oboe\test\output\StyleTest');
+    $suite->addTestSuite('oboe\test\output\TableTest');
 
-        $suite->addTest(Form\AllTests::suite());
-        $suite->addTest(Head\AllTests::suite());
-        $suite->addTest(Style\AllTests::suite());
-        $suite->addTest(Table\AllTests::suite());
-        $suite->addTest(Text\AllTests::suite());
+    $suite->addTest(form\AllTests::suite());
+    $suite->addTest(head\AllTests::suite());
+    $suite->addTest(style\AllTests::suite());
+    $suite->addTest(table\AllTests::suite());
+    $suite->addTest(text\AllTests::suite());
 
-        return $suite;
-    }
+    return $suite;
+  }
 }

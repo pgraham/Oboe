@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Comment;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,20 +11,23 @@ use \Oboe\Comment;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\Comment;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Comment class.
+ * This class tests the output of the oboe\Comment class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class CommentTest extends \PHPUnit_Framework_TestCase {
+class CommentTest extends TestCase {
 
     public function testOutput() {
         $comment = new Comment('This is a comment, look at how useful it is');

@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Divider;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,38 +11,41 @@ use \Oboe\Divider;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namepsace oboe\test\output;
+
+use \oboe\Divider;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Divider class.
+ * This class tests the output of the oboe\Divider class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class DividerTest extends \PHPUnit_Framework_TestCase {
+class DividerTest extends TestCase {
 
-    public function testOutput() {
-        $hr = new Divider();
+  public function testOutput() {
+    $hr = new Divider();
 
-        $output = $hr->__toString();
-        $expected = '<hr/>';
+    $output = $hr->__toString();
+    $expected = '<hr/>';
 
-        $this->assertEquals($expected, $output,
-            'Invalid output for <hr/> element');
-    }
+    $this->assertEquals($expected, $output,
+      'Invalid output for <hr/> element');
+  }
 
-    public function testOutputWithWidth() {
-        $hr = new Divider(80);
-        
-        $output = $hr->__toString();
-        $expected = '<hr style="width:80%;"/>';
+  public function testOutputWithWidth() {
+    $hr = new Divider(80);
+    
+    $output = $hr->__toString();
+    $expected = '<hr style="width:80%;"/>';
 
-        $this->assertEquals($expected, $output,
-            'Invalid output for <hr/> element');
-    }
+    $this->assertEquals($expected, $output,
+      'Invalid output for <hr/> element');
+  }
 }

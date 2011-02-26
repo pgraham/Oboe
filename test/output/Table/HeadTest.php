@@ -1,8 +1,4 @@
 <?php
-namespace OboeTest\Output\Table;
-use \Oboe\Table\Data;
-use \Oboe\Table\Head;
-use \Oboe\Table\Row;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -15,31 +11,35 @@ use \Oboe\Table\Row;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
+namespace oboe\test\output\table;
+
+use \oboe\table\Data;
+use \oboe\table\Head;
+use \oboe\table\Row;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the Oboe_Table_Head class.
+ * This class tests the oboe\table\Head class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
-class HeadTest extends \PHPUnit_Framework_TestCase {
+class HeadTest extends TestCase {
 
-    public function testOutput() {
-        $tHeadRow = new Row();
-        $tHeadRow->add(new Data('cell'));
+  public function testOutput() {
+    $tHeadRow = new Row();
+    $tHeadRow->add(new Data('cell'));
 
-        $tHead = new Head();
-        $tHead->add($tHeadRow);
+    $tHead = new Head();
+    $tHead->add($tHeadRow);
 
-        $output = $tHead->__toString();
-        $expected = '<thead><tr><td>cell</td></tr></thead>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for thead element');
-    }
+    $output = $tHead->__toString();
+    $expected = '<thead><tr><td>cell</td></tr></thead>';
+    $this->assertEquals($expected, $output, 'Invalid output for thead element');
+  }
 }

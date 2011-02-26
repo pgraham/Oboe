@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,61 +11,58 @@ use \Oboe\Form;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the Oboe_Form_Div class.
+ * This class tests the oboe\form\Div class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
-class DivTest extends \PHPUnit_Framework_TestCase {
+class DivTest extends TestCase {
 
-    public function testEmptyOutput() {
-        $div = new Form\Div();
+  public function testEmptyOutput() {
+    $div = new Form\Div();
 
-        $output = $div->__toString();
-        $expected = '<div></div>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for div element');
-    }
+    $output = $div->__toString();
+    $expected = '<div></div>';
+    $this->assertEquals($expected, $output, 'Invalid output for div element');
+  }
 
-    public function testAddString() {
-        $div = new Form\Div();
-        $div->add('Hello, world');
+  public function testAddString() {
+    $div = new Form\Div();
+    $div->add('Hello, world');
 
-        $output = $div->__toString();
-        $expected = '<div>Hello, world</div>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for div element');
-    }
+    $output = $div->__toString();
+    $expected = '<div>Hello, world</div>';
+    $this->assertEquals($expected, $output, 'Invalid output for div element');
+  }
 
-    public function testAddEmptyObject() {
-        $div = new Form\Div();
-        $div->add(new Form\Div());
+  public function testAddEmptyObject() {
+    $div = new Form\Div();
+    $div->add(new Form\Div());
 
-        $output = $div->__toString();
-        $expected = '<div><div></div></div>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for div element');
-    }
+    $output = $div->__toString();
+    $expected = '<div><div></div></div>';
+    $this->assertEquals($expected, $output, 'Invalid output for div element');
+  }
 
-    public function testAddObject() {
-        $div = new Form\Div();
-        $inner = new Form\Div();
-        $inner->add('Hello, world');
-        $div->add($inner);
+  public function testAddObject() {
+    $div = new Form\Div();
+    $inner = new Form\Div();
+    $inner->add('Hello, world');
+    $div->add($inner);
 
-        $output = $div->__toString();
-        $expected = '<div><div>Hello, world</div></div>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for div element');
-    }
+    $output = $div->__toString();
+    $expected = '<div><div>Hello, world</div></div>';
+    $this->assertEquals($expected, $output, 'Invalid output for div element');
+  }
 }

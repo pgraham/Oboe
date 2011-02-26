@@ -1,7 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\BaseList;
-use \OboeTest\Mock;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,9 +11,14 @@ use \OboeTest\Mock;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\test\mock;
+use \oboe\BaseList;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
@@ -25,49 +27,48 @@ require_once __DIR__ . '/../test-common.php';
  * class using a mock.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class BaseListTest extends \PHPUnit_Framework_TestCase {
+class BaseListTest extends TestCase {
 
-    public function testConstructor() {
-        $list = new Mock\BaseList(BaseList::ORDERED);
-        $output = $list->__toString();
-        $expected = '<ol></ol>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for BaseList');
+  public function testConstructor() {
+    $list = new Mock\BaseList(BaseList::ORDERED);
+    $output = $list->__toString();
+    $expected = '<ol></ol>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for BaseList');
 
-        $list = new Mock\BaseList(BaseList::UNORDERED);
-        $output = $list->__toString();
-        $expected = '<ul></ul>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for BaseList');
-    }
+    $list = new Mock\BaseList(BaseList::UNORDERED);
+    $output = $list->__toString();
+    $expected = '<ul></ul>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for BaseList');
+  }
 
-    /**
-     * @expectedException Oboe\Exception
-     */
-    public function testInvalidType() {
-        $list = new Mock\BaseList('badlisttype');
-    }
+  /**
+   * @expectedException oboe\Exception
+   */
+  public function testInvalidType() {
+    $list = new Mock\BaseList('badlisttype');
+  }
 
-    public function testAdd() {
-        $list = new Mock\BaseList(BaseList::UNORDERED);
+  public function testAdd() {
+    $list = new Mock\BaseList(BaseList::UNORDERED);
 
-        $toAdd = new Mock\ElementWrapper();
-        $toAdd->add('Item 1');
-        $liByObj = $list->add($toAdd);
-        $this->assertEquals($toAdd, $liByObj,
-            'Returned list item wrapper was not the given list item wrapper');
+    $toAdd = new Mock\ElementWrapper();
+    $toAdd->add('Item 1');
+    $liByObj = $list->add($toAdd);
+    $this->assertEquals($toAdd, $liByObj,
+      'Returned list item wrapper was not the given list item wrapper');
 
-        $li = $list->add('Item 2');
-        $this->assertEquals('OboeTest\Mock\ElementWrapper', get_class($li),
-            'Returned list item wrappper was not a '.
-            'OboeTest\Mock\ElementWrapper');
+    $li = $list->add('Item 2');
+    $this->assertEquals('oboe\test\mock\ElementWrapper', get_class($li),
+      'Returned list item wrappper was not a '.
+      'oboe\test\mock\ElementWrapper');
 
-        $output = $list->__toString();
-        $expected = '<ul><mock>Item 1</mock><mock>Item 2</mock></ul>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for list element');
-    }
+    $output = $list->__toString();
+    $expected = '<ul><mock>Item 1</mock><mock>Item 2</mock></ul>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for list element');
+  }
 }

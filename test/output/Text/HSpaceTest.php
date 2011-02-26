@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Text;
-use \Oboe\Text\HSpace;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,29 @@ use \Oboe\Text\HSpace;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
+namespace oboe\test\output\text;
+
+use \oboe\text\HSpace;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the Oboe\Text\HSpace class.
+ * This class tests the oboe\text\HSpace class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/text
  */
-class HSpaceTest extends \PHPUnit_Framework_TestCase {
+class HSpaceTest extends TestCase {
 
-    public function testOutput() {
-        $hSpace = new HSpace();
-        $output = $hSpace->__toString();
-        $expected = '&nbsp;';
-        $this->assertEquals($expected, $output,
-            'Invalid output for horizontal space element');
-    }
+  public function testOutput() {
+    $hSpace = new HSpace();
+    $output = $hSpace->__toString();
+    $expected = '&nbsp;';
+    $this->assertEquals($expected, $output,
+      'Invalid output for horizontal space element');
+  }
 }

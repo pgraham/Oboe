@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\Span;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,36 +11,37 @@ use \Oboe\Form\Span;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\Span;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ .'/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Form_Span element.
+ * This class tests the output of the oboe\form\Span element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/form
  */
-class SpanTest extends \PHPUnit_Framework_TestCase {
+class SpanTest extends TestCase {
 
-    public function testOutput() {
-        $span = new Span(null, 'strong');
-        $span->add('Pay attention to me!');
-        $output = $span->__toString();
-        $expected = '<span class="strong">Pay attention to me!</span>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for span element');
+  public function testOutput() {
+    $span = new Span(null, 'strong');
+    $span->add('Pay attention to me!');
+    $output = $span->__toString();
+    $expected = '<span class="strong">Pay attention to me!</span>';
+    $this->assertEquals($expected, $output, 'Invalid output for span element');
 
-        $span->setClass(null);
-        $span->setStyle('font-weight', 'bold');
-        $span->add('  I\'m worthy of attention.');
-        $output = $span->__toString();
-        $expected = '<span style="font-weight:bold;">'.
-            'Pay attention to me!  I\'m worthy of attention.</span>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for span element');
-    }
+    $span->setClass(null);
+    $span->setStyle('font-weight', 'bold');
+    $span->add('  I\'m worthy of attention.');
+    $output = $span->__toString();
+    $expected = '<span style="font-weight:bold;">'.
+      'Pay attention to me!  I\'m worthy of attention.</span>';
+    $this->assertEquals($expected, $output, 'Invalid output for span element');
+  }
 }

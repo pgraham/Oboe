@@ -1,8 +1,4 @@
 <?php
-namespace OboeTest\Output\Table;
-use \Oboe\Table\Data;
-use \Oboe\Table\Foot;
-use \Oboe\Table\Row;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -15,31 +11,35 @@ use \Oboe\Table\Row;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
+namespace oboe\test\output\table;
+
+use \oboe\table\Data;
+use \oboe\table\Foot;
+use \oboe\table\Row;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the Oboe_Table_Foot class.
+ * This class tests the oboe\table\Foot class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
-class FootTest extends \PHPUnit_Framework_TestCase {
-    
-    public function testOutput() {
-        $tFootRow = new Row();
-        $tFootRow->add(new Data('cell'));
+class FootTest extends TestCase {
+  
+  public function testOutput() {
+    $tFootRow = new Row();
+    $tFootRow->add(new Data('cell'));
 
-        $tFoot = new Foot();
-        $tFoot->add($tFootRow);
+    $tFoot = new Foot();
+    $tFoot->add($tFootRow);
 
-        $output = $tFoot->__toString();
-        $expected = '<tfoot><tr><td>cell</td></tr></tfoot>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for tfoot element');
-    }
+    $output = $tFoot->__toString();
+    $expected = '<tfoot><tr><td>cell</td></tr></tfoot>';
+    $this->assertEquals($expected, $output, 'Invalid output for tfoot element');
+  }
 }

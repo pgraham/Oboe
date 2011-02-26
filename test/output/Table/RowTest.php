@@ -1,7 +1,4 @@
 <?php
-namespace OboeTest\Output\Table;
-use \Oboe\Table\Data;
-use \Oboe\Table\Row;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -14,28 +11,30 @@ use \Oboe\Table\Row;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
+namespace oboe\test\output\table;
+
+use \oboe\table\Data;
+use \oboe\table\Row;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the Oboe_Table_Row class.
+ * This class tests the oboe\table\Row class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Table
+ * @package oboe/test/output/table
  */
-class RowTest extends \PHPUnit_Framework_TestCase {
+class RowTest extends TestCase {
 
-    public function testOutput() {
-        $tr = new Row();
-        $tr->add(new Data('cell'));
-        $output = $tr->__toString();
-        $expected = '<tr><td>cell</td></tr>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for tr element');
-    }
+  public function testOutput() {
+    $tr = new Row();
+    $tr->add(new Data('cell'));
+    $output = $tr->__toString();
+    $expected = '<tr><td>cell</td></tr>';
+    $this->assertEquals($expected, $output, 'Invalid output for tr element');
+  }
 }

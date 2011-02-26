@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use OboeTest\Mock;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,21 +11,24 @@ use OboeTest\Mock;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use OboeTest\Mock;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ .'/../test-common.php';
 
 /**
- * This class tests the output of the concrete methods of the Oboe_ElementBase
+ * This class tests the output of the concrete methods of the oboe\ElementBase
  * abstract class using a mock.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe\test\output
  */
-class ElementBaseTest extends \PHPUnit_Framework_TestCase {
+class ElementBaseTest extends TestCase {
 
     public function testBasicOutput() {
         $mock = new Mock\ElementBase();

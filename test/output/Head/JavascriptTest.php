@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Head;
-use \Oboe\Head\Javascript;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,27 +11,30 @@ use \Oboe\Head\Javascript;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
+namespace oboe\test\output\head;
+
+use \oboe\head\Javascript;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Head_Javascript class.
+ * This class tests the output of the oboe\head\Javascript class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
-class JavascriptTest extends \PHPUnit_Framework_TestCase {
+class JavascriptTest extends TestCase {
 
-    public function testOutput() {
-        $js = new Javascript('/js/myScript.js');
-        $output = $js->__toString();
-        $expected = '<script src="/js/myScript.js" type="text/javascript">'.
-            '</script>';
-        $this->assertEquals($expected, $output,
-            'Invalid output the head javascript element');
-    }
+  public function testOutput() {
+    $js = new Javascript('/js/myScript.js');
+    $output = $js->__toString();
+    $expected = '<script src="/js/myScript.js" type="text/javascript">'.
+      '</script>';
+    $this->assertEquals($expected, $output,
+      'Invalid output the head javascript element');
+  }
 }

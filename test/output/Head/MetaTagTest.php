@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Head;
-use \Oboe\Head\MetaTag;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,34 +11,37 @@ use \Oboe\Head\MetaTag;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe\test\output\head
  */
+namespace oboe\test\output\head;
+
+use \oboe\head\MetaTag;
+
+use \PHPUnit_Framework_TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_MetaTag class.
+ * This class tests the output of the oboe\head\MetaTag class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe\test\output\head
  */
-class MetaTagTest extends \PHPUnit_Framework_TestCase {
+class MetaTagTest extends TestCase {
 
-    public function testOutput() {
-        $meta = new MetaTag('author', 'Philip Graham');
-        $output = $meta->__toString();
-        $expected = '<meta name="author" content="Philip Graham"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for meta tag element');
+  public function testOutput() {
+    $meta = new MetaTag('author', 'Philip Graham');
+    $output = $meta->__toString();
+    $expected = '<meta name="author" content="Philip Graham"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for meta tag element');
 
-        $meta = new MetaTag('keywords', array('awesome', 'the greatest', 'stud',
-          'hero'));
-        $output = $meta->__toString();
-        $expected = '<meta name="keywords" '.
-            'content="awesome,the greatest,stud,hero"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for meta tag element');
-    }
+    $meta = new MetaTag('keywords', array('awesome', 'the greatest', 'stud',
+      'hero'));
+    $output = $meta->__toString();
+    $expected = '<meta name="keywords" '.
+      'content="awesome,the greatest,stud,hero"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for meta tag element');
+  }
 }

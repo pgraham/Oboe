@@ -1,8 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\Style;
-use \Oboe\Style\Property;
-use \Oboe\Style\Rule;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -15,50 +11,54 @@ use \Oboe\Style\Rule;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\Style;
+use \oboe\style\Property;
+use \oboe\style\Rule;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Style class.
+ * This class tests the output of the oboe\Style class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class StyleTest extends \PHPUnit_Framework_TestCase {
+class StyleTest extends TestCase {
 
-    public function testAddSignature() {
-        $style = new Style();
+  public function testAddSignature() {
+    $style = new Style();
 
-        // Add a Oboe_StyleRule object
-        $spanStrong = new Rule('span.strong');
-        $spanStrong->add('font-weight', 'bold');
-        $spanStrong->add(new Property('text-decoration', 'underline'));
-        $style->add($spanStrong);
+    // Add a Oboe_StyleRule object
+    $spanStrong = new Rule('span.strong');
+    $spanStrong->add('font-weight', 'bold');
+    $spanStrong->add(new Property('text-decoration', 'underline'));
+    $style->add($spanStrong);
 
-        // Add a given Oboe_StyleProperty to the rule with the given
-        // selector
-        $rule = $style->add('div.pageComponent', new Property('position',
-          'absolute'));
-        $this->assertEquals('Oboe\Style\Rule', get_class($rule),
-            'Returned element was not a Oboe\Style\Rule');
+    // Add a given Oboe_StyleProperty to the rule with the given
+    // selector
+    $rule = $style->add('div.pageComponent', new Property('position',
+      'absolute'));
+    $this->assertEquals('Oboe\Style\Rule', get_class($rule),
+      'Returned element was not a Oboe\Style\Rule');
 
-        // Add the declared property to the rule with the given selector
-        $rule = $style->add('div.componentContentWrapper', 'position',
-            'relative');
-        $this->assertEquals('Oboe\Style\Rule', get_class($rule),
-            'Returned element was not a Oboe\Style\Rule');
+    // Add the declared property to the rule with the given selector
+    $rule = $style->add('div.componentContentWrapper', 'position',
+      'relative');
+    $this->assertEquals('Oboe\Style\Rule', get_class($rule),
+      'Returned element was not a Oboe\Style\Rule');
 
-        // Make sure that output is good
-        $output = $style->__toString();
-        $expected = '<style>'.
-            'span.strong{font-weight:bold;text-decoration:underline}'.
-            'div.pageComponent{position:absolute}'.
-            'div.componentContentWrapper{position:relative}</style>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for style element');
-    }
+    // Make sure that output is good
+    $output = $style->__toString();
+    $expected = '<style>'.
+      'span.strong{font-weight:bold;text-decoration:underline}'.
+      'div.pageComponent{position:absolute}'.
+      'div.componentContentWrapper{position:relative}</style>';
+    $this->assertEquals($expected, $output, 'Invalid output for style element');
+  }
 }

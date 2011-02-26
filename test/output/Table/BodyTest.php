@@ -1,8 +1,4 @@
 <?php
-namespace OboeTest\Output\Table;
-use \Oboe\Table\Body;
-use \Oboe\Table\Data;
-use \Oboe\Table\Row;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -15,31 +11,35 @@ use \Oboe\Table\Row;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
+namespace oboe\test\output\table;
+
+use \oboe\table\Body;
+use \oboe\table\Data;
+use \oboe\table\Row;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the Oboe_Table_Body class.
+ * This class tests the oboe\table\Body class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Table
+ * @package oboe/test/output/table
  */
-class BodyTest extends \PHPUnit_Framework_TestCase {
-    
-    public function testOutput() {
-        $tRow = new Row();
-        $tRow->add(new Data('cell'));
+class BodyTest extends TestCase {
+  
+  public function testOutput() {
+    $tRow = new Row();
+    $tRow->add(new Data('cell'));
 
-        $tBody = new Body();
-        $tBody->add($tRow);
-        $output = $tBody->__toString();
-        $expected = '<tbody><tr><td>cell</td></tr></tbody>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for tbody element');
-    }
+    $tBody = new Body();
+    $tBody->add($tRow);
+    $output = $tBody->__toString();
+    $expected = '<tbody><tr><td>cell</td></tr></tbody>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for tbody element');
+  }
 }

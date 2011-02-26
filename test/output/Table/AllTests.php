@@ -1,5 +1,4 @@
 <?php
-namespace OboeTest\Output\Table;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -12,31 +11,32 @@ namespace OboeTest\Output\Table;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
+namespace oboe\test\output\table;
+
+use \PHPUnit_Framework_TestSuite;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class builds the suite of all Oboe_Table_* test cases.
+ * This class builds the suite of all oboe\table\* test cases.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/table
  */
 class AllTests {
 
-    public static function suite() {
-        $suite = new \PHPUnit_Framework_TestSuite(
-            'Oboe Table Output Test Suite');
+  public static function suite() {
+    $suite = new \PHPUnit_Framework_TestSuite(
+      'Oboe Table Output Test Suite');
 
-        $suite->addTestSuite('OboeTest\Output\Table\BodyTest');
-        $suite->addTestSuite('OboeTest\Output\Table\DataTest');
-        $suite->addTestSuite('OboeTest\Output\Table\FootTest');
-        $suite->addTestSuite('OboeTest\Output\Table\HeadTest');
-        $suite->addTestSuite('OboeTest\Output\Table\RowTest');
+    $suite->addTestSuite('oboe\test\output\table\BodyTest');
+    $suite->addTestSuite('oboe\test\output\table\DataTest');
+    $suite->addTestSuite('oboe\test\output\table\FootTest');
+    $suite->addTestSuite('oboe\test\output\table\HeadTest');
+    $suite->addTestSuite('oboe\test\output\table\RowTest');
 
-        return $suite;
-    }
+    return $suite;
+  }
 }

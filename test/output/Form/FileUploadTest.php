@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\FileUpload;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,28 +11,29 @@ use \Oboe\Form\FileUpload;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\FileUpload;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ .'/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Form_FileUpload class.
+ * This class tests the output of the oboe\form\FileUpload class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
- * @subpackage Form
+ * @package oboe/test/output/form
  */
-class FileUploadTest extends \PHPUnit_Framework_TestCase {
+class FileUploadTest extends TestCase {
 
-    public function testOutput() {
-        $fileUpload = new FileUpload('uploader');
-        $output = $fileUpload->__toString();
-        $expected = '<input class="file" type="file" name="uploader"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for file input element');
-    }
+  public function testOutput() {
+    $fileUpload = new FileUpload('uploader');
+    $output = $fileUpload->__toString();
+    $expected = '<input class="file" type="file" name="uploader"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for file input element');
+  }
 }

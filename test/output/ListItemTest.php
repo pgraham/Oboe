@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \Oboe\ListItem;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,29 @@ use \Oboe\ListItem;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\ListItem;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../test-common.php';
 
 /**
- * This class tests the output of the Oboe_ListItem class.
+ * This class tests the output of the oboe\ListItem class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class ListItemTest extends \PHPUnit_Framework_TestCase {
+class ListItemTest extends TestCase {
 
-    public function testOutput() {
-        $li = new ListItem('Item 1');
-        $output = $li->__toString();
-        $expected = '<li>Item 1</li>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for list item element');
-    }
+  public function testOutput() {
+    $li = new ListItem('Item 1');
+    $output = $li->__toString();
+    $expected = '<li>Item 1</li>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for list item element');
+  }
 }

@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Head;
-use \Oboe\Head\StyleSheet;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,34 +11,37 @@ use \Oboe\Head\StyleSheet;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
+namespace oboe\test\output\head;
+
+use \oboe\head\StyleSheet;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Head_StyleSheet class.
+ * This class tests the output of the oboe\head\StyleSheet class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output/head
  */
-class StyleSheetTest extends \PHPUnit_Framework_TestCase {
+class StyleSheetTest extends TestCase {
 
-    public function testOutput() {
-        $sheet = new StyleSheet('/css/style.css');
-        $output = $sheet->__toString();
-        $expected = '<link rel="stylesheet" href="/css/style.css" '.
-            'type="text/css"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for stylesheet element');
+  public function testOutput() {
+    $sheet = new StyleSheet('/css/style.css');
+    $output = $sheet->__toString();
+    $expected = '<link rel="stylesheet" href="/css/style.css" '.
+      'type="text/css"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for stylesheet element');
 
-        $sheet = new StyleSheet('/css/style.css', 'print');
-        $output = $sheet->__toString();
-        $expected = '<link rel="stylesheet" href="/css/style.css" '.
-            'type="text/css" media="print"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for stylesheet element with media');
-    }
+    $sheet = new StyleSheet('/css/style.css', 'print');
+    $output = $sheet->__toString();
+    $expected = '<link rel="stylesheet" href="/css/style.css" '.
+      'type="text/css" media="print"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for stylesheet element with media');
+  }
 }

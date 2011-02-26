@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output;
-use \OboeTest\Mock;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,49 +11,49 @@ use \OboeTest\Mock;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
+namespace oboe\test\output;
+
+use \oboe\test\mock;
+
+use \PHPUnit_Framework_TestCase as TestCase;
  
 require_once __DIR__ . '/../test-common.php';
 
 /**
  * This class tests the output of the concrete methods of the
- * Oboe_ElementWrapper abstract class using a mock.
+ * oboe\ElementWrapper abstract class using a mock.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe/test/output
  */
-class ElementWrapperTest extends \PHPUnit_Framework_TestCase {
+class ElementWrapperTest extends TestCase {
 
-    public function testSetElement() {
-        $mock = new Mock\ElementWrapper();
-        $mock->add('Hello, world');
-        $output = $mock->__toString();
-        $expected = '<mock>Hello, world</mock>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for mock element');
+  public function testSetElement() {
+    $mock = new Mock\ElementWrapper();
+    $mock->add('Hello, world');
+    $output = $mock->__toString();
+    $expected = '<mock>Hello, world</mock>';
+    $this->assertEquals($expected, $output, 'Invalid output for mock element');
 
-        $mock->setElement('I\'m alive');
-        $output = $mock->__toString();
-        $expected = '<mock>I\'m alive</mock>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for mock element');
+    $mock->setElement('I\'m alive');
+    $output = $mock->__toString();
+    $expected = '<mock>I\'m alive</mock>';
+    $this->assertEquals($expected, $output, 'Invalid output for mock element');
 
-        $mock->setElement(new Mock\ElementWrapper());
-        $output = $mock->__toString();
-        $expected = '<mock><mock></mock></mock>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for mock element');
-    }
+    $mock->setElement(new Mock\ElementWrapper());
+    $output = $mock->__toString();
+    $expected = '<mock><mock></mock></mock>';
+    $this->assertEquals($expected, $output, 'Invalid output for mock element');
+  }
 
-    /**
-     * @expectedException Oboe\Exception
-     */
-    public function testAddSecondElement() {
-        $mock = new Mock\ElementWrapper();
-        $mock->add('Hello');
-        $mock->add(', world');
-    }
+  /**
+   * @expectedException Oboe\Exception
+   */
+  public function testAddSecondElement() {
+    $mock = new Mock\ElementWrapper();
+    $mock->add('Hello');
+    $mock->add(', world');
+  }
 }

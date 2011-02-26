@@ -1,6 +1,4 @@
 <?php
-namespace OboeTest\Output\Form;
-use \Oboe\Form\Hidden;
 /**
  * =============================================================================
  * Copyright (c) 2010, Philip Graham
@@ -13,26 +11,29 @@ use \Oboe\Form\Hidden;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
- * @subpackage Output
+ * @package oboe\test\output\form
  */
+namespace oboe\test\output\form;
+
+use \oboe\form\Hidden;
+
+use \PHPUnit_Framework_TestCase as TestCase;
 
 require_once __DIR__ . '/../../test-common.php';
 
 /**
- * This class tests the output of the Oboe_Form_Hidden class.
+ * This class tests the output of the oboe\form\Hidden class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Output
+ * @package oboe\test\output\form
  */
-class HiddenTest extends \PHPUnit_Framework_TestCase {
+class HiddenTest extends TestCase {
 
-    public function testOutput() {
-        $hidden = new Hidden('whosgreat', 'philip');
-        $output = $hidden->__toString();
-        $expected = '<input type="hidden" name="whosgreat" value="philip"/>';
-        $this->assertEquals($expected, $output,
-            'Invalid output for hidden input element');
-    }
+  public function testOutput() {
+    $hidden = new Hidden('whosgreat', 'philip');
+    $output = $hidden->__toString();
+    $expected = '<input type="hidden" name="whosgreat" value="philip"/>';
+    $this->assertEquals($expected, $output,
+      'Invalid output for hidden input element');
+  }
 }
