@@ -21,7 +21,7 @@ namespace oboe;
  * @author Philip Graham <philip@lightbox.org>
  * @package oboe
  */
-class Heading extends ElementWrapper implements Item\Body, Item\Form {
+class Heading extends ElementWrapper implements item\Body, item\Form {
 
   /**
    * Constructor.

@@ -21,7 +21,7 @@ namespace oboe;
  * @author Philip Graham <philip@lightbox.org>
  * @package oboe
  */
-class Image extends ElementBase implements Item\Body, Item\Form {
+class Image extends ElementBase implements item\Body, item\Form {
 
   /**
    * Constructor.
