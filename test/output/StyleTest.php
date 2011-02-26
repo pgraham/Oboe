@@ -44,14 +44,14 @@ class StyleTest extends TestCase {
     // selector
     $rule = $style->add('div.pageComponent', new Property('position',
       'absolute'));
-    $this->assertEquals('Oboe\Style\Rule', get_class($rule),
-      'Returned element was not a Oboe\Style\Rule');
+    $this->assertEquals('oboe\style\Rule', get_class($rule),
+      'Returned element was not a oboe\style\Rule');
 
     // Add the declared property to the rule with the given selector
     $rule = $style->add('div.componentContentWrapper', 'position',
       'relative');
-    $this->assertEquals('Oboe\Style\Rule', get_class($rule),
-      'Returned element was not a Oboe\Style\Rule');
+    $this->assertEquals('oboe\style\Rule', get_class($rule),
+      'Returned element was not a oboe\style\Rule');
 
     // Make sure that output is good
     $output = $style->__toString();

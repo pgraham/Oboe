@@ -15,9 +15,8 @@
  */
 namespace oboe\test\output;
 
+use \oboe\test\mock\ElementComposite;
 use \oboe\Anchor;
-use \oboe\ElementComposite;
-use \oboeTest\Mock;
 
 use \PHPUnit_Framework_TestCase as TestCase;
 
@@ -33,7 +32,7 @@ require_once __DIR__ .'/../test-common.php';
 class ElementCompositeTest extends TestCase {
 
   public function testAddString() {
-    $mock = new Mock\ElementComposite();
+    $mock = new ElementComposite();
     $mock->add('Hello, world');
 
     $output = $mock->__toString();
@@ -42,7 +41,7 @@ class ElementCompositeTest extends TestCase {
   }
 
   public function testAddMultipleStrings() {
-    $mock = new Mock\ElementComposite();
+    $mock = new ElementComposite();
     $mock->add('Hello');
     $mock->add(', world');
 
@@ -52,7 +51,7 @@ class ElementCompositeTest extends TestCase {
   }
 
   public function testUnshiftString() {
-    $mock = new Mock\ElementComposite();
+    $mock = new ElementComposite();
     $mock->add(', world');
     $mock->add('Hello', ElementComposite::UNSHIFT);
 
@@ -62,9 +61,9 @@ class ElementCompositeTest extends TestCase {
   }
 
   public function testAddObject() {
-    $mock = new Mock\ElementComposite();
+    $mock = new ElementComposite();
 
-    $helloWorld = new Mock\ElementComposite();
+    $helloWorld = new ElementComposite();
     $helloWorld->add('Hello, world');
 
     $mock->add($helloWorld);
@@ -75,11 +74,11 @@ class ElementCompositeTest extends TestCase {
   }
 
   public function testAddMultipleObjects() {
-    $mock = new Mock\ElementComposite();
+    $mock = new ElementComposite();
 
-    $hello = new Mock\ElementComposite();
+    $hello = new ElementComposite();
     $hello->add('Hello');
-    $world = new Mock\ElementComposite();
+    $world = new ElementComposite();
     $world->add(', world');
 
     $mock->add($hello);
@@ -91,15 +90,15 @@ class ElementCompositeTest extends TestCase {
   }
 
   public function testUnshiftObject() {
-    $mock = new Mock\ElementComposite();
+    $mock = new ElementComposite();
 
-    $hello = new Mock\ElementComposite();
+    $hello = new ElementComposite();
     $hello->add('Hello');
-    $world = new Mock\ElementComposite();
+    $world = new ElementComposite();
     $world->add(', world');
 
     $mock->add($world);
-    $mock->add($hello, ElementComposite::UNSHIFT);
+    $mock->add($hello, \oboe\ElementComposite::UNSHIFT);
 
     $output = $mock->__toString();
     $expected = '<mock><mock>Hello</mock><mock>, world</mock></mock>';
@@ -110,7 +109,7 @@ class ElementCompositeTest extends TestCase {
    * @expectedException Oboe\Exception
    */
   public function testAddInvalidObject() {
-    $mock = new Mock\ElementComposite();
+    $mock = new ElementComposite();
     $mock->add(new Anchor('#', 'Click me'));
   }
 }

@@ -48,8 +48,8 @@ class ListElTest extends TestCase {
     $list = new ListEl(BaseList::UNORDERED);
     
     $li = $list->add('YAY');
-    $this->assertEquals('Oboe\ListItem', get_class($li),
-      'Returned class was not a Oboe_ListItem');
+    $this->assertEquals('oboe\ListItem', get_class($li),
+      'Returned class was not a oboe\ListItem');
 
     $output = $list->__toString();
     $expected = '<ul><li>YAY</li></ul>';

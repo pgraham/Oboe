@@ -21,7 +21,7 @@ namespace oboe;
  * @author Philip Graham <philip@lightbox.org>
  * @package oboe
  */
-class Form extends ElementWrapper implements Item\Body {
+class Form extends ElementWrapper implements item\Body {
 
   /** The CSS class of the div used to encapsulate the form's contents */
   const DIV_CSS_CLASS = 'formContainer';
@@ -55,7 +55,7 @@ class Form extends ElementWrapper implements Item\Body {
     $this->_hasUpload = false;
 
     // Set the wrapper's element to a Form_Div
-    $this->_container = new Form\Div(null, self::DIV_CSS_CLASS);
+    $this->_container = new form\Div(null, self::DIV_CSS_CLASS);
     $this->_objectTypes = array('oboe\form\Div');
     $this->_elements[0] = $this->_container;
   }

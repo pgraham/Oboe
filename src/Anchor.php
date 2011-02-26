@@ -21,7 +21,7 @@ namespace oboe;
  * @author Philip Graham <philip@lightbox.org>
  * @package oboe
  */
-class Anchor extends ElementWrapper implements Item\Body, Item\Form {
+class Anchor extends ElementWrapper implements item\Body, item\Form {
 
   private $_item;
 

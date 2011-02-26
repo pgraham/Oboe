@@ -36,7 +36,7 @@ class RuleTest extends TestCase {
     $rule->add(new Property('font-weight', 'bold'));
 
     $prop = $rule->add('text-decoration', 'underline');
-    $this->assertEquals('Oboe\Style\Property', get_class($prop),
+    $this->assertEquals('oboe\style\Property', get_class($prop),
       'Returned wrapper was not a Oboe_Style_Property instance');
 
     $output = $rule->__toString();

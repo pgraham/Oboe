@@ -15,7 +15,7 @@
  */
 namespace oboe\test\output\head;
 
-use \Oboe\Head\FavIcon;
+use \oboe\head\FavIcon;
 
 use \PHPUnit_Framework_TestCase as TestCase;
 

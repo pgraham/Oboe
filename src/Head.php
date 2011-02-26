@@ -70,7 +70,7 @@ class Head extends ElementComposite {
    */
   public function __toString() {
     if ($this->_title !== null) {
-      $this->add(new Head\Title($this->_title),
+      $this->add(new head\Title($this->_title),
         ElementComposite::UNSHIFT);
     }
     return parent::__toString();

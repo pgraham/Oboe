@@ -33,7 +33,7 @@ class ExceptionTest extends TestCase {
     try {
       throw new Exception('I am a content exception');
     } catch (Exception $e) {
-      $this->assertEquals('I am a content exception', $e->getMessage(),
+      $this->assertEquals('Oboe: I am a content exception', $e->getMessage(),
         'Invalid message for caught exception');
     }
   }
