@@ -31,7 +31,7 @@ abstract class ElementBase implements item\Document {
   protected $_id;
 
   /** The element's css class attribute */
-  protected $_class;
+  protected $_class = Array();
 
   /** The element's style attribute */
   protected $_style;
@@ -49,9 +49,12 @@ abstract class ElementBase implements item\Document {
   protected function __construct($tag, $id = null, $class = null) {
     $this->_tag = $tag;
     $this->_id = $id;
-    $this->_class = $class;
     $this->_attributes = array();
     $this->_style = array();
+
+    if ($class !== null) {
+      $this->setClass($class);
+    }
   }
 
   /**
@@ -66,6 +69,15 @@ abstract class ElementBase implements item\Document {
     // Make the opening tag self closing
     $str = substr($str, 0, -1).'/>';
     return $str;
+  }
+
+  /** 
+   * Add the given class name to the element.
+   *
+   * @param string $class
+   */
+  public function addClass($class) {
+    $this->_class[] = $class;
   }
 
   /**
@@ -113,7 +125,7 @@ abstract class ElementBase implements item\Document {
    * @return string
    */
   public function getClass() {
-    return $this->_class;
+    return implode(' ', $this->_class);
   }
 
   /**
@@ -185,7 +197,7 @@ abstract class ElementBase implements item\Document {
    * @param string The value for the element's class attribute.
    */
   public function setClass($class) {
-    $this->_class = $class;
+    $this->_class = explode(' ', $class);
   }
 
   /**
@@ -233,8 +245,8 @@ abstract class ElementBase implements item\Document {
     if ($element->_id !== null) {
       $str.= ' id="'.$element->_id.'"';
     }
-    if ($element->_class !== null) {
-      $str.= ' class="'.$element->_class.'"';
+    if (count($element->_class) > 0) {
+      $str.= ' class="' . implode(' ', $element->_class) . '"';
     }
         
     if (count($element->_style) > 0) {
