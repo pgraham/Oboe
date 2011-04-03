@@ -91,6 +91,15 @@ abstract class ElementComposite extends ElementBase {
     }
   }
 
+  /**
+   * Get the number of children contained by the element.
+   *
+   * @return integer
+   */
+  public function getChildCount() {
+    return count($this->_elements);
+  }
+
   /** 
    * This method removes all of the element's children.
    */

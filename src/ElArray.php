@@ -53,6 +53,13 @@ class ElArray implements Item\Document, Item\Body, \ArrayAccess, \Countable,
   }
 
   /**
+   * Add the encapsulated elements to the body.
+   */
+  public function addToBody() {
+    Page::addElementToBody($this);
+  }
+
+  /**
    * Add an element to the end array.
    *
    * @param IPageItem the item to add to the array.
