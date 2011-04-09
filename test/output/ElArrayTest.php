@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/output
  */
 namespace oboe\test\output;
 
@@ -27,7 +26,6 @@ require_once __DIR__ . '/../test-common.php';
  * This class tests the output of the oboe\Array class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/test/output
  */
 class ElArrayTest extends TestCase {
 

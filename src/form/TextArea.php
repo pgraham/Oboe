@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\form;
 use \oboe\ElementWrapper;
@@ -21,7 +20,6 @@ use \oboe\item;
  * This class encapsulates a <textarea> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class TextArea extends ElementWrapper implements item\Form {
 

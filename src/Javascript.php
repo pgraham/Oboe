@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -20,7 +19,6 @@ namespace oboe;
  * <body> or <head> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 class Javascript extends ElementWrapper implements Item\Body, Item\Head {
 

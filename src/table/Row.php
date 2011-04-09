@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/table
  */
 namespace oboe\table;
 use \oboe\ElementComposite;
@@ -20,7 +19,6 @@ use \oboe\ElementComposite;
  * This class encapsulates a <tr> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/table
  */
 class Row extends ElementComposite {
 

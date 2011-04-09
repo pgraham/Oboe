@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -24,7 +23,6 @@ namespace oboe;
  * can also be overridden.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 class Page extends ElementComposite {
 

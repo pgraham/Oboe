@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\form;
 use \oboe\ElementComposite;
@@ -21,7 +20,6 @@ use \oboe\item;
  * This class represents a <span> element that can be added to forms.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class Span extends ElementComposite implements item\Form {
 

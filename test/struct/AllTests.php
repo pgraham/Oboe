@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/struct;
  */
 namespace oboe\test\struct;
 
@@ -24,7 +23,6 @@ require_once __DIR__ . '/../test-common.php';
  * methods.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/test/struct;
  */
 class AllTests { 
   public static function suite() {

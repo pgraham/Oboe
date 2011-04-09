@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -20,7 +19,6 @@ namespace oboe;
  * one <body> element it is implemented as a singleton.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 final class Body extends ElementComposite {
 

@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/text
  */
 namespace oboe\text;
 use \oboe\ElementBase;
@@ -21,7 +20,6 @@ use \oboe\item;
  * This class encapsulates a specified number of <br/> elements.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/text
  */
 class VSpace extends ElementBase implements item\Body, item\Form {
 

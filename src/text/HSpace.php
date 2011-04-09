@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/text
  */
 namespace oboe\text;
 use \oboe\item;
@@ -21,7 +20,6 @@ use \oboe\item;
  * the specified number of html space entities (&amp;nbsp;).
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/text
  */
 class HSpace implements item\Document, item\Body, item\Form {
 

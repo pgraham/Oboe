@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\Form;
 
@@ -22,7 +21,6 @@ use \oboe\item;
  * This class encapsulates an <input/> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class Input extends ElementBase implements item\Form {
 

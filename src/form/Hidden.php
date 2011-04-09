@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\Form;
 
@@ -19,7 +18,6 @@ namespace oboe\Form;
  * This class encapsulates an <input/> item with type="hidden".
  *
  * @author <a href="mailto:philip@lightbox.com">Philip Graham</a>
- * @package oboe/form
  */
 class Hidden extends Input {
 

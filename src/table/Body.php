@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/table
  */
 namespace oboe\table;
 
@@ -19,7 +18,6 @@ namespace oboe\table;
  * This class encapsulates a <tbody> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/table
  */
 class Body extends RowContainer {
 

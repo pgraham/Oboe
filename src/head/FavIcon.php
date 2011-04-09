@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/head
  */
 namespace oboe\head;
 
@@ -19,7 +18,6 @@ namespace oboe\head;
  * This class encapsulates a favorites icon element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/head
  */
 class FavIcon extends Link {
 

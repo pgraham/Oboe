@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\Form;
 use \oboe\BaseList;
@@ -21,7 +20,6 @@ use \oboe\Item;
  * This class encapsulates a list element, either &lt;ul&gt; or &lt;ol&gt;.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class ListEl extends BaseList implements Item\Form {
 

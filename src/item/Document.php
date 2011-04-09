@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/item
  */
 namespace oboe\item;
 
@@ -20,7 +19,6 @@ namespace oboe\item;
  * represent an element that can belong to a generated (X)HTML document.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/item
  */
 interface Document {
 

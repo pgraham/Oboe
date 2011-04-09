@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe\test\output\style
  */
 namespace oboe\test\output\style;
 
@@ -25,7 +24,6 @@ require_once __DIR__ . '/../../test-common.php';
  * This class tests the output of the oboe\StyleProperty class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe\test\output\style
  */
 class PropertyTest extends TestCase {
 

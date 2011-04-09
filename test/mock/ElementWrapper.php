@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/mock
  */
 namespace oboe\test\mock;
 
@@ -20,8 +19,6 @@ namespace oboe\test\mock;
  * Oboe_ElementWrapper class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
- * @subpackage Mock
  */
 class ElementWrapper extends \oboe\ElementWrapper {
 

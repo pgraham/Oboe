@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/head
  */
 namespace oboe\head;
 use \oboe\ElementBase;
@@ -21,7 +20,6 @@ use \oboe\item;
  * This class encapsulates a <link/> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/head
  */
 class Link extends ElementBase implements item\Head {
 

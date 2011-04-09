@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -23,7 +22,6 @@ namespace oboe;
  * ONLY NUMERIC, INCREMENTAL ACCESS IS SUPPORTED.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 class ElArray implements Item\Document, Item\Body, \ArrayAccess, \Countable,
   \Iterator

@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -20,7 +19,6 @@ namespace oboe;
  * added to the Body.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 class ListEl extends BaseList implements item\Body {
     

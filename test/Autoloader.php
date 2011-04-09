@@ -12,7 +12,6 @@ namespace OboeTest;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test
  */
 namespace oboe\test;
 
@@ -20,7 +19,6 @@ namespace oboe\test;
  * Autoloader for test cases and mock classes.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
  */
 class Autoloader {
 

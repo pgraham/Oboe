@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/output/table
  */
 namespace oboe\test\output\table;
 
@@ -27,7 +26,6 @@ require_once __DIR__ . '/../../test-common.php';
  * This class tests the oboe\table\Foot class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/test/output/table
  */
 class FootTest extends TestCase {
   

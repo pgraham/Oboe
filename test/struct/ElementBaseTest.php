@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/struct
  */
 namespace oboe\test\struct;
 
@@ -26,7 +25,6 @@ require_once __DIR__ . '/../test-common.php';
  * abstract class using mocks
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/test/struct
  */
 class ElementBaseTest extends TestCase {
 

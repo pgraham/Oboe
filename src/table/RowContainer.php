@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/table
  */
 namespace oboe\table;
 use \oboe\ElementComposite;
@@ -22,7 +21,6 @@ use \oboe\ElementComposite;
  * <tbody> elements.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/table
  */
 abstract class RowContainer extends ElementComposite {
 

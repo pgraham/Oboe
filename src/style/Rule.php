@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/style
  */
 namespace oboe\style;
 use \oboe\item;
@@ -20,7 +19,6 @@ use \oboe\item;
  * This class encapsulates a css style rule.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/style
  */
 class Rule implements item\Document {
 

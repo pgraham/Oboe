@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/item
  */
 namespace oboe\item;
 
@@ -19,6 +18,5 @@ namespace oboe\item;
  * This interface defines objects that can be added to the <body> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/item
  */
 interface Body {}

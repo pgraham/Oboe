@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -20,7 +19,6 @@ namespace oboe;
  * most one <thead> and <tfoot> elements and one or more <tbody> elements
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 class Table extends ElementComposite implements item\Body, item\Form {
 

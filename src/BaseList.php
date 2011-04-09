@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -21,7 +20,6 @@ namespace oboe;
  * the list will be added to the document.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 abstract class BaseList extends ElementComposite {
 

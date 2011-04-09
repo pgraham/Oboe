@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -20,9 +19,9 @@ namespace oboe;
  * single element.  It extends the ElementComposite class to enforce that at
  * most one element is added to the wrapped element.
  *
+ * TODO refactor this class to require an element
+ *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
- * @todo refactor this class to require an element
  */
 abstract class ElementWrapper extends ElementComposite {
     

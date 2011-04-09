@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/output
  */
 namespace oboe\test\output;
 
@@ -26,7 +25,6 @@ require_once __DIR__ . '/../test-common.php';
  * oboe\ElementWrapper abstract class using a mock.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/test/output
  */
 class ElementWrapperTest extends TestCase {
 

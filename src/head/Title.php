@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/head
  */
 namespace oboe\head;
 use \oboe\item;
@@ -20,7 +19,6 @@ use \oboe\item;
  * This class encapsulates a &lt;title&gt; element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/head
  */
 class Title implements item\Document, item\Head {
 

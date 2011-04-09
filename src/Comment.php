@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -20,7 +19,6 @@ namespace oboe;
  * <!-- ... --> tags
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 class Comment implements item\Document, item\Head, item\Body, item\Form {
 

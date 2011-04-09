@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/table
  */
 namespace oboe\table;
 use \oboe\ElementWrapper;
@@ -20,7 +19,6 @@ use \oboe\ElementWrapper;
  * This class encapsulates a <td> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/table
  */
 class Data extends ElementWrapper {
 

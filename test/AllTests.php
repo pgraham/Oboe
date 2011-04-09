@@ -12,7 +12,6 @@ namespace OboeTest;
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package OboeTest
  */
 namespace oboe\test;
 
@@ -24,7 +23,6 @@ require_once __DIR__ . '/test-common.php';
  * This class builds the complete test suite for Oboe.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package OboeTest
  */
 class AllTests {
 

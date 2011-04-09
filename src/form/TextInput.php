@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\form;
 
@@ -19,7 +18,6 @@ namespace oboe\form;
  * This class encapsulates a <input/> element with type="text".
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class TextInput extends Input {
 

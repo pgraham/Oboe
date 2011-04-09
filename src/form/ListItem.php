@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\form;
 use \oboe\ElementWrapper;
@@ -20,7 +19,6 @@ use \oboe\ElementWrapper;
  * This class ecapsulates a <li> element when it's part of a form.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class ListItem extends ElementWrapper {
 

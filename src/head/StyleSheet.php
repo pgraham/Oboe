@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/head
  */
 namespace oboe\head;
 
@@ -20,7 +19,6 @@ namespace oboe\head;
  * type="text/css".
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/head
  */
 class StyleSheet extends Link {
 

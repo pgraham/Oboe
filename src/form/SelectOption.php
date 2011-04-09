@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\form;
 use \oboe\ElementWrapper;
@@ -20,7 +19,6 @@ use \oboe\ElementWrapper;
  * This class encapsulates an <option> element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class SelectOption extends ElementWrapper {
 

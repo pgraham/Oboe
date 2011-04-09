@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe
  */
 namespace oboe;
 
@@ -19,7 +18,6 @@ namespace oboe;
  * This class encapsulates an anchor element.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe
  */
 class Anchor extends ElementWrapper implements item\Body, item\Form {
 

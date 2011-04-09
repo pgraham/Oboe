@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/mock
  */
 namespace oboe\test\mock;
 
@@ -20,7 +19,6 @@ namespace oboe\test\mock;
  * class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe\test\mock
  */
 class BaseList extends \oboe\BaseList {
 

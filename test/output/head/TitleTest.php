@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/output/head
  */
 namespace oboe\test\output\head;
 
@@ -25,7 +24,6 @@ require_once __DIR__ . '/../../test-common.php';
  * This class tests the output of the oboe\head\Title class.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/test/output/head
  */
 class TitleTest extends TestCase {
   

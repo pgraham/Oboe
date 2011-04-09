@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/output/head
  */
 namespace oboe\test\output\head;
 
@@ -23,7 +22,6 @@ require_once __DIR__ . '/../../test-common.php';
  * This class builds the suite of all oboe\head\* test cases.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/test/output/head
  */
 class AllTests {
     

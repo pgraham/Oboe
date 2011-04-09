@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/form
  */
 namespace oboe\form;
 
@@ -21,7 +20,6 @@ use \oboe\item;
  * This class encapsulates a <div> element that can be added to <form> elements.
  *
  * @author Philip Graham <philip@lightbox.org>
- * @package oboe/form
  */
 class Div extends ElementComposite implements item\Form {
 

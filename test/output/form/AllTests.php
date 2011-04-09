@@ -11,7 +11,6 @@
  * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
- * @package oboe/test/output/form
  */
 namespace oboe\test\output\form;
 
@@ -23,7 +22,6 @@ require_once __DIR__ . '/../../test-common.php';
  * This class builds the suite of all OboeTest_Output_Form_* test cases.
  *
  * @author <a href="mailto:philip@lightbox.org">Philip Graham</a>
- * @package oboe/test/output/form
  */
 class AllTests {
 
