@@ -1,2 +1,3 @@
 - Rename item\Body, item\Head, etc. to item\BodyItem, item\HeadItem, etc.
 - Add addToBody method to Item\Body interface and addToHead method to Item\Head   interface.
+- Figure out a way to allow form items to be added to a table.

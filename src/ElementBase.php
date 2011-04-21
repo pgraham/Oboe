@@ -155,13 +155,13 @@ abstract class ElementBase implements item\Document {
    * For style attributes, use the set style method.  If the attribute name
    * is the same as the attribute value the value can be omitted,
    * e.g. $element->setAttribute('selected') results in the attribute being
-   * output as selected="selected.
+   * output as selected="selected".
    *
    * This method can also be used as a shorthand for setting the style
    * attribute:
    * <code>
    *     $element->setAttribute('style', 'position:absolute;top:0px;');
-   *     $element->setStyle('position');  // absolute
+   *     $element->getStyle('position');  // absolute
    * </code>
    *
    * @param string The attribute to set

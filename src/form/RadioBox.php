@@ -12,28 +12,27 @@
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
-namespace oboe\table;
+namespace oboe\form;
 
-use \oboe\ElementWrapper;
+use oboe\item\Body as BodyItem;
 
 /**
- * This class encapsulates a <td> element.
+ * This class encapsulates a radio box.
  *
- * @author Philip Graham <philip@lightbox.org>
+ * TODO Once table object's can accept form items, this should implement
+ *      item\Body
+ *
+ * @author Philip Graham <philip@zeptech.ca>
  */
-class Data extends ElementWrapper {
+class RadioBox extends Input implements BodyItem {
 
   /**
-   * Constructor.
+   * Create a new radio box.
    *
-   * @param mixed The contents of the cell
-   * @param string The value of the element's id attribute
-   * @param string The value of the element's class attribute
+   * @param string $name The name of the group to which the box belongs.
+   * @param string $value The value of the radio box
    */
-  public function __construct($contents = null, $id = null, $class = null) {
-    parent::__construct('td', $id, $class);
-    if ($contents !== null) {
-      $this->setElement($contents);
-    }
+  public function __construct($name, $value) {
+    parent::__construct('radio', 'radio', $name, $value);
   }
 }

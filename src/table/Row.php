@@ -13,6 +13,8 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\table;
+
+use \oboe\table\Data;
 use \oboe\ElementComposite;
 
 /**
@@ -32,5 +34,22 @@ class Row extends ElementComposite {
     parent::__construct('tr', $id, $class);
     $this->_objectTypes = array('oboe\table\Data');
     $this->_allowText = false;
+  }
+
+  /**
+   * Add a cell with the given content and return the cell.
+   *
+   * @param mixed $content The content to add in the cell.
+   * @param string $class Optional CSS class to apply to the cell.
+   * @return Data The created cell.
+   */
+  public function addCell($content, $class = null) {
+    $cell = new Data($content);
+    $this->add($cell);
+
+    if ($class !== null) {
+      $cell->setClass($class);
+    }
+    return $cell;
   }
 }

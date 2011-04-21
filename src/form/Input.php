@@ -12,17 +12,17 @@
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
-namespace oboe\Form;
+namespace oboe\form;
 
 use \oboe\ElementBase;
-use \oboe\item;
+use \oboe\item\Form as FormItem;
 
 /**
  * This class encapsulates an <input/> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Input extends ElementBase implements item\Form {
+class Input extends ElementBase implements FormItem {
 
   /**
    * Constructor.
