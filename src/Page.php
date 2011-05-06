@@ -163,7 +163,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function bodyAdd(Body $element) {
+  protected function bodyAdd(BodyItem $element) {
     $this->_body->add($element);
   }
 
@@ -173,7 +173,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function headAdd(Head $element) {
+  protected function headAdd(HeadItem $element) {
     $this->_head->add($element);
   }
 
