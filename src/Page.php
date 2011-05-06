@@ -14,6 +14,10 @@
  */
 namespace oboe;
 
+use \oboe\head\Charset;
+use \oboe\item\Body as BodyItem;
+use \oboe\item\Head as HeadItem;
+
 /**
  * This class encapsulates the document's DOCTYPE declaration as well as its
  * <html> element. Since only one document is output at a time, this class is
@@ -37,7 +41,7 @@ class Page extends ElementComposite {
    *
    * @param item\Body The item to add
    */
-  public static function addElementToBody(item\Body $element) {
+  public static function addElementToBody(BodyItem $element) {
     self::getInstance()->bodyAdd($element);
   }
     
@@ -46,7 +50,7 @@ class Page extends ElementComposite {
    *
    * @param item\Head The item to add
    */
-  public static function addElementToHead(item\Head $element) {
+  public static function addElementToHead(HeadItem $element) {
     self::getInstance()->headAdd($element);
   }
 
@@ -114,13 +118,16 @@ class Page extends ElementComposite {
   protected function __construct() {
     parent::__construct('html', null, null);
     $this->_objectTypes = array('oboe\Head', 'oboe\Body');
-    $this->setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    $this->setAttribute('lang', 'en');
 
     $this->_head = Head::getInstance();
     $this->_body = Body::getInstance();
 
     parent::add($this->_head);
     parent::add($this->_body);
+
+    // TODO - Make this configurable
+    $this->_head->add(new Charset('UTF-8'));
   }
 
   /**
@@ -129,9 +136,7 @@ class Page extends ElementComposite {
    * @return string
    */
   public function __toString() {
-    $docType = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
-    $docType.= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"'
-      . ' "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">'."\n";
+    $docType = '<!DOCTYPE html>' . "\n";
 
     return $docType . parent::__toString();
   }
@@ -158,7 +163,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function bodyAdd(item\Body $element) {
+  protected function bodyAdd(Body $element) {
     $this->_body->add($element);
   }
 
@@ -168,7 +173,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function headAdd(item\Head $element) {
+  protected function headAdd(Head $element) {
     $this->_head->add($element);
   }
 

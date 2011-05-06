@@ -13,30 +13,25 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\head;
-use \oboe\ElementBase;
+
 use \oboe\item\Head as HeadItem;
+use \oboe\ElementBase;
 
 /**
- * This class encapsulates a <meta/> element.
+ * Character set identifier.  An instance of this element is automatically added
+ * to the head by the Page object.
  *
- * @author Philip Graham <philip@lightbox.org>
+ * @author Philip Graham <philip@zeptech.ca>
  */
-class MetaTag extends ElementBase implements HeadItem {
+class Charset extends ElementBase implements HeadItem {
 
   /**
    * Constructor.
    *
-   * @param string the name of the meta attribute
-   * @param string the content of the meta attribute, if an array is given it
-   *     will be output as a comma-delimited list
+   * @param string The character set identified by this element.
    */
-  public function __construct($name, $content) {
+  public function __construct($charset) {
     parent::__construct('meta');
-    $this->setAttribute('name', $name);
-    if (is_array($content)) {
-      $this->setAttribute('content', implode(',', $content));
-    } else {
-      $this->setAttribute('content', $content);
-    }
+    $this->setAttribute('charset', $charset);
   }
 }
