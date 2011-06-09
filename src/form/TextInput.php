@@ -14,12 +14,14 @@
  */
 namespace oboe\form;
 
+use \oboe\item\Body as BodyItem;
+
 /**
  * This class encapsulates a <input/> element with type="text".
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class TextInput extends Input {
+class TextInput extends Input implements BodyItem {
 
   /** Default CSS class for 'text' <input> elements */
   const CSS_CLASS = 'text';
@@ -32,5 +34,14 @@ class TextInput extends Input {
    */
   public function __construct($name, $value = null) {
     parent::__construct('text', self::CSS_CLASS, $name, $value);
+  }
+
+  /**
+   * Setter for the textbox's text.
+   *
+   * @param string $text The text to set.
+   */
+  public function setText($text) {
+    $this->setAttribute('value', $text);
   }
 }

@@ -14,14 +14,14 @@
  */
 namespace oboe\table;
 
-use \oboe\ElementWrapper;
+use \oboe\ElementComposite;
 
 /**
  * This class encapsulates a <td> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Data extends ElementWrapper {
+class Data extends ElementComposite {
 
   /**
    * Constructor.
@@ -33,7 +33,7 @@ class Data extends ElementWrapper {
   public function __construct($contents = null, $id = null, $class = null) {
     parent::__construct('td', $id, $class);
     if ($contents !== null) {
-      $this->setElement($contents);
+      $this->add($contents);
     }
   }
 }

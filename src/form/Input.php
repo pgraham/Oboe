@@ -20,9 +20,11 @@ use \oboe\item\Form as FormItem;
 /**
  * This class encapsulates an <input/> element.
  *
+ * TODO - Create a HasValue interface and have this class implement it
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Input extends ElementBase implements FormItem {
+abstract class Input extends ElementBase implements FormItem {
 
   /**
    * Constructor.

@@ -14,12 +14,14 @@
  */
 namespace oboe;
 
+use \oboe\item\Body as BodyItem;
+
 /**
  * This class encapsulates a <span> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Span extends ElementComposite implements Item\Body {
+class Span extends ElementComposite implements BodyItem {
 
   /**
    * Constructor.

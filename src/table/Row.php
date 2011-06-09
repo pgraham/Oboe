@@ -39,11 +39,18 @@ class Row extends ElementComposite {
   /**
    * Add a cell with the given content and return the cell.
    *
-   * @param mixed $content The content to add in the cell.
+   * @param mixed $content The content to add in the cell.  If a Data instance
+   *   is given as the content then the Data is added to the row, the class
+   *   parameter is ignored and nothing is returned.
    * @param string $class Optional CSS class to apply to the cell.
    * @return Data The created cell.
    */
   public function addCell($content, $class = null) {
+    if ($content instanceof Data) {
+      $this->add($content);
+      return;
+    }
+
     $cell = new Data($content);
     $this->add($cell);
 

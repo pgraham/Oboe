@@ -17,19 +17,32 @@ namespace oboe\form;
 use oboe\item\Body as BodyItem;
 
 /**
- * This class encapsulates a radio box.
+ * This class encapsulates a check box input control.
  *
  * @author Philip Graham <philip@zeptech.ca>
  */
-class RadioBox extends Input implements BodyItem {
+class Checkbox extends Input implements BodyItem {
 
   /**
-   * Create a new radio box.
+   * Create a new check box.
    *
-   * @param string $name The name of the group to which the box belongs.
-   * @param string $value The value of the radio box
+   * @param string $name The name of the checkbox.
+   * @param string $value The value of the checkbox.
    */
-  public function __construct($name, $value) {
-    parent::__construct('radio', 'radio', $name, $value);
+  public function __construct($name, $value = 'y') {
+    parent::__construct('checkbox', 'checkbox', $name, $value);
+  }
+
+  /**
+   * Set the checked state of the checkbox.
+   *
+   * @param boolean $checked Whether or not to check the box.
+   */
+  public function setChecked($checked) {
+    if ($checked) {
+      $this->setAttribute('checked');
+    } else {
+      $this->unsetAttribute('checked');
+    }
   }
 }
