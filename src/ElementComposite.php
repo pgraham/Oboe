@@ -87,6 +87,8 @@ abstract class ElementComposite extends ElementBase {
         array_unshift($this->_elements, $element);
       }
     }
+
+    return $this;
   }
 
   /**
@@ -103,6 +105,7 @@ abstract class ElementComposite extends ElementBase {
    */
   public function removeAll() {
     $this->_elements = array();
+    return $this;
   }
 
   /**
@@ -117,7 +120,7 @@ abstract class ElementComposite extends ElementBase {
     // the composite
     if (!is_object($child)) {
       if (!$parent->_allowText) {
-        throw new Exception('Text can not be added directly to a '
+        throw new Exception('Text cannot be added directly to a '
           . get_class($parent) . ' object');
       }
       return;
@@ -125,7 +128,7 @@ abstract class ElementComposite extends ElementBase {
 
     // Make sure that object's can be added to the composite
     if ($parent->_objectTypes === null || count($parent->_objectTypes) == 0) {
-      throw new Exception('Objects can\'t be added to a '. get_class($parent)
+      throw new Exception('Objects cannot be added to a '. get_class($parent)
         . ' element');
     }
 
