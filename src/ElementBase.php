@@ -73,9 +73,12 @@ abstract class ElementBase implements item\Document {
    * Add the given class name to the element.
    *
    * @param string $class
+   * @return $this For chainability
    */
   public function addClass($class) {
     $this->_class[] = $class;
+
+    return $this;
   }
 
   /**
@@ -166,6 +169,7 @@ abstract class ElementBase implements item\Document {
    *
    * @param string The attribute to set
    * @param string The value of the attribute
+   * @return $this
    */
   public function setAttribute($attribute, $value = null) {
     if ($value === null) {
@@ -187,24 +191,32 @@ abstract class ElementBase implements item\Document {
     } else {
       $this->_attributes[$attribute] = $value;
     }
+
+    return $this;
   }
 
   /**
    * Setter for the element's class attribute.
    *
    * @param string The value for the element's class attribute.
+   * @return $this
    */
   public function setClass($class) {
     $this->_class = explode(' ', $class);
+
+    return $this;
   }
 
   /**
    * Setter for the element's id attributes.
    *
    * @param string The value for element's id attribute.
+   * @return $this
    */
   public function setId($id) {
     $this->_id = $id;
+
+    return $this;
   }
 
   /**
@@ -213,9 +225,12 @@ abstract class ElementBase implements item\Document {
    *
    * @param string The attribute to set
    * @param string The value of the attribute
+   * @return $this
    */
   public function setStyle($attribute, $value) {
     $this->_style[$attribute] = $value;
+
+    return $this;
   }
 
   /**
@@ -225,11 +240,14 @@ abstract class ElementBase implements item\Document {
    * unset these attributes pass null to their respective setter methods.
    *
    * @param string The name of the attribute to unset
+   * @return $this
    */
   public function unsetAttribute($attribute) {
     if (isset($this->_attributes[$attribute])) {
       unset($this->_attributes[$attribute]);
     }
+
+    return $this;
   }
 
   /**
