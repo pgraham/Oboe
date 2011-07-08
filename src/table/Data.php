@@ -15,6 +15,7 @@
 namespace oboe\table;
 
 use \oboe\ElementComposite;
+use \oboe\Exception;
 
 /**
  * This class encapsulates a <td> element.
@@ -35,5 +36,21 @@ class Data extends ElementComposite {
     if ($contents !== null) {
       $this->add($contents);
     }
+  }
+
+  public function setRowSpan($rowSpan) {
+    if (!is_int($rowSpan)) {
+      throw new Exception('Row span must be an integer value');
+    }
+
+    $this->setAttribute('rowspan', $rowSpan);
+  }
+
+  public function setColSpan($colSpan) {
+    if (!is_int($colSpan)) {
+      throw new Exception('Col span must be an integer value');
+    }
+
+    $this->setAttribute('colspan', $colSpan);
   }
 }
