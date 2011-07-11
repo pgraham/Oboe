@@ -43,4 +43,8 @@ class Javascript extends ElementBase implements item\Head {
   public function __toString() {
     return substr(parent::__toString(), 0, -2).'></script>';
   }
+
+  public function addToPage() {
+    $this->addToHead();
+  }
 }
