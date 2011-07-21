@@ -14,13 +14,16 @@
  */
 namespace oboe;
 
+use \oboe\struct\FlowContent;
+use \oboe\struct\HtmlElement;
+
 /**
  * This class encapsulates the <body> element.  Since a document can only have
  * one <body> element it is implemented as a singleton.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-final class Body extends ElementComposite {
+final class Body extends ElementComposite implements HtmlElement {
 
   /*
    * ========================================================================
@@ -51,5 +54,7 @@ final class Body extends ElementComposite {
   /** Constructor. Initializes parent with 'body' tag */
   protected function __construct() {
     parent::__construct('body');
+
+    $this->_objectTypes = array('oboe\struct\FlowContent');
   }
 }

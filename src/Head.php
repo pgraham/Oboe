@@ -14,13 +14,19 @@
  */
 namespace oboe;
 
+use \oboe\head\Charset;
+use \oboe\head\Title;
+use \oboe\struct\HtmlElement;
+
 /**
  * This class encapsulates the <head> element.  Since a document can only have
  * one <head> element it is implemented as a singleton.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Head extends ElementComposite {
+class Head extends ElementComposite implements HtmlElement {
+
+  const SHIV_URL = 'http://html5shiv.googlecode.com/svn/trunk/html5.js';
     
   /*
    * ========================================================================
@@ -46,6 +52,9 @@ class Head extends ElementComposite {
    * INSTANCE
    *===================================*/
 
+  /* The character set of the page being constructed */
+  private $_charset = 'utf-8';
+
   /* The text to output between the head's <title> tag */
   private $_title;
 
@@ -56,31 +65,32 @@ class Head extends ElementComposite {
     parent::__construct('head', null, null);
 
     // This object only accepts oboe_Item_Header implementations
-    $this->_objectTypes = array('oboe\item\Head');
+    $this->_objectTypes = array(
+      'oboe\struct\MetadataContent',
+      'oboe\head\Charset'
+    );
     $this->_allowText = false;
-  }
-
-  /**
-   * Overrides the toString() method to add the page's title to the beginning
-   * of the <head> element's children.
-   *
-   * @return HTML markup for the <head> element
-   */
-  public function __toString() {
-    if ($this->_title !== null) {
-      $this->add(new head\Title($this->_title),
-        ElementComposite::UNSHIFT);
-    }
-    return parent::__toString();
   }
 
   /**
    * Overrides the removeAll() method to unset any title in addition to
    * removing all elements.
+   *
+   * @Override
    */
   public function removeAll() {
-    parent::removeAll();
     $this->_title = null;
+    return parent::removeAll();
+  }
+
+  /**
+   * Setter for the page's character set.
+   *
+   * @param string $charset
+   */
+  public function setCharset($charset) {
+    $this->_charset = $charset;
+    return $this;
   }
 
   /**
@@ -89,6 +99,50 @@ class Head extends ElementComposite {
    * @param string The page's title
    */
   public function setTitle($title) {
+    if (is_string($title)) {
+      $title = new Title($title);
+    }
+
+    if (!($title instanceof Title)) {
+      $msg = "Title must be a string or oboe\\head\\Title instance: "
+        . print_r($title, true) . " given.";
+      throw new Exception($msg);
+    }
+
     $this->_title = $title;
+
+    return $this;
+  }
+
+  protected function onAdd($elm) {
+    if (!($elm instanceof Title)) {
+      return;
+    }
+
+    if ($this->_title !== null) {
+      $msg = "Cannot add <title> element to head: A title is already set,"
+        . " use setTitle() instead.";
+      throw new Exception($msg);
+    }
+    $this->_title = $elm;
+    
+    // Prevent the parent from adding the element to the list as it will be
+    // added onDump
+    return false;
+  }
+
+  protected function onDump() {
+    // If specified, add the title element
+    if ($this->_title !== null) {
+      array_unshift($this->_elements, $this->_title);
+    }
+
+    // Add the character set declaration
+    array_unshift($this->_elements, new Charset($this->_charset));
+
+    $this->_elements[] =
+        "<!--[if lt IE 9]>\n"
+      .   "<script src=\"" . self::SHIV_URL . "\"></script>\n"
+      . "<![endif]-->\n";
   }
 }

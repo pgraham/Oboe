@@ -14,9 +14,7 @@
  */
 namespace oboe;
 
-use \oboe\head\Charset;
-use \oboe\item\Body as BodyItem;
-use \oboe\item\Head as HeadItem;
+use \oboe\struct\FlowContent;
 
 /**
  * This class encapsulates the document's DOCTYPE declaration as well as its
@@ -39,19 +37,19 @@ class Page extends ElementComposite {
   /**
    * Convenience method for adding an element to the <body> element.
    *
-   * @param item\Body The item to add
+   * @param FlowContent $elm The item to add
    */
-  public static function addElementToBody(BodyItem $element) {
-    self::getInstance()->bodyAdd($element);
+  public static function addElementToBody(FlowContent $elm) {
+    self::getInstance()->bodyAdd($elm);
   }
     
   /**
    * Convenience method for adding an element to the <head> element.
    *
-   * @param item\Head The item to add
+   * @param mixed $elm The item to add
    */
-  public static function addElementToHead(HeadItem $element) {
-    self::getInstance()->headAdd($element);
+  public static function addElementToHead($elm) {
+    self::getInstance()->headAdd($elm);
   }
 
   /**
@@ -125,9 +123,6 @@ class Page extends ElementComposite {
 
     parent::add($this->_head);
     parent::add($this->_body);
-
-    // TODO - Make this configurable
-    $this->_head->add(new Charset('UTF-8'));
   }
 
   /**
@@ -136,7 +131,7 @@ class Page extends ElementComposite {
    * @return string
    */
   public function __toString() {
-    $docType = '<!DOCTYPE html>' . "\n";
+    $docType = "<!DOCTYPE html>\n";
 
     return $docType . parent::__toString();
   }
@@ -163,7 +158,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function bodyAdd(BodyItem $element) {
+  protected function bodyAdd(FlowContent $element) {
     $this->_body->add($element);
   }
 
@@ -173,7 +168,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function headAdd(HeadItem $element) {
+  protected function headAdd($element) {
     $this->_head->add($element);
   }
 
