@@ -31,7 +31,13 @@ abstract class ElementComposite extends ElementBase {
   /** The element's child children */
   protected $_elements = array();
 
-  /** Array of object types that can be added to the composite */
+  /**
+   * Array of object types that can be added to the composite
+   *
+   * TODO Once oboe\item\Body is eliminated the default value should be an empty
+   *      array leaving it up to the implementing class to explicitely define
+   *      its content model.
+   */
   protected $_objectTypes = array('oboe\item\Body');
 
   /**
@@ -43,6 +49,10 @@ abstract class ElementComposite extends ElementBase {
   /** 
    * Constructor.  Calls parent constructor with given parameters and
    * initializes array of child element array.
+   *
+   * NOTE: Use of the $id and $class parameters is deprecated.  Moving forward
+   *       all concrete class constructors will not accept parameters for which
+   *       there is a setter.  Id and class fall solidly into this category.
    *
    * @param string The element's tag
    * @param string The id attribute of the element.
@@ -58,6 +68,10 @@ abstract class ElementComposite extends ElementBase {
    * @return string
    */
   public function __toString() {
+    // Allow implementing classes to perform manipulation (such as adding
+    // elements with a required position) immediately prior to output
+    $this->onDump();
+
     $elementStr = self::openTag($this);
     foreach ($this->_elements AS $element) {
       $elementStr .= $element;
@@ -74,18 +88,29 @@ abstract class ElementComposite extends ElementBase {
    */
   public function add($element, $push = true) {
     if (is_array($element)) {
-      foreach ($element AS $ele) {
-        $this->add($ele, $push);
+      foreach ($element AS $elm) {
+        $this->add($elm, $push);
       }
-    } else {
-      // This method will throw an exception if it is not a valid element
-      self::_checkElement($this, $element);
+      return $this;
+    }
 
-      if ($push) {
-        $this->_elements[] = $element;
-      } else {
-        array_unshift($this->_elements, $element);
-      }
+    // This method will throw an exception if it is not a valid element
+    self::_checkElement($this, $element);
+
+    // Allow implementing classes to perform any additional checking
+    // If this method returns false then the addition is swallowed.
+    //
+    // TODO Also pass an event object that contains a preventAdd method that
+    //      can used rather than having the method return false.
+    $add = $this->onAdd($element);
+    if ($add === false) {
+      return $this;
+    }
+
+    if ($push) {
+      $this->_elements[] = $element;
+    } else {
+      array_unshift($this->_elements, $element);
     }
 
     return $this;
@@ -109,6 +134,26 @@ abstract class ElementComposite extends ElementBase {
   }
 
   /**
+   * Intended to be overriden by implementing classes in order to perform any
+   * additional checking when an element is added.  If the item being added is
+   * not allowed, an exception should be generated using
+   * self::invalidElementException(...) and thrown.  If there the implementing
+   * wishes to swallow the add, i.e. not add the element but continue
+   * processing, it should return boolean false.  This should only be done in
+   * cases where the implementation wants to defer addition of the element.
+   *
+   * @param mixed $elm The element being added.
+   */
+  protected function onAdd($elm) {}
+
+  /**
+   * Intended to be overriden by implementing classes in order to perform any
+   * necessary work immediately prior to output, e.g. adding elements that have
+   * a required position in the element's element collection.
+   */
+  protected function onDump() {}
+
+  /**
    * This function checks that any objects added to the composite are of
    * the right type.
    *
@@ -120,16 +165,22 @@ abstract class ElementComposite extends ElementBase {
     // the composite
     if (!is_object($child)) {
       if (!$parent->_allowText) {
-        throw new Exception('Text cannot be added directly to a '
-          . get_class($parent) . ' object');
+        $msg = 'Text cannot be added directly to a ' . get_class($parent)
+          . ' object';
+        throw self::invalidElementException($msg);
       }
       return;
     }
 
     // Make sure that object's can be added to the composite
-    if ($parent->_objectTypes === null || count($parent->_objectTypes) == 0) {
-      throw new Exception('Objects cannot be added to a '. get_class($parent)
-        . ' element');
+    if ($parent->_objectTypes === null || count($parent->_objectTypes) === 0) {
+      $msg = 'Objects cannot be added to a '. get_class($parent) . ' element';
+      throw self::invalidElementException($msg);
+    }
+
+    // Handle oboe\Composite implementations
+    if ($child instanceof Composite) {
+      return in_array($child->getElementType(), $parent->_objectTypes);
     }
 
     // Check if the object is a valid type for the composite
@@ -139,8 +190,51 @@ abstract class ElementComposite extends ElementBase {
       }
     }
 
-    throw new Exception('Only objects of type '.
-      implode(',', $parent->_objectTypes).' can be added to a '.
-      get_class($parent).' object');
+    $msg = 'Only objects of type '. implode(',', $parent->_objectTypes)
+      . ' can be added to a ' .  get_class($parent) . ' object';
+    throw self::invalidElementException($msg);
+  }
+
+  /**
+   * Build a new invalid element exception.  This is to be used whenever an
+   * element is added to another element whose content model does not accept the
+   * given element.
+   *
+   * @param string $msg
+   * @return Exception
+   */
+  protected static function invalidElementException($msg) {
+    return new Exception($msg);
+  }
+
+  /**
+   * Apply the given function to all of the children of the given element.
+   *
+   * The given function must accept a single parameter, which will be a child
+   * object and return a boolean indicating whether or not the traversal should
+   * continue.
+   *
+   * The traversal is breadth-first.
+   *
+   * @param ElementComposite $elm The element to traverse
+   * @param function $fn
+   */
+  protected static function visit(ElementComposite $elm, $fn) {
+    self::_visitBreadthFirst($elm, $fn);
+  }
+
+  private static function _visitBreadthFirst(ElementComposite $elm, $fn) {
+    $queue = array($elm);
+    
+    while (count($queue) > 0) {
+      $node = array_shift($queue);
+      if (!$fn($node)) {
+        break;
+      }
+
+      if ($node instanceof ElementComposite) {
+        array_merge($queue, $node->_elements);
+      }
+    }
   }
 }

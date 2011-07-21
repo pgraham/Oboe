@@ -20,7 +20,7 @@ namespace oboe;
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-abstract class ElementBase implements item\Document {
+abstract class ElementBase {
 
   /** The element's tag name */
   protected $_tag;
@@ -63,10 +63,9 @@ abstract class ElementBase implements item\Document {
   public function __toString() {
     // Get the opening tag for the element
     $str = self::openTag($this);
-
+    
     // Make the opening tag self closing
-    $str = substr($str, 0, -1).'/>';
-    return $str;
+    return substr($str, 0, -1).'/>';
   }
 
   /** 
@@ -151,6 +150,16 @@ abstract class ElementBase implements item\Document {
       return self::_buildStyleString($this);
     }
     return $this->_style[$attribute];
+  }
+
+  /**
+   * Returns whether or not the element has the given attribute.  This can be
+   * useful for checking the state of boolean attributes.
+   *
+   * @return boolean
+   */
+  public function hasAttribute($attribute) {
+    return array_key_exists($attribute, $this->_attributes);
   }
 
   /**
