@@ -13,15 +13,16 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\head;
+
+use \oboe\struct\MetadataContent;
 use \oboe\ElementBase;
-use \oboe\item;
 
 /**
  * This class encapsulates a <link/> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Link extends ElementBase implements item\Head {
+class Link extends ElementBase implements MetadataContent {
 
   /**
    * Constructor.

@@ -13,14 +13,15 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\head;
-use \oboe\item;
+
+use \oboe\struct\MetadataContent;
 
 /**
  * This class encapsulates a &lt;title&gt; element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Title implements item\Document, item\Head {
+class Title implements MetadataContent {
 
   /* The title */
   private $_title;

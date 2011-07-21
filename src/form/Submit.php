@@ -21,16 +21,17 @@ namespace oboe\form;
  */
 class Submit extends Input {
 
-  /** Default CSS Class for <input/> elements with type 'submit' */
-  const CSS_CLASS = 'submit';
-
   /**
    * Constructor.
    *
    * @param string The prompt that appreas on the submit button.
    * @param string An optional name for the submit button
    */
-  public function __construct($value = null, $name = null) {
-    parent::__construct('submit', self::CSS_CLASS, $name, $value);
+  public function __construct($label = null) {
+    parent::__construct(Input::TYPE_SUBMIT);
+
+    if ($label !== null) {
+      $this->setValue($label);
+    }
   }
 }

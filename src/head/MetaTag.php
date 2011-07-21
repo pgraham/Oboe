@@ -13,15 +13,16 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\head;
+
+use \oboe\struct\MetadataContent;
 use \oboe\ElementBase;
-use \oboe\item\Head as HeadItem;
 
 /**
  * This class encapsulates a <meta/> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class MetaTag extends ElementBase implements HeadItem {
+class MetaTag extends ElementBase implements MetadataContent {
 
   /**
    * Constructor.

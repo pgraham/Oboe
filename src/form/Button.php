@@ -17,19 +17,20 @@ namespace oboe\form;
 /**
  * This class encapsulates a <input/> element with type="button".
  *
- * @author Philip Graham <philip@lightbox.org>
+ * @author Philip Graham <philip@zeptech.ca>
  */
 class Button extends Input {
-
-  /** Default class for the button */
-  const CSS_CLASS = 'button';
 
   /**
    * Constructor.
    *
    * @param string The prompt that appears on the submit button.
    */
-  public function __construct($value = null) {
-      parent::__construct('button', self::CSS_CLASS, null, $value);
+  public function __construct($label = null) {
+    parent::__construct(Input::TYPE_BUTTON);
+
+    if ($label !== null) {
+      $this->setValue($label);
+    }
   }
 }

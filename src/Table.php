@@ -14,13 +14,24 @@
  */
 namespace oboe;
 
+use \oboe\struct\FlowContent;
+use \oboe\table\Body as Tbody;
+use \oboe\table\Data as Td;
+use \oboe\table\Head as Thead;
+use \oboe\table\Row  as Tr;
+
 /**
  * This class encapsulates a <table> element. The table class can contain at
  * most one <thead> and <tfoot> elements and one or more <tbody> elements
  *
+ *   http://www.whatwg.org/specs/web-apps/current-work/multipage/tabular-data.html#the-table-element
+ *
+ * TODO - Update this class to properly support a table's content model and
+ *        attributes.
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Table extends ElementComposite implements item\Body, item\Form {
+class Table extends ElementComposite implements FlowContent {
 
   /* The table's <thead> element */
   private $_head;
@@ -126,11 +137,11 @@ class Table extends ElementComposite implements item\Body, item\Form {
    */
   public function addHeader($header) {
     if ($this->_head === null) {
-      $this->add(new table\Head());
+      $this->add(new Thead());
     }
 
     $tHeadRow = $this->_head->getDefaultRow();
-    $tHeader = new table\Data($header);
+    $tHeader = new Td($header);
     $tHeadRow->add($tHeader);
     return $tHeader;
   }
@@ -138,11 +149,11 @@ class Table extends ElementComposite implements item\Body, item\Form {
   /**
    * Adds a row to the table body and returns it.
    *
-   * @return table\Row
+   * @return Tr
    */
   public function addRow() {
     $this->_checkBody();
-    $row = new table\Row();
+    $row = new Tr();
     $this->_bodies[0]->add($row);
     return $row;
   }
@@ -155,18 +166,19 @@ class Table extends ElementComposite implements item\Body, item\Form {
    *     doesn't exist it will be created.
    * @param string The value of the cell element's id attribute
    * @param string The value of the cell element's class attribute
-   * @return table\Data
+   * @return Td
    */
   public function addCell($rowIndex, $cellContents = null) {
     $this->_checkBody();
 
     $row = $this->_bodies[0]->getRow($rowIndex);
     if ($row === null) {
-      $row = new table\Row();
+      $row = new Tr();
       $this->_bodies[0]->add($row);
     }
 
-    $cell = new table\Data($cellContents);
+    $cell = new Td();
+    $cell->add($cellContents);
     $row->add($cell);
     return $cell;
   }
@@ -183,14 +195,14 @@ class Table extends ElementComposite implements item\Body, item\Form {
     $tArr = array();
 
     if ($numHeaders > 0) {
-      $tHead = new table\Head();
+      $tHead = new Thead();
       $tHeadRow = $tHead->getDefaultRow();
 
       $this->add($tHead);
       $tArr['head']['ele'] = $tHead;
 
       for ($i = 0; $i < $numHeaders; $i++) {
-        $header = new table\Data();
+        $header = new Td();
         $tHeadRow->add($header);
         $tArr['head'][$i] = $header;
       }
@@ -200,15 +212,15 @@ class Table extends ElementComposite implements item\Body, item\Form {
       return $tArr;
     }
 
-    $tBody = new table\Body();
+    $tBody = new Tbody();
     $this->add($tBody);
     $tArr['ele'] = $tBody;
     for ($i = 0; $i < $numRows; $i++) {
-      $row = new table\Row();
+      $row = new Tr();
       $tArr[$i]['ele'] = $row;
 
       for ($j = 0; $j < $numCols; $j++) {
-        $cell = new table\Data();
+        $cell = new Td();
         $row->add($cell);
         $tArr[$i][$j] = $cell;
       }
@@ -229,7 +241,7 @@ class Table extends ElementComposite implements item\Body, item\Form {
   /* This function ensures that the table has at least one tbody element */
   private function _checkBody() {
     if (count($this->_bodies) == 0) {
-      $this->add(new table\Body());
+      $this->add(new Tbody());
     }
   }
 }

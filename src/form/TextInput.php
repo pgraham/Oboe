@@ -14,17 +14,15 @@
  */
 namespace oboe\form;
 
-use \oboe\item\Body as BodyItem;
+use \oboe\struct\Labelable;
+use \oboe\Label;
 
 /**
  * This class encapsulates a <input/> element with type="text".
  *
- * @author Philip Graham <philip@lightbox.org>
+ * @author Philip Graham <philip@zeptech.ca>
  */
-class TextInput extends Input implements BodyItem {
-
-  /** Default CSS class for 'text' <input> elements */
-  const CSS_CLASS = 'text';
+class TextInput extends Input implements Labelable {
 
   /**
    * Constructor.
@@ -33,7 +31,18 @@ class TextInput extends Input implements BodyItem {
    * @param string An optional initial value for the element
    */
   public function __construct($name, $value = null) {
-    parent::__construct('text', self::CSS_CLASS, $name, $value);
+    parent::__construct(Input::TYPE_TEXT_INPUT, $name, $value);
+
+    $this->addClass(Input::TYPE_TEXT_INPUT);
+  }
+
+  /**
+   * Setter for the element's label.
+   *
+   * @param Label $label
+   */
+  public function setLabel(Label $label) {
+    $label->setFor($this);
   }
 
   /**

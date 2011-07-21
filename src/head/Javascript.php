@@ -13,16 +13,21 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\head;
+
+use \oboe\struct\MetadataContent;
+use \oboe\struct\PhrasingContent;
 use \oboe\ElementBase;
-use \oboe\item;
 
 /**
  * This class encapsulates a <script/> element for adding a reference to an
  * external javascript to the <head> element.
  *
+ * TODO Rename this Script
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Javascript extends ElementBase implements item\Head {
+class Javascript extends ElementBase implements MetadataContent, PhrasingContent
+{
 
   /**
    * Constructor.
@@ -32,7 +37,6 @@ class Javascript extends ElementBase implements item\Head {
   public function __construct($src) {
     parent::__construct('script');
     $this->setAttribute('src', $src);
-    $this->setAttribute('type', 'text/javascript');
   }
 
   /**

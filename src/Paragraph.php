@@ -14,12 +14,14 @@
  */
 namespace oboe;
 
+use \oboe\struct\FlowContent;
+
 /**
  * This class encapsulates a <<p>> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Paragraph extends ElementComposite implements Item\Body, Item\Form {
+class Paragraph extends ElementComposite implements FlowContent {
 
   /**
    * Constructor.
@@ -28,9 +30,9 @@ class Paragraph extends ElementComposite implements Item\Body, Item\Form {
    * @param string The paragraph's id
    * @param string The paragraph's css class
    */
-  public function __construct($text = null, $id = null, $class = null) {
-    parent::__construct('p', $id, $class);
-    $this->_objectTypes = array();
+  public function __construct($text = null) {
+    parent::__construct('p');
+    $this->_objectTypes = array('oboe\struct\PhrasingContent');
 
     if ($text !== null) {
       $this->add($text);

@@ -14,7 +14,7 @@
  */
 namespace oboe\head;
 
-use \oboe\item\Head as HeadItem;
+use \oboe\struct\HtmlElement;
 use \oboe\ElementBase;
 
 /**
@@ -23,7 +23,7 @@ use \oboe\ElementBase;
  *
  * @author Philip Graham <philip@zeptech.ca>
  */
-class Charset extends ElementBase implements HeadItem {
+class Charset extends ElementBase implements HtmlElement {
 
   /**
    * Constructor.

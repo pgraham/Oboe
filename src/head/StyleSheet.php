@@ -26,9 +26,8 @@ class StyleSheet extends Link {
    * Constructor.
    *
    * @param string The path to the stylesheet
-   * @param string The stylesheet's media attribute
    */
-  public function __construct($href, $media = null) {
-    parent::__construct('stylesheet', $href, 'text/css', $media);
+  public function __construct($href) {
+    parent::__construct('stylesheet', $href);
   }
 }

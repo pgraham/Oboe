@@ -14,13 +14,18 @@
  */
 namespace oboe\table;
 
+use \oboe\struct\FlowContent;
 use \oboe\ElementComposite;
 use \oboe\Exception;
 
 /**
  * This class encapsulates a <td> element.
  *
- * @author Philip Graham <philip@lightbox.org>
+ *   http://www.whatwg.org/specs/web-apps/current-work/multipage/tabular-data.html#the-td-element
+ *
+ * TODO Add support for the 'headers' attribute
+ *
+ * @author Philip Graham <philip@zeptech.ca>
  */
 class Data extends ElementComposite {
 
@@ -31,11 +36,9 @@ class Data extends ElementComposite {
    * @param string The value of the element's id attribute
    * @param string The value of the element's class attribute
    */
-  public function __construct($contents = null, $id = null, $class = null) {
-    parent::__construct('td', $id, $class);
-    if ($contents !== null) {
-      $this->add($contents);
-    }
+  public function __construct() {
+    parent::__construct('td');
+    $this->_objectTypes = array('oboe\struct\FlowContent');
   }
 
   public function setRowSpan($rowSpan) {

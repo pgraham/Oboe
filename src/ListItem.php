@@ -19,17 +19,13 @@ namespace oboe;
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class ListItem extends ElementWrapper {
+class ListItem extends ElementComposite {
 
   /**
    * Constructor.
-   *
-   * @param mixed The element to output inside the <li> tag
-   * @param string  The value of the element's id attribute
-   * @param string The value of the element's class attribute.
    */
-  public function __construct($item, $id = null, $class = null) {
-    parent::__construct('li', $id, $class);
-    $this->setElement($item);
+  public function __construct() {
+    parent::__construct('li');
+    $this->_objectTypes = array('oboe\struct\FlowContent');
   }
 }

@@ -21,15 +21,12 @@ namespace oboe\form;
  */
 class Password extends Input {
 
-  /** Default CSS class for password <input> elements */
-  const CSS_CLASS = 'password';
-
   /**
    * Constructor.
    *
    * @param string The name of the element
    */
   public function __construct($name) {
-    parent::__construct('password', self::CSS_CLASS, $name);
+    parent::__construct(Input::TYPE_PASSWORD, $name);
   }
 }

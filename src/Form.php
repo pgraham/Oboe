@@ -14,15 +14,20 @@
  */
 namespace oboe;
 
+use \oboe\attr\CanSubmit;
+use \oboe\attr\CanSubmitAttributeManager;
+use \oboe\attr\HasName;
+use \oboe\struct\FlowContent;
+use \InvalidArgumentException;
+
 /**
  * This class encapulates a <form> element.
  *
+ *   http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-form-element
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Form extends ElementWrapper implements item\Body {
-
-  /** The CSS class of the div used to encapsulate the form's contents */
-  const DIV_CSS_CLASS = 'formContainer';
+class Form extends ElementComposite implements FlowContent, HasName, CanSubmit {
 
   /** Constant for specifying a form that uses a GET method */
   const GET = 'get';
@@ -30,8 +35,8 @@ class Form extends ElementWrapper implements item\Body {
   /** Constant for specifying a form that uses a POST method - Default */
   const POST = 'post';
 
-  /* A <div> element used to encapsultes the form's contents */
-  private $_container;
+  /* Object that handles setting the attributes defined by CanSubmit. */
+  private $_canSubmitAttributeManager;
 
   /**
    * Constructor.
@@ -42,77 +47,86 @@ class Form extends ElementWrapper implements item\Body {
    * @param string The submit method for the form.  Either 'post' (default) or
    *     'get'
    */
-  public function __construct($name, $action = null, $method = 'post') {
-    parent::__construct('form', $name);
+  public function __construct() {
+    parent::__construct('form');
 
-    if ($action === null) {
-      $action = $_SERVER['SCRIPT_NAME'];
-    }
-    $this->setAttribute('action', $action);
-    $this->setAttribute('method', $method);
-    $this->_hasUpload = false;
+    $this->_objectTypes = array('oboe\struct\FlowContent');
 
-    // Set the wrapper's element to a Form_Div
-    $this->_container = new form\Div(null, self::DIV_CSS_CLASS);
-    $this->_objectTypes = array('oboe\form\Div');
-    $this->_elements[0] = $this->_container;
+    $this->_canSubmitAttributeManager = new CanSubmitAttributeManager($this);
+  }
+
+  public function getAction() {
+    return $this->_canSubmitAttributeManager->getAction();
+  }
+
+  public function getEncType() {
+    return $this->_canSubmitAttributeManager->getEncType();
+  }
+
+  public function getMethod() {
+    return $this->_canSubmitAttributeManager->getMethod();
   }
 
   /**
-   * Override the add method to add the given element to the form's container
+   * Getter for the form's name attribute:
+   * http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#attr-form-name
    *
-   * @param mixed The element to add to the form
-   * @param boolean Whether to add the element to the end of the array
-   *     (default) or the end of the array.  The UNSHIFT constant can be used
-   *     to add the element to the beginning of the array.
+   * @return string
    */
-  public function add($element, $push = true) {
-    $this->_container->add($element, $push);
+  public function getName() {
+    return $this->getAttribute(HasName::ATTR_NAME);
+  }
+
+  public function getNoValidate() {
+    return $this->_canSubmitAttributeManager->getNoValidate();
+  }
+
+  public function getTarget() {
+    return $this->_canSubmitAttributeManager->getTarget();
+  }
+
+  public function setAction($action) {
+    return $this->_canSubmitAttributeManager->setAction($action);
+  }
+
+  public function setEncType($encType) {
+    return $this->_canSubmitAttributeManager->setEncType($encType);
+  }
+
+  public function setMethod($method) {
+    return $this->_canSubmitAttributeManager->setMethod($method);
   }
 
   /**
-   * This function adds a specified amount of vertical space to the form.
+   * Setter for the form's name attribute:
    *
-   * @param integer The amount of space to add
-   * @return Text\VSpace The element that was added
+   * @param string $name
+   * @see #getName()
    */
-  public function addBreak($num = 1) {
-    $vSpace = new Text\VSpace();
-    for ($i = 0; $i < $num; $i++) {
-      $this->add($vSpace);
-    }
-    return $vSpace;
+  public function setName($name) {
+    return $this->setAttribute(HasName::ATTR_NAME, $name);
   }
 
-  /**
-   * This method adds an <hr/> element to the form.
-   *
-   * @param integer The width of the divider as percentage of the form's width
-   * @return Divider The element that was added
-   */
-  public function addDivider($width = null) {
-    $hr = new Divider();
-    $this->add($hr);
-    return $hr;
+  public function setNoValidate($noValidate) {
+    return $this->_canSubmitAttributeManager->setNoValidate($noValidate);
   }
 
-  /**
-   * Setter for whether or not the form has a file upload element.  If set to
-   * true the form will output enctype="multipart/form-data" as one of its
-   * attributes.  By default the form does not output a value for the enctype
-   * attribute meaning that the default of application/x-www-form-urlencoded
-   * is used
-   *
-   * If a form has a file upload element this needs to be set otherwise the
-   * upload will not work.
-   *
-   * @param boolean Whether or not the form has a file upload element.
-   */
-  public function setHasFileUpload($hasUpload = true) {
-    if ($hasUpload) {
-      $this->setAttribute('enctype', 'multipart/form-data');
-    } else {
-      $this->unsetAttribute('enctype');
+  public function setTarget($target) {
+    return $this->_canSubmitAttributeManager->setTarget($target);
+  }
+
+  protected function onAdd($elm) {
+    $e = null;
+    ElementComposite::visit($elm, function ($elm) use (&$e) {
+      if ($elm instanceof Form) {
+        $e = new InvalidArgumentException('Cannot nest forms');
+        return false;
+      }
+      return true;
+    });
+
+    if ($e !== null) {
+      throw $e;
     }
   }
 }

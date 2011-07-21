@@ -14,12 +14,14 @@
  */
 namespace oboe;
 
+use \oboe\struct\FlowContent;
+
 /**
  * This class encapsulates a <h#> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Heading extends ElementWrapper implements item\Body, item\Form {
+class Heading extends ElementComposite implements FlowContent {
 
   /**
    * Constructor.
@@ -27,8 +29,8 @@ class Heading extends ElementWrapper implements item\Body, item\Form {
    * @param string - The heading's text
    * @param integer - The heading's level, ie, 1 = <h1>
    */
-  public function __construct($text, $prominence = 1) {
+  public function __construct($prominence = 1) {
     parent::__construct('h'.$prominence);
-    $this->setElement($text);
+    $this->_objectTypes = array('oboe\struct\PhrasingContent');
   }
 }
