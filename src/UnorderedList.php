@@ -12,23 +12,18 @@
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
-namespace oboe\Form;
-use \oboe\BaseList;
-use \oboe\Item;
+namespace oboe;
 
 /**
- * This class encapsulates a list element, either &lt;ul&gt; or &lt;ol&gt;.
+ * This class encapsultes a <<ul>> element.
  *
- * @author Philip Graham <philip@lightbox.org>
+ *   http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-ul-element
+ *
+ * @author Philip Graham <philip@zeptech.ca>
  */
-class ListEl extends BaseList implements Item\Form {
+class UnorderedList extends BaseList {
 
-    /**
-     * This list uses ListItem instance as its wrapper class.
-     *
-     * @return string
-     */
-    public function getWrapperClass() {
-        return 'oboe\form\ListItem';
-    }
+  public function __construct() {
+    parent::__construct('ul');
+  }
 }
