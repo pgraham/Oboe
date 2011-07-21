@@ -1,3 +1,59 @@
+
+Purpose:
+--------
+As this library has become quite outdated, and was probably never 'right' to
+begin with, some major changes are planned.  The focus of development will now
+be on restructuring the class hierarchy to better conform with HTML5
+restrictions, and also to make it easier/more efficient to query a given
+structure, kindaof like a server side DOM implementation.
+
+
+Conventions:
+------------
+
+  This section lists some convensions that will be implemented moving forward.
+
+  - Constructors for concrete class accept no parameters for which a setter has
+    been defined.
+  - All methods that do not return a value will return $this to support method
+    chaining.
+
+TODO:
+------
+
+- Implement a fieldset element.
+
+  http://dev.w3.org/html5/spec/Overview.html#the-fieldset-element
+
+  Notes:
+  ------
+  - Content Model: Optionally a legend element, followed by flow content.
+  - The name of the group is given by the first legend element that is a child
+    of the fieldset element, if any.
+  - The form attribute is used to explicitly associate the fieldset element with
+    its form owner.
+  - Interface should allow any FlowContent to be added.  The optional legend
+    element should be added through an interface method specifically for that
+    purpose.
+
+- Implement interface that makes it easy for concrete classes to define their
+  accepted attributes.
+
+  http://dev.w3.org/html5/spec/Overview.html#global-attributes
+
+ - Implement FormAssociated interface in the attr package that defines getter/
+   setters for the element's associated form
+
+     http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#form-associated-element
+
+Terms:
+-------
+
+  Flow Content: http://www.whatwg.org/specs/web-apps/current-work/multipage/content-models.html#flow-content
+  Phrasing Content: http://www.whatwg.org/specs/web-apps/current-work/multipage/content-models.html#phrasing-content
+
+-- Low priority items are listed beneath this line
+--------------------------------------------------------------------------------
 - Rename item\Body, item\Head, etc. to item\BodyItem, item\HeadItem, etc.
 - Add addToBody method to Item\Body interface and addToHead method to Item\Head   interface.
 - Figure out a way to allow form items to be added to a table.
