@@ -13,15 +13,16 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\text;
+
+use \oboe\struct\PhrasingContent;
 use \oboe\ElementBase;
-use \oboe\item;
 
 /**
  * This class encapsulates a specified number of <br/> elements.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class VSpace extends ElementBase implements item\Body, item\Form {
+class VSpace extends ElementBase implements PhrasingContent {
 
   /* This is the number of <br/> elements to ouptut. */
   private $_num;
@@ -34,7 +35,7 @@ class VSpace extends ElementBase implements item\Body, item\Form {
    *     and a line break, default true.
    */
   public function __construct($num = 1) {
-    parent::__construct('br', null, null);
+    parent::__construct('br');
     $this->_num = $num;
   }
 

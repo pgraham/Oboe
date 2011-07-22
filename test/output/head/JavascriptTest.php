@@ -30,8 +30,7 @@ class JavascriptTest extends TestCase {
   public function testOutput() {
     $js = new Javascript('/js/myScript.js');
     $output = $js->__toString();
-    $expected = '<script src="/js/myScript.js" type="text/javascript">'.
-      '</script>';
+    $expected = '<script src="/js/myScript.js"></script>';
     $this->assertEquals($expected, $output,
       'Invalid output the head javascript element');
   }

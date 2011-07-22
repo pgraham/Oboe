@@ -28,6 +28,7 @@ class Button extends Input {
    */
   public function __construct($label = null) {
     parent::__construct(Input::TYPE_BUTTON);
+    $this->addClass(Input::TYPE_BUTTON);
 
     if ($label !== null) {
       $this->setValue($label);

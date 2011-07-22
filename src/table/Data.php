@@ -32,13 +32,15 @@ class Data extends ElementComposite {
   /**
    * Constructor.
    *
-   * @param mixed The contents of the cell
-   * @param string The value of the element's id attribute
-   * @param string The value of the element's class attribute
+   * @param mixed $ctnt The contents of the cell
    */
-  public function __construct() {
+  public function __construct($ctnt = null) {
     parent::__construct('td');
     $this->_objectTypes = array('oboe\struct\FlowContent');
+
+    if ($ctnt !== null) {
+      $this->add($ctnt);
+    }
   }
 
   public function setRowSpan($rowSpan) {

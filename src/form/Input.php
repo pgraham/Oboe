@@ -35,6 +35,7 @@ abstract class Input extends ElementBase implements PhrasingContent, HasName,
   const TYPE_PASSWORD   = 'password';
   const TYPE_SUBMIT     = 'submit';
   const TYPE_TEXT_INPUT = 'text'; // TODO Rename to TYPE_TEXT
+  const TYPE_FILE       = 'file';
 
   /**
    * Constructor.

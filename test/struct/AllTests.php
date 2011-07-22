@@ -29,6 +29,7 @@ class AllTests {
     $suite = new TestSuite('Oboe Structure Test Suite');
 
     $suite->addTestSuite('oboe\test\struct\ElementBaseTest');
+    $suite->addTestSuite('oboe\test\struct\FormTest');
 
     return $suite;
   }

@@ -13,14 +13,13 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\style;
-use \oboe\item;
 
 /**
  * This class encapsulates a css style rule.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Rule implements item\Document {
+class Rule {
 
   /* The rule's style selector */
   private $_selector;

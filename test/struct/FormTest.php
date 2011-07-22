@@ -12,26 +12,31 @@
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
-namespace oboe\test\output\form;
-
-use \oboe\form\Input;
+namespace oboe\test\struct;
 
 use \PHPUnit_Framework_TestCase as TestCase;
 
-require_once __DIR__ . '/../../test-common.php';
+use \oboe\Form;
+
+require_once __DIR__ . '/../test-common.php';
 
 /**
- * This class tests the output of the oboe\form\Input element.
+ * This class tests that structure rules are properly enforced by the Form
+ * element.
  *
- * @author Philip Graham <philip@lightbox.org>
+ * @author Philip Graham <philip@zeptech.ca>
  */
-class InputTest extends TestCase {
+class FormTest extends TestCase {
 
-  public function testOutput() {
-    $input = new Input('input', 'input', 'input', 'input');
-    $output = $input->__toString();
-    $expected = '<input class="input" type="input" name="input" '.
-      'value="input"/>';
-    $this->assertEquals($expected, $output, 'Invalid output for input element');
+  /**
+   * @expectedException InvalidArgumentException
+   */
+  public function testAddForm() {
+    $form = new Form();
+    $form->setId("outter");
+
+    $nested = new Form();
+    $nested->setId("nester");
+    $form->add($nested);
   }
 }

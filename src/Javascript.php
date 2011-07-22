@@ -14,13 +14,20 @@
  */
 namespace oboe;
 
+use \oboe\struct\MetadataContent;
+use \oboe\struct\PhrasingContent;
+
 /**
  * This class encapsulates a <script> element that can be added to the
  * <body> or <head> element.
  *
+ * TODO Combine this element with the head/Javascript element
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Javascript extends ElementWrapper implements Item\Body, Item\Head {
+class Javascript extends ElementComposite implements MetadataContent,
+  PhrasingContent
+{
 
   /* The script's code */
   private $_code;
@@ -30,7 +37,7 @@ class Javascript extends ElementWrapper implements Item\Body, Item\Head {
    */
   public function __construct() {
     parent::__construct('script');
-    $this->setAttribute('type', 'text/javascript');
+    $this->_objectTypes = array();
   }
 
   /**
@@ -46,17 +53,4 @@ class Javascript extends ElementWrapper implements Item\Body, Item\Head {
     return parent::__toString();
   }
 
-  /**
-   * Adds the given string to the scripts body.  No validation is done
-   * on the given string.
-   *
-   * @param string What to add to the script's body.
-   */
-  public function addCode($code) {
-    if ($this->_code === null) {
-      $this->_code = $code;
-    } else {
-      $this->_code.= $code;
-    }
-  }
 }

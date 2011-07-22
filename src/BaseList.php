@@ -14,6 +14,7 @@
  */
 namespace oboe;
 
+use \oboe\event\AddElementEvent;
 use \oboe\struct\FlowContent;
 use \oboe\ListItem;
 
@@ -32,6 +33,7 @@ abstract class BaseList extends ElementComposite implements FlowContent {
   protected function __construct($tag) {
     parent::__construct($tag);
     $this->_objectTypes = array('oboe\ListItem');
+    $this->_allowText = false;
   }
 
   /**
@@ -43,14 +45,14 @@ abstract class BaseList extends ElementComposite implements FlowContent {
    *     list of elements
    * @return The list item wrapper that was added to the list
    */
-  public function addItem($element, $push = true) {
+  protected function onAdd(AddElementEvent $event) {
+    $element = $event->getElement();
     if ($element instanceof ListItem) {
-      return $this->add($element, $push);
-    } else {
-      $li = new ListItem();
-      $li->add($element, $push);
-      $this->add($li);
-      return $li;
+      return;
     }
+
+    $li = new ListItem();
+    $li->add($element);
+    $event->setElement($li, true);
   }
 }

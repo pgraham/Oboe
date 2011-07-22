@@ -25,24 +25,19 @@ require_once __DIR__ . '/../../test-common.php';
  */
 class AllTests {
 
-    public static function suite() {
-        $suite = new TestSuite('Oboe Form Output Test Suite');
+  public static function suite() {
+    $suite = new TestSuite('Oboe Form Output Test Suite');
 
-        $suite->addTestSuite('oboe\test\output\form\InputTest');
-        $suite->addTestSuite('oboe\test\output\form\ButtonTest');
-        $suite->addTestSuite('oboe\test\output\form\DivTest');
-        $suite->addTestSuite('oboe\test\output\form\FileUploadTest');
-        $suite->addTestSuite('oboe\test\output\form\HiddenTest');
-        $suite->addTestSuite('oboe\test\output\form\ListElTest');
-        $suite->addTestSuite('oboe\test\output\form\ListItemTest');
-        $suite->addTestSuite('oboe\test\output\form\PasswordTest');
-        $suite->addTestSuite('oboe\test\output\form\SelectOptionTest');
-        $suite->addTestSuite('oboe\test\output\form\SelectTest');
-        $suite->addTestSuite('oboe\test\output\form\SpanTest');
-        $suite->addTestSuite('oboe\test\output\form\SubmitTest');
-        $suite->addTestSuite('oboe\test\output\form\TextAreaTest');
-        $suite->addTestSuite('oboe\test\output\form\TextInputTest');
+    $suite->addTestSuite('oboe\test\output\form\ButtonTest');
+    $suite->addTestSuite('oboe\test\output\form\FileUploadTest');
+    $suite->addTestSuite('oboe\test\output\form\HiddenTest');
+    $suite->addTestSuite('oboe\test\output\form\PasswordTest');
+    $suite->addTestSuite('oboe\test\output\form\SelectOptionTest');
+    $suite->addTestSuite('oboe\test\output\form\SelectTest');
+    $suite->addTestSuite('oboe\test\output\form\SubmitTest');
+    $suite->addTestSuite('oboe\test\output\form\TextAreaTest');
+    $suite->addTestSuite('oboe\test\output\form\TextInputTest');
 
-        return $suite;
-    }
+    return $suite;
+  }
 }

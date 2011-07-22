@@ -30,11 +30,11 @@ class OrderedList extends BaseList {
   const MARKER_TYPE_UPPER_ROMAN = 'upper-roman';
 
   private static $_acceptedTypes = array(
-    MARKER_TYPE_DECIMAL,
-    MARKER_TYPE_LOWER_ALPHA,
-    MARKER_TYPE_UPPER_ALPHA,
-    MARKER_TYPE_LOWER_ROMAN,
-    MARKER_TYPE_UPPER_ROMAN
+    self::MARKER_TYPE_DECIMAL,
+    self::MARKER_TYPE_LOWER_ALPHA,
+    self::MARKER_TYPE_UPPER_ALPHA,
+    self::MARKER_TYPE_LOWER_ROMAN,
+    self::MARKER_TYPE_UPPER_ROMAN
   );
 
   public function __construct() {

@@ -28,5 +28,6 @@ class Password extends Input {
    */
   public function __construct($name) {
     parent::__construct(Input::TYPE_PASSWORD, $name);
+    $this->addClass(Input::TYPE_PASSWORD);
   }
 }

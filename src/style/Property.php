@@ -13,14 +13,13 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\style;
-use \oboe\item;
 
 /**
  * This class encapsulates a css style propery -> value combination.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Property implements item\Document {
+class Property {
     
   /* The property */
   private $_name;

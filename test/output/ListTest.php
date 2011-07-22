@@ -12,30 +12,35 @@
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
-namespace oboe\test\output\form;
+namespace oboe\test\output;
 
-use \oboe\form\ListEl;
-use \oboe\form\ListItem;
-use \oboe\BaseList;
+use \oboe\ListItem;
+use \oboe\OrderedList;
+use \oboe\UnorderedList;
 
 use \PHPUnit_Framework_TestCase as TestCase;
 
-require_once __DIR__ . '/../../test-common.php';
+require_once __DIR__ . '/../test-common.php';
 
 /**
- * This class tests the output of the oboe\form\ListEl element.
+ * This class tests the output of the oboe\List class.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class ListElTest extends TestCase {
+class ListTest extends TestCase {
 
   public function testAddListItem() {
-    $list = new ListEl(BaseList::UNORDERED);
+    $li = new ListItem('YAY');
 
-    $toAdd = new ListItem('YAY');
-    $li = $list->add($toAdd);
-    $this->assertEquals($toAdd, $li,
-      'Returned list item was not the given list item');
+    $list = new OrderedList();
+    $list->add($li);
+
+    $output = $list->__toString();
+    $expected = '<ol><li>YAY</li></ol>';
+    $this->assertEquals($expected, $output, 'Invalid output for list element');
+
+    $list = new UnorderedList();
+    $list->add($li);
 
     $output = $list->__toString();
     $expected = '<ul><li>YAY</li></ul>';
@@ -43,11 +48,11 @@ class ListElTest extends TestCase {
   }
 
   public function testAddByConstructorArgs() {
-    $list = new ListEl(BaseList::UNORDERED);
+    $list = new UnorderedList();
     
     $li = $list->add('YAY');
-    $this->assertEquals('oboe\form\ListItem', get_class($li),
-      'Returned class was not a oboe\form\ListItem');
+    $this->assertEquals('oboe\ListItem', get_class($li),
+      'Returned class was not a oboe\ListItem');
 
     $output = $list->__toString();
     $expected = '<ul><li>YAY</li></ul>';

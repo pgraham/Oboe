@@ -13,15 +13,21 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\form;
-use \oboe\ElementWrapper;
-use \oboe\item;
+
+use \oboe\attr\HasName;
+use \oboe\struct\Labelable;
+use \oboe\struct\PhrasingContent;
+use \oboe\ElementComposite;
+use \oboe\Label;
 
 /**
  * This class encapsulates a <textarea> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class TextArea extends ElementWrapper implements item\Form {
+class TextArea extends ElementComposite implements PhrasingContent, Labelable,
+    HasName
+{
 
   /**
    * Constructor.
@@ -31,11 +37,39 @@ class TextArea extends ElementWrapper implements item\Form {
    */
   public function __construct($name, $text = null) {
     parent::__construct('textarea');
-    $this->setAttribute('name', $name);
-
+    $this->setName($name);
     $this->_objectTypes = array();
+
     if ($text !== null) {
-      $this->setElement($text);
+      $this->add($text);
     }
   }
+
+  /**
+   * Getter for the element's name.
+   *
+   * @return string
+   */
+  public function getName() {
+    return $this->getAttribute($name);
+  }
+
+  /**
+   * Setter for the element's label
+   *
+   * @param Label $label
+   */
+  public function setLabel(Label $label) {
+    $label->setFor($label);
+  }
+
+  /**
+   * Setter for the element's name.
+   *
+   * @param string $name
+   */
+  public function setName($name) {
+    return $this->setAttribute(HasName::ATTR_NAME, $name);
+  }
+
 }

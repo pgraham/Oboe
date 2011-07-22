@@ -32,7 +32,6 @@ class TextInput extends Input implements Labelable {
    */
   public function __construct($name, $value = null) {
     parent::__construct(Input::TYPE_TEXT_INPUT, $name, $value);
-
     $this->addClass(Input::TYPE_TEXT_INPUT);
   }
 

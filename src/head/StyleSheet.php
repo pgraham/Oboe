@@ -27,7 +27,12 @@ class StyleSheet extends Link {
    *
    * @param string The path to the stylesheet
    */
-  public function __construct($href) {
+  public function __construct($href, $media = null) {
     parent::__construct('stylesheet', $href);
+
+    if ($media !== null) {
+      $this->setAttribute('media', $media);
+    }
   }
+
 }

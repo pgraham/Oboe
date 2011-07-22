@@ -28,9 +28,9 @@ require_once __DIR__ .'/../../test-common.php';
 class FileUploadTest extends TestCase {
 
   public function testOutput() {
-    $fileUpload = new FileUpload('uploader');
+    $fileUpload = new FileUpload('upload');
     $output = $fileUpload->__toString();
-    $expected = '<input class="file" type="file" name="uploader"/>';
+    $expected = '<input id="upload" class="file" type="file" name="upload"/>';
     $this->assertEquals($expected, $output,
       'Invalid output for file input element');
   }

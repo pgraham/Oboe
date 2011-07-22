@@ -13,7 +13,8 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\test\mock;
-use \oboe\item;
+
+use \oboe\struct\MetadataContent;
 
 /**
  * This class is a mock of a Oboe_Item_Head object used to test the
@@ -21,9 +22,7 @@ use \oboe\item;
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class HeadElement extends \oboe\ElementBase implements item\Document,
-  item\Head
-{
+class HeadElement extends \oboe\ElementBase implements MetadataContent {
 
   public function __construct() {
     parent::__construct('headele');

@@ -28,6 +28,6 @@ class Hidden extends Input {
    * @param string The value of the hidden input item.
    */
   public function __construct($name, $value) {
-    parent::__construct('hidden', null, $name, $value);
+    parent::__construct('hidden', $name, $value);
   }
 }

@@ -30,15 +30,15 @@ class JavascriptTest extends TestCase {
   public function testOutput() {
     $javascript = new Javascript();
 
-    $javascript->addCode('var i = 0;');
+    $javascript->add('var i = 0;');
     $output = $javascript->__toString();
-    $expected = '<script type="text/javascript">var i = 0;</script>';
+    $expected = '<script>var i = 0;</script>';
     $this->assertEquals($expected, $output,
       'Invalid output for javascript with body');
 
-    $javascript->addCode('i++;');
+    $javascript->add('i++;');
     $output = $javascript->__toString();
-    $expected = '<script type="text/javascript">var i = 0;i++;</script>';
+    $expected = '<script>var i = 0;i++;</script>';
     $this->assertEquals($expected, $output,
       'Invalid output for javascript with appended body');
   }

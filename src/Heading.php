@@ -26,11 +26,15 @@ class Heading extends ElementComposite implements FlowContent {
   /**
    * Constructor.
    *
-   * @param string - The heading's text
-   * @param integer - The heading's level, ie, 1 = <h1>
+   * @param integer $prominency The heading's level, ie, 1 = <h1>
+   * @param mixed $ctnt The heading's text
    */
-  public function __construct($prominence = 1) {
+  public function __construct($prominence = 1, $ctnt = null) {
     parent::__construct('h'.$prominence);
     $this->_objectTypes = array('oboe\struct\PhrasingContent');
+
+    if ($ctnt !== null) {
+      $this->add($ctnt);
+    }
   }
 }

@@ -14,14 +14,14 @@
  */
 namespace oboe;
 
-use \oboe\item\Body as BodyItem;
+use \oboe\struct\PhrasingContent;
 
 /**
  * This class encapsulates a <span> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Span extends ElementComposite implements BodyItem {
+class Span extends ElementComposite implements PhrasingContent {
 
   /**
    * Constructor.
@@ -29,7 +29,12 @@ class Span extends ElementComposite implements BodyItem {
    * @param string The id attribute for the span
    * @param string The class attribute for the span
    */
-  public function __construct($id = null, $class = null) {
-    parent::__construct('span', $id, $class);
+  public function __construct($ctnt = null) {
+    parent::__construct('span');
+    $this->_objectTypes = array('oboe\struct\PhrasingContent');
+
+    if ($ctnt !== null) {
+      $this->add($ctnt);
+    }
   }
 }

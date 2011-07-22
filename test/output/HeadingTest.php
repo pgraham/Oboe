@@ -29,7 +29,7 @@ class HeadingTest extends TestCase {
 
   public function testOutput() {
     for ($i = 1; $i <= 6; $i++) {
-      $heading = new Heading('Heading '.$i, $i);
+      $heading = new Heading($i, 'Heading '.$i);
 
       $output = $heading->__toString();
       $expected = '<h'.$i.'>Heading '.$i.'</h'.$i.'>';

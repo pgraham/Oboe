@@ -17,6 +17,7 @@ namespace oboe;
 use \oboe\attr\CanSubmit;
 use \oboe\attr\CanSubmitAttributeManager;
 use \oboe\attr\HasName;
+use \oboe\event\AddElementEvent;
 use \oboe\struct\FlowContent;
 use \InvalidArgumentException;
 
@@ -49,7 +50,6 @@ class Form extends ElementComposite implements FlowContent, HasName, CanSubmit {
    */
   public function __construct() {
     parent::__construct('form');
-
     $this->_objectTypes = array('oboe\struct\FlowContent');
 
     $this->_canSubmitAttributeManager = new CanSubmitAttributeManager($this);
@@ -86,6 +86,7 @@ class Form extends ElementComposite implements FlowContent, HasName, CanSubmit {
   }
 
   public function setAction($action) {
+    // TODO - Transform relative paths into absolute URLs
     return $this->_canSubmitAttributeManager->setAction($action);
   }
 
@@ -115,14 +116,17 @@ class Form extends ElementComposite implements FlowContent, HasName, CanSubmit {
     return $this->_canSubmitAttributeManager->setTarget($target);
   }
 
-  protected function onAdd($elm) {
+  protected function onAdd(AddElementEvent $event) {
+    $elm = $event->getElement();
+    if (is_string($elm)) {
+      return;
+    }
+
     $e = null;
     ElementComposite::visit($elm, function ($elm) use (&$e) {
       if ($elm instanceof Form) {
         $e = new InvalidArgumentException('Cannot nest forms');
-        return false;
       }
-      return true;
     });
 
     if ($e !== null) {

@@ -62,7 +62,7 @@ class Head extends ElementComposite implements HtmlElement {
    * Constructor.
    */
   protected function __construct() {
-    parent::__construct('head', null, null);
+    parent::__construct('head');
 
     // This object only accepts oboe_Item_Header implementations
     $this->_objectTypes = array(

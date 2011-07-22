@@ -50,11 +50,12 @@ class HeadTest extends TestCase {
 
     $head1->add(new Mock\HeadElement());
 
-    $output1 = $head1->__toString();
-    $output2 = $head2->__toString();
-    $this->assertEquals($output1, $output2, 'Outputs did not match');
-    $expected = '<head><headele/></head>';
-    $this->assertEquals($expected, $output1, 'Invalid ouput for head element');
+    $output = $head1->__toString();
+    $expected = '<head><meta charset="utf-8"/>'
+      . '<headele/><!--[if lt IE 9]>' . "\n"
+      . '<script src="' . Head::SHIV_URL . '"></script>' . "\n"
+      . "<![endif]-->\n</head>";
+    $this->assertEquals($expected, $output, 'Invalid ouput for head element');
   }
 
   public function testSetTitle() {
@@ -62,7 +63,10 @@ class HeadTest extends TestCase {
     $head->setTitle('Look ma, a web page!');
 
     $output = $head->__toString();
-    $expected = '<head><title>Look ma, a web page!</title></head>';
+    $expected = '<head><meta charset="utf-8"/>'
+      . '<title>Look ma, a web page!</title><!--[if lt IE 9]>' . "\n"
+      . '<script src="' . Head::SHIV_URL . '"></script>' . "\n"
+      . "<![endif]-->\n</head>";
     $this->assertEquals($expected, $output,
       'Invalid output for head with a title specified');
   }

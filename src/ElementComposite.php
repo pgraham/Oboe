@@ -14,6 +14,8 @@
  */
 namespace oboe;
 
+use \oboe\event\AddElementEvent;
+
 /**
  * This class encapsulates functionality common to elements that are composed of
  * zero or more elements.
@@ -33,12 +35,8 @@ abstract class ElementComposite extends ElementBase {
 
   /**
    * Array of object types that can be added to the composite
-   *
-   * TODO Once oboe\item\Body is eliminated the default value should be an empty
-   *      array leaving it up to the implementing class to explicitely define
-   *      its content model.
    */
-  protected $_objectTypes = array('oboe\item\Body');
+  protected $_objectTypes = array();
 
   /**
    * Boolean indicating whether or not text can be added directly to the
@@ -94,18 +92,22 @@ abstract class ElementComposite extends ElementBase {
       return $this;
     }
 
-    // This method will throw an exception if it is not a valid element
-    self::_checkElement($this, $element);
+    // Allow implementing classes to perform any additional checking, prevent
+    // the addition or replace the element being added.
+    $event = new AddElementEvent($element);
+    $this->onAdd($event);
 
-    // Allow implementing classes to perform any additional checking
-    // If this method returns false then the addition is swallowed.
-    //
-    // TODO Also pass an event object that contains a preventAdd method that
-    //      can used rather than having the method return false.
-    $add = $this->onAdd($element);
-    if ($add === false) {
+    // Check if the event has been prevented
+    if ($event->prevented()) {
       return $this;
     }
+
+    // Pull the element out of the event in case the implementation has
+    // decided to change it
+    $element = $event->getElement();
+
+    // This method will throw an exception if it is not a valid element
+    self::_checkElement($this, $element);
 
     if ($push) {
       $this->_elements[] = $element;
@@ -113,7 +115,12 @@ abstract class ElementComposite extends ElementBase {
       array_unshift($this->_elements, $element);
     }
 
-    return $this;
+    $return = $event->getReturn();
+    if ($return === null) {
+      return $this;
+    } else {
+      return $return;
+    }
   }
 
   /**
@@ -144,7 +151,7 @@ abstract class ElementComposite extends ElementBase {
    *
    * @param mixed $elm The element being added.
    */
-  protected function onAdd($elm) {}
+  protected function onAdd(AddElementEvent $event) {}
 
   /**
    * Intended to be overriden by implementing classes in order to perform any

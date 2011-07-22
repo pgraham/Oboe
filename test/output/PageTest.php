@@ -14,6 +14,7 @@
  */
 namespace oboe\test\output;
 
+use \oboe\Head;
 use \oboe\Page;
 
 use \PHPUnit_Framework_TestCase as TestCase;
@@ -32,11 +33,11 @@ class PageTest extends TestCase {
     $page->removeAll();
 
     $output = $page->__toString();
-    $expected = '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
-      . '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" '
-      . '"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">' . "\n"
-      . '<html xmlns="http://www.w3.org/1999/xhtml">'
-      . '<head></head><body></body></html>';
+    $expected = "<!DOCTYPE html>\n"
+      . '<html lang="en"><head><meta charset="utf-8"/><!--[if lt IE 9]>' . "\n"
+      . '<script src="' . Head::SHIV_URL . '"></script>' . "\n"
+      . '<![endif]-->' . "\n"
+      . '</head><body></body></html>';
     $this->assertEquals($expected, $output, 'Invalid output for html element'); 
   }
 
@@ -46,10 +47,13 @@ class PageTest extends TestCase {
     $page->setTitle('How bout\' it?');
 
     $output = $page->__toString();
-    $expected = '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
-      . '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" '
-      . '"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">' . "\n"
-      . '<html xmlns="http://www.w3.org/1999/xhtml">'
-      . '<head><title>How bout\t it?</title></head><body></body></html>';
+    $expected = "<!DOCTYPE html>\n"
+      . '<html lang="en"><head><meta charset="utf-8"/>'
+      . '<title>How bout\' it?</title>'
+      . '<!--[if lt IE 9]>' . "\n"
+      . '<script src="' . Head::SHIV_URL . '"></script>' . "\n"
+      . '<![endif]-->' . "\n"
+      . '</head><body></body></html>';
+    $this->assertEquals($expected, $output);
   }
 }

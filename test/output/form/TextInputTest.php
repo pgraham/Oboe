@@ -30,13 +30,13 @@ class TextInputTest extends TestCase {
   public function testOutput() {
     $text = new TextInput('input');
     $output = $text->__toString();
-    $expected = '<input class="text" type="text" name="input"/>';
+    $expected = '<input id="input" class="text" type="text" name="input"/>';
     $this->assertEquals($expected, $output,
         'Invalid output for text input element');
 
     $text = new TextInput('input', 'Something revolutionary');
     $output = $text->__toString();
-    $expected = '<input class="text" type="text" name="input" '.
+    $expected = '<input id="input" class="text" type="text" name="input" '.
       'value="Something revolutionary"/>';
     $this->assertEquals($expected, $output,
       'Invalid output for text input element');

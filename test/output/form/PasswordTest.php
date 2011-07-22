@@ -30,7 +30,8 @@ class PasswordTest extends TestCase {
   public function testOutput() {
     $pw = new Password('pass');
     $output = $pw->__toString();
-    $expected = '<input class="password" type="password" name="pass"/>';
+    $expected = '<input id="pass" class="password" type="password"'
+      . ' name="pass"/>';
     $this->assertEquals($expected, $output,
       'Invalid output for password input element');
   }

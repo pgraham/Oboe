@@ -21,9 +21,6 @@ namespace oboe\form;
  */
 class FileUpload extends Input {
 
-  /** Default CSS class for file upload elements */
-  const CSS_CLASS = 'file';
-
   /**
    * Constructor.  Any form that contains a oboe\form\FileUpload needs to have
    * <code>
@@ -36,6 +33,7 @@ class FileUpload extends Input {
    *     the form to which the file upload belongs.
    */
   public function __construct($name) {
-    parent::__construct('file', self::CSS_CLASS, $name);
+    parent::__construct(Input::TYPE_FILE, $name);
+    $this->addClass(Input::TYPE_FILE);
   }
 }

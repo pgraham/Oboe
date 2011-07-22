@@ -31,22 +31,19 @@ class AllTests {
 
     $suite->addTestSuite('oboe\test\output\ElementBaseTest');
     $suite->addTestSuite('oboe\test\output\ElementCompositeTest');
-    $suite->addTestSuite('oboe\test\output\ElementWrapperTest');
-    $suite->addTestSuite('oboe\test\output\BaseListTest');
 
     $suite->addTestSuite('oboe\test\output\AnchorTest');
     $suite->addTestSuite('oboe\test\output\BodyTest');
     $suite->addTestSuite('oboe\test\output\CommentTest');
     $suite->addTestSuite('oboe\test\output\DividerTest');
     $suite->addTestSuite('oboe\test\output\DivTest');
-    $suite->addTestSuite('oboe\test\output\ElArrayTest');
     $suite->addTestSuite('oboe\test\output\ExceptionTest');
     $suite->addTestSuite('oboe\test\output\FormTest');
     $suite->addTestSuite('oboe\test\output\HeadingTest');
     $suite->addTestSuite('oboe\test\output\HeadTest');
     $suite->addTestSuite('oboe\test\output\ImageTest');
     $suite->addTestSuite('oboe\test\output\JavascriptTest');
-    $suite->addTestSuite('oboe\test\output\ListElTest');
+    $suite->addTestSuite('oboe\test\output\ListTest');
     $suite->addTestSuite('oboe\test\output\ListItemTest');
     $suite->addTestSuite('oboe\test\output\PageTest');
     $suite->addTestSuite('oboe\test\output\ParagraphTest');

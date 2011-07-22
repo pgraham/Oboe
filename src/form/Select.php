@@ -13,15 +13,21 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\form;
+
+use \oboe\attr\HasName;
+use \oboe\struct\Labelable;
+use \oboe\struct\PhrasingContent;
 use \oboe\ElementComposite;
-use \oboe\item;
+use \oboe\Label;
 
 /**
  * This class encapsulates a <select> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Select extends ElementComposite implements item\Form {
+class Select extends ElementComposite implements PhrasingContent, Labelable,
+    HasName
+{
 
   /**
    * Constructor.
@@ -30,9 +36,13 @@ class Select extends ElementComposite implements item\Form {
    */
   public function __construct($name) {
     parent::__construct('select');
-    $this->setAttribute('name', $name);
-    $this->_objectTypes = array('oboe\form\SelectOption');
+    $this->_objectTypes = array(
+      'oboe\form\SelectOption',
+      'oboe\OptGroup'
+    );
     $this->_allowText = false;
+
+    $this->setName($name);
   }
 
   /**
@@ -59,4 +69,33 @@ class Select extends ElementComposite implements item\Form {
     parent::add($opt, $push);
     return $opt;
   }
+
+  /**
+   * Getter for the element's name.
+   *
+   * @return string
+   */
+  public function getName() {
+    return $this->getAttribute($name);
+  }
+
+  /**
+   * Setter for the element's label.
+   *
+   * @param Label $label
+   */
+  public function setLabel(Label $label) {
+    $label->setFor($label);
+    return $this;
+  }
+
+  /**
+   * Setter for the element's name.
+   *
+   * @param string $name
+   */
+  public function setName($name) {
+    return $this->setAttribute(HasName::ATTR_NAME, $name);
+  }
+
 }

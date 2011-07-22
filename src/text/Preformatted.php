@@ -13,15 +13,17 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\text;
-use \oboe\ElementWrapper;
-use \oboe\item;
+
+use \oboe\struct\FlowContent;
+use \oboe\struct\PhrasingContent;
+use \oboe\ElementComposite;
 
 /**
  * This class encapsulates a <<pre>> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Preformatted extends ElementWrapper implements item\Body, item\Form {
+class Preformatted extends ElementComposite implements PhrasingContent {
 
   /**
    * Constructor.
@@ -30,9 +32,12 @@ class Preformatted extends ElementWrapper implements item\Body, item\Form {
    * @param string The value of the element's id attribute
    * @param string The value of the element's class attribute
    */
-  public function __construct($text, $id = null, $class = null) {
-    parent::__construct('pre', $id, $class);
+  public function __construct($text = null) {
+    parent::__construct('pre');
     $this->_objectTypes = array();
-    $this->setElement($text);
+
+    if ($text !== null) {
+      $this->add($text);
+    }
   }
 }

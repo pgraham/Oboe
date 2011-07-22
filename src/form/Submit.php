@@ -29,6 +29,7 @@ class Submit extends Input {
    */
   public function __construct($label = null) {
     parent::__construct(Input::TYPE_SUBMIT);
+    $this->addClass(Input::TYPE_SUBMIT);
 
     if ($label !== null) {
       $this->setValue($label);

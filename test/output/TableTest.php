@@ -116,21 +116,21 @@ class TableTest extends TestCase {
 
     $tArr = $table->populate(3, 3, 3);
 
-    $tArr['head'][0]->setElement('Column 1');
-    $tArr['head'][1]->setElement('Column 2');
-    $tArr['head'][2]->setElement('Column 3');
+    $tArr['head'][0]->add('Column 1');
+    $tArr['head'][1]->add('Column 2');
+    $tArr['head'][2]->add('Column 3');
 
-    $tArr[0][0]->setElement('(1, 1)');
-    $tArr[0][1]->setElement('(1, 2)');
-    $tArr[0][2]->setElement('(1, 3)');
+    $tArr[0][0]->add('(1, 1)');
+    $tArr[0][1]->add('(1, 2)');
+    $tArr[0][2]->add('(1, 3)');
 
-    $tArr[1][0]->setElement('(2, 1)');
-    $tArr[1][1]->setElement('(2, 2)');
-    $tArr[1][2]->setElement('(2, 3)');
+    $tArr[1][0]->add('(2, 1)');
+    $tArr[1][1]->add('(2, 2)');
+    $tArr[1][2]->add('(2, 3)');
 
-    $tArr[2][0]->setElement('(3, 1)');
-    $tArr[2][1]->setElement('(3, 2)');
-    $tArr[2][2]->setElement('(3, 3)');
+    $tArr[2][0]->add('(3, 1)');
+    $tArr[2][1]->add('(3, 2)');
+    $tArr[2][2]->add('(3, 3)');
 
     $tableHtml = $table->__toString();
     $expected = '<table>'.

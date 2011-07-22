@@ -14,12 +14,14 @@
  */
 namespace oboe;
 
+use \oboe\struct\FlowContent;
+
 /**
  * This class encapsulates a <hr/> element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Divider extends ElementBase implements Item\Body, Item\Form {
+class Divider extends ElementBase implements FlowContent {
 
   /**
    * Constructor.

@@ -28,7 +28,8 @@ require_once __DIR__ . '/../test-common.php';
 class SpanTest extends TestCase {
 
   public function testOutput() {
-    $span = new Span(null, 'strong');
+    $span = new Span();
+    $span->addClass('strong');
     $span->add('Pay attention to me!');
     $output = $span->__toString();
     $expected = '<span class="strong">Pay attention to me!</span>';
@@ -43,5 +44,10 @@ class SpanTest extends TestCase {
       'Pay attention to me!  I\'m worthy of attention.</span>';
     $this->assertEquals($expected, $output,
       'Invalid output for span element');
+
+    $span = new Span('Spanned');
+    $output = $span->__toString();
+    $expected = '<span>Spanned</span>';
+    $this->assertEquals($expected, $output);
   }
 }

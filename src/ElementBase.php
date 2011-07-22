@@ -211,7 +211,11 @@ abstract class ElementBase {
    * @return $this
    */
   public function setClass($class) {
-    $this->_class = explode(' ', $class);
+    if ($class === null) {
+      $this->_class = null;
+    } else {
+      $this->_class = explode(' ', $class);
+    }
 
     return $this;
   }

@@ -13,14 +13,16 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\form;
-use \oboe\ElementWrapper;
+use \oboe\ElementComposite;
 
 /**
  * This class encapsulates an <option> element.
  *
+ * TODO Rename this class Option and move into the \oboe namespace
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
-class SelectOption extends ElementWrapper {
+class SelectOption extends ElementComposite {
 
   /**
    * Constructor.
@@ -29,11 +31,15 @@ class SelectOption extends ElementWrapper {
    * @param string The option's label
    * @param boolean Whether or not the option is selected.  Default, false
    */
-  public function __construct($value, $lbl, $selected = false) {
+  public function __construct($value, $text = null, $selected = false) {
     parent::__construct('option');
-    $this->_objectTypes = array();
-    $this->setElement($lbl);
+
     $this->setAttribute('value', $value);
+
+    if ($text !== null) {
+      $this->add($text);
+    }
+
     if($selected) {
       $this->setAttribute('selected');
     }

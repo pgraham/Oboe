@@ -14,13 +14,16 @@
  */
 namespace oboe;
 
+use \oboe\struct\EmbeddedContent;
+use \oboe\struct\MetadataContent;
+
 /**
  * This class encapsulate an HTML comment. Comments are output between
  * <!-- ... --> tags
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Comment implements item\Document, item\Head, item\Body, item\Form {
+class Comment implements MetadataContent, EmbeddedContent {
 
   /* The encapsulated comment */
   private $_comment;

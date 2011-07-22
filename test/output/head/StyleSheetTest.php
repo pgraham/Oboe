@@ -30,15 +30,13 @@ class StyleSheetTest extends TestCase {
   public function testOutput() {
     $sheet = new StyleSheet('/css/style.css');
     $output = $sheet->__toString();
-    $expected = '<link rel="stylesheet" href="/css/style.css" '.
-      'type="text/css"/>';
+    $expected = '<link rel="stylesheet" href="/css/style.css"/>'; 
     $this->assertEquals($expected, $output,
       'Invalid output for stylesheet element');
 
     $sheet = new StyleSheet('/css/style.css', 'print');
     $output = $sheet->__toString();
-    $expected = '<link rel="stylesheet" href="/css/style.css" '.
-      'type="text/css" media="print"/>';
+    $expected = '<link rel="stylesheet" href="/css/style.css" media="print"/>';
     $this->assertEquals($expected, $output,
       'Invalid output for stylesheet element with media');
   }

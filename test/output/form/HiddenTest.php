@@ -30,7 +30,8 @@ class HiddenTest extends TestCase {
   public function testOutput() {
     $hidden = new Hidden('whosgreat', 'philip');
     $output = $hidden->__toString();
-    $expected = '<input type="hidden" name="whosgreat" value="philip"/>';
+    $expected = '<input id="whosgreat" type="hidden" name="whosgreat"'
+      . ' value="philip"/>';
     $this->assertEquals($expected, $output,
       'Invalid output for hidden input element');
   }

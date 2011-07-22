@@ -14,12 +14,23 @@
  */
 namespace oboe;
 
+use \oboe\struct\MetadataContent;
+
 /**
  * This class encapsulates a <style> element.
  *
+ *   http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-style-element
+ *
+ * TODO Have this class implement a SometimesFlowContent interface with an
+ *      isFlowContent() method that returns true if the "scoped" attribute is
+ *      set.  Update ElementComposite to unshift any style elements.  Style
+ *      elements added to an ElementComposite should be added the beginning of
+ *      the composite's children, IN THE ORDER THEY ARE ADDED, i.e. A stack of
+ *      <style> elements unshifted into the composite.
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
-class Style extends ElementComposite implements item\Head, item\Body {
+class Style extends ElementComposite implements MetadataContent {
 
   /* Array of style rules belonging to the style element */
   private $_rules;

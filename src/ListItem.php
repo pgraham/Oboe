@@ -24,8 +24,12 @@ class ListItem extends ElementComposite {
   /**
    * Constructor.
    */
-  public function __construct() {
+  public function __construct($ctnt = null) {
     parent::__construct('li');
     $this->_objectTypes = array('oboe\struct\FlowContent');
+
+    if ($ctnt !== null) {
+      $this->add($ctnt);
+    }
   }
 }

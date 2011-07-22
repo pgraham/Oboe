@@ -13,7 +13,8 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 namespace oboe\text;
-use \oboe\item;
+
+use \oboe\struct\PhrasingContent;
 
 /**
  * This class outputs horizontal space.  It is created by outputing
@@ -21,7 +22,7 @@ use \oboe\item;
  *
  * @author Philip Graham <philip@lightbox.org>
  */
-class HSpace implements item\Document, item\Body, item\Form {
+class HSpace implements PhrasingContent {
 
   /* The amount of white space to output */
   private $_amount;
