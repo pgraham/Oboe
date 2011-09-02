@@ -42,6 +42,7 @@ class TextInput extends Input implements Labelable {
    */
   public function setLabel(Label $label) {
     $label->setFor($this);
+    return $this;
   }
 
   /**
@@ -51,5 +52,6 @@ class TextInput extends Input implements Labelable {
    */
   public function setText($text) {
     $this->setAttribute('value', $text);
+    return $this;
   }
 }

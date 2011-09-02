@@ -14,6 +14,7 @@
  */
 namespace oboe;
 
+use \oboe\event\AddElementEvent;
 use \oboe\struct\Labelable;
 use \oboe\struct\PhrasingContent;
 //use \oboe\attr\FormAssociated;
@@ -40,7 +41,7 @@ class Label extends ElementComposite implements PhrasingContent {
     return $this->setAttribute('for', $labelable->getId());
   }
 
-  protected function onAdd($elm) {
+  protected function onAdd(AddElementEvent $event) {
     // TODO
     // Ensure that there are no <label> element descendants or labelable
     // descendants unless it's the label's labeled control

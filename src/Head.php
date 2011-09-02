@@ -14,6 +14,7 @@
  */
 namespace oboe;
 
+use \oboe\event\AddElementEvent;
 use \oboe\head\Charset;
 use \oboe\head\Title;
 use \oboe\struct\HtmlElement;
@@ -114,7 +115,11 @@ class Head extends ElementComposite implements HtmlElement {
     return $this;
   }
 
-  protected function onAdd($elm) {
+  protected function onAdd(AddElementEvent $event) {
+    $elm = $event->getElement();
+
+    // Only perform special processing for Title elements, all other elements
+    // are treated normally
     if (!($elm instanceof Title)) {
       return;
     }
@@ -128,7 +133,7 @@ class Head extends ElementComposite implements HtmlElement {
     
     // Prevent the parent from adding the element to the list as it will be
     // added onDump
-    return false;
+    $event->prevented(true);
   }
 
   protected function onDump() {

@@ -19,6 +19,8 @@ use \oboe\struct\FlowContent;
 /**
  * This class encapsulates a <hr/> element.
  *
+ * TODO Rename this class HorizontalRule
+ *
  * @author Philip Graham <philip@lightbox.org>
  */
 class Divider extends ElementBase implements FlowContent {
