@@ -59,7 +59,7 @@ class Element {
    * @return Anchor
    */
   public static function anchor($href = '#', $ctnt = null) {
-    return Anchor($href, $ctnt);
+    return new Anchor($href, $ctnt);
   }
 
   /**
@@ -128,16 +128,6 @@ class Element {
   }
 
   /**
-   * <img/> element factory method. Alias for image().
-   *
-   * @param string $src The value of the img's src attribute.
-   * @return Image
-   */
-  public static function img($src) {
-    return self::image($src);
-  }
-
-  /**
    * <img/> element factory method. Aliased by img().
    *
    * @param string $src The value of the img's src attribute.
@@ -148,12 +138,32 @@ class Element {
   }
 
   /**
-   * <script/> element factory method.
+   * <img/> element factory method. Alias for image().
+   *
+   * @param string $src The value of the img's src attribute.
+   * @return Image
+   */
+  public static function img($src) {
+    return self::image($src);
+  }
+
+  /**
+   * <script/> element factory method. Aliased by js()
    *
    * @param string $src URL of the script
    * @return
    */
   public static function javascript($src) {
+    return new Javascript($src);
+  }
+
+  /**
+   * <script/> element factory method. Alias for javascript()
+   *
+   * @param string $src URL of the script
+   * @return
+   */
+  public static function js($src) {
     return new Javascript($src);
   }
 
@@ -236,5 +246,23 @@ class Element {
    */
   public static function textInput($name) {
     return new TextInput($name);
+  }
+
+  /**
+   * <ul> element factory method. Alias for unorderedList().
+   *
+   * @return UnorderedList
+   */
+  public static function ul() {
+    return self::unorderedList();
+  }
+
+  /**
+   * <ul> element factory method.  Aliases by ul().
+   *
+   * @return UnorderedList
+   */
+  public static function unorderedList() {
+    return new UnorderedList();
   }
 }
