@@ -22,9 +22,8 @@ use \oboe\ElementBase;
  * This class encapsulates a <script/> element for adding a reference to an
  * external javascript to the <head> element.
  *
- * TODO Rename this Script
- *
  * @author Philip Graham <philip@lightbox.org>
+ * @deprecated - Use the Element::js factory method or oboe\Javascript instead.
  */
 class Javascript extends ElementBase implements MetadataContent, PhrasingContent
 {

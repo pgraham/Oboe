@@ -29,9 +29,6 @@ class Javascript extends ElementComposite implements MetadataContent,
   PhrasingContent
 {
 
-  /* The script's code */
-  private $_code;
-
   /**
    * Constructor.
    */
@@ -39,18 +36,4 @@ class Javascript extends ElementComposite implements MetadataContent,
     parent::__construct('script');
     $this->_objectTypes = array();
   }
-
-  /**
-   * Override the toString() method add any source code to the script
-   * element.
-   *
-   * @return string HTML markup for the script element
-   */
-  public function __toString() {
-    if ($this->_code !== null) {
-      $this->setElement($this->_code);
-    }
-    return parent::__toString();
-  }
-
 }

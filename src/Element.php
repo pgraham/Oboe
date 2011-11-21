@@ -17,8 +17,8 @@ namespace oboe;
 use \oboe\form\Password;
 use \oboe\form\Submit;
 use \oboe\form\TextInput;
-use \oboe\head\Javascript;
 use \oboe\head\StyleSheet;
+use \oboe\Javascript;
 
 /**
  * This class provides factory methods for different elements.  The purpose of
@@ -153,8 +153,12 @@ class Element {
    * @param string $src URL of the script
    * @return
    */
-  public static function javascript($src) {
-    return new Javascript($src);
+  public static function javascript($src = null) {
+    $js = new Javascript();
+    if ($src !== null) {
+      $js->setAttribute('src', $src);
+    }
+    return $js;
   }
 
   /**
@@ -163,8 +167,8 @@ class Element {
    * @param string $src URL of the script
    * @return
    */
-  public static function js($src) {
-    return new Javascript($src);
+  public static function js($src = null) {
+    return self::javascript($src);
   }
 
   /**
