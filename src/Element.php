@@ -73,6 +73,16 @@ class Element {
   }
 
   /**
+   * <link/> element with rel="stylesheet" factory method. Aliased by css().
+   *
+   * @param string $href Path to the stylesheet
+   * @return StyleSheet
+   */
+  public static function css($href) {
+    return self::styleSheet($href);
+  }
+
+  /**
    * <div/> element factory method.
    *
    * @return Div
