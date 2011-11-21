@@ -43,7 +43,6 @@ abstract class BaseList extends ElementComposite implements FlowContent {
    *     and add to the list.
    * @param boolean Whether to add the item to the beginning or end of the
    *     list of elements
-   * @return The list item wrapper that was added to the list
    */
   protected function onAdd(AddElementEvent $event) {
     $element = $event->getElement();
@@ -53,6 +52,6 @@ abstract class BaseList extends ElementComposite implements FlowContent {
 
     $li = new ListItem();
     $li->add($element);
-    $event->setElement($li, true);
+    $event->setElement($li);
   }
 }
