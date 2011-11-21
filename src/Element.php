@@ -225,7 +225,7 @@ class Element {
   }
 
   /**
-   * <p/> element factory method.  Aliases by p().
+   * <p/> element factory method.  Aliased by p().
    *
    * @return Paragraph
    */
@@ -253,7 +253,7 @@ class Element {
   }
 
   /**
-   * <link/> element with rel="stylesheet" factory method.
+   * <link/> element with rel="stylesheet" factory method. Aliased by css().
    *
    * @param string $href Path to the stylesheet
    * @return StyleSheet

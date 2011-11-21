@@ -26,7 +26,7 @@ use \InvalidArgumentException;
  *
  *   http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-form-element
  *
- * @author Philip Graham <philip@lightbox.org>
+ * @author Philip Graham <philip@zeptech.ca>
  */
 class Form extends ElementComposite implements FlowContent, HasName, CanSubmit {
 
