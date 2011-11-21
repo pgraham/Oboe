@@ -196,6 +196,26 @@ class Element {
   }
 
   /**
+   * <li/> element factory method. Alias for listItem().
+   *
+   * @param string $text Text content for the list item.
+   * @return ListItem
+   */
+  public static function li($text = null) {
+    return self::listItem($text);
+  }
+
+  /**
+   * <li/> element factory method.  Alised by li().
+   *
+   * @param string $text Text content for the list item.
+   * @return ListItem
+   */
+  public static function listItem($text = null) {
+    return new ListItem($text);
+  }
+
+  /**
    * <p/> element factory method.  Alias for paragraph().
    *
    * @return Paragraph
