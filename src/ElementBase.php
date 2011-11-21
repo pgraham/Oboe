@@ -87,6 +87,7 @@ abstract class ElementBase {
    */
   public function addToBody() {
     Page::addElementToBody($this);
+    return $this;
   }
 
   /**
@@ -96,6 +97,7 @@ abstract class ElementBase {
    */
   public function addToHead() {
     Page::addElementToHead($this);
+    return $this;
   }
 
   /**
