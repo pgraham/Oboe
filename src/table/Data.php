@@ -49,6 +49,7 @@ class Data extends ElementComposite {
     }
 
     $this->setAttribute('rowspan', $rowSpan);
+    return $this;
   }
 
   public function setColSpan($colSpan) {
@@ -57,5 +58,6 @@ class Data extends ElementComposite {
     }
 
     $this->setAttribute('colspan', $colSpan);
+    return $this;
   }
 }
