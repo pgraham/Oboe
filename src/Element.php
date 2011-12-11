@@ -18,6 +18,7 @@ use \oboe\form\Password;
 use \oboe\form\Submit;
 use \oboe\form\TextInput;
 use \oboe\head\StyleSheet;
+use \oboe\table\Data;
 use \oboe\Javascript;
 
 /**
@@ -270,6 +271,35 @@ class Element {
    */
   public static function submit($lbl = null) {
     return new Submit($lbl);
+  }
+
+  /**
+   * <table/> element factory method.
+   *
+   * @return Table
+   */
+  public static function table() {
+    return new Table();
+  }
+
+  /**
+   * <td/> element factory method.  Aliased by td().
+   *
+   * @param Content of the cell
+   * @return table\Data
+   */
+  public static function tableData($ctnt = null) {
+    return new Data($ctnt);
+  }
+
+  /**
+   * <td/> element factory method. Alias for tableData().
+   *
+   * @param Content of the cell.
+   * @return table\Data
+   */
+  public static function td($ctnt = null) {
+    return self::tableData($ctnt);
   }
 
   /**
