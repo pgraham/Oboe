@@ -35,6 +35,10 @@ class Label extends ElementComposite implements PhrasingContent {
     $this->_objectTypes = array('oboe\struct\PhrasingContent');
   }
 
+  public function forInput ($labelableId) {
+    return $this->setAttribute('for', $labelableId);
+  }
+
   public function setFor(Labelable $labelable) {
     $this->_labelled = $labelable;
 
