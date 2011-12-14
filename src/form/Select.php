@@ -49,7 +49,7 @@ class Select extends ElementComposite implements PhrasingContent, Labelable,
    * Override the add function to also allow adding by passing the parameters
    * for the SelectOption constructor.
    *
-   * @param mixed Either the SelectOption to add to the list of the value of
+   * @param mixed Either the SelectOption to add to the list or the value of
    *     the select option to create
    * @param string The label for the select option, ignored if the first
    *     parameter is a SelectOption
@@ -62,12 +62,12 @@ class Select extends ElementComposite implements PhrasingContent, Labelable,
   public function add($element, $lbl = null, $selected = false, $push = true) {
     if ($element instanceof SelectOption) {
       parent::add($element, $push);
-      return $element;
+      return $this;
     }
 
     $opt = new SelectOption($element, $lbl, $selected);
     parent::add($opt, $push);
-    return $opt;
+    return $this;
   }
 
   /**
