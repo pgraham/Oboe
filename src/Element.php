@@ -15,6 +15,7 @@
 namespace oboe;
 
 use \oboe\form\Password;
+use \oboe\form\Select;
 use \oboe\form\Submit;
 use \oboe\form\TextInput;
 use \oboe\head\StyleSheet;
@@ -241,6 +242,16 @@ class Element {
    */
   public static function password($name) {
     return new Password($name);
+  }
+
+  /**
+   * <select/> element factory method.
+   *
+   * @param string $name The select input element's name attribute
+   * @return Select
+   */
+  public static function select($name) {
+    return new Select($name);
   }
 
   /**
