@@ -22,8 +22,7 @@ use \oboe\struct\PhrasingContent;
  *
  *   http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-a-element
  *
- * TODO - Implement a Anchor element that can also contain FlowContent or
- *        optionally figure out a way of implementing a transparent interface
+ * TODO - Figure out a way of implementing a transparent interface
  *        and have ElementComposite handle elements that implement the
  *        Transparent interface differently.
  *        http://www.whatwg.org/specs/web-apps/current-work/multipage/content-models.html#transparent
@@ -46,7 +45,7 @@ class Anchor extends ElementComposite implements PhrasingContent {
    */
   public function __construct($href = '#', $item = null) {
     parent::__construct('a');
-    $this->_objectTypes = array('oboe\struct\PhrasingContent');
+    $this->_objectTypes = array('oboe\struct\FlowContent');
 
     $this->setAttribute('href', $href);
 

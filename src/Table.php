@@ -177,10 +177,14 @@ class Table extends ElementComposite implements FlowContent {
       $this->_bodies[0]->add($row);
     }
 
-    $cell = new Td();
-    $cell->add($cellContents);
+    if ($cellContents instanceof Td) {
+      $cell = $cellContents;
+    } else {
+      $cell = new Td();
+      $cell->add($cellContents);
+    }
     $row->add($cell);
-    return $cell;
+    return $this;
   }
 
   /**
