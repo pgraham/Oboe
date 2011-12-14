@@ -122,15 +122,17 @@ class Form extends ElementComposite implements FlowContent, HasName, CanSubmit {
       return;
     }
 
-    $e = null;
-    ElementComposite::visit($elm, function ($elm) use (&$e) {
-      if ($elm instanceof Form) {
-        $e = new InvalidArgumentException('Cannot nest forms');
-      }
-    });
+    if ($elm instanceof ElementComposite) {
+      $e = null;
+      ElementComposite::visit($elm, function ($elm) use (&$e) {
+        if ($elm instanceof Form) {
+          $e = new InvalidArgumentException('Cannot nest forms');
+        }
+      });
 
-    if ($e !== null) {
-      throw $e;
+      if ($e !== null) {
+        throw $e;
+      }
     }
   }
 }
