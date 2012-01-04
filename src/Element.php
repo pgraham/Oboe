@@ -17,9 +17,11 @@ namespace oboe;
 use \oboe\form\Password;
 use \oboe\form\Select;
 use \oboe\form\Submit;
+use \oboe\form\TextArea;
 use \oboe\form\TextInput;
 use \oboe\head\StyleSheet;
 use \oboe\table\Data;
+use \oboe\text\VSpace;
 use \oboe\Javascript;
 
 /**
@@ -62,6 +64,15 @@ class Element {
    */
   public static function anchor($href = '#', $ctnt = null) {
     return new Anchor($href, $ctnt);
+  }
+
+  /**
+   * <br/> element factory method.
+   *
+   * @return text\VSpace;
+   */
+  public static function br() {
+    return new VSpace();
   }
 
   /**
@@ -117,8 +128,8 @@ class Element {
    * @param integer $prominence The heading element's prominence. Default: 1
    * @return Heading
    */
-  public static function heading($prominence = 1) {
-    return new Heading($prominence);
+  public static function heading($prominence = 1, $text = null) {
+    return new Heading($prominence, $text);
   }
 
   /**
@@ -311,6 +322,16 @@ class Element {
    */
   public static function td($ctnt = null) {
     return self::tableData($ctnt);
+  }
+
+  /**
+   * <textarea/> element factory.
+   *
+   * @param string $name
+   * @return form\TextArea
+   */
+  public static function textarea($name) {
+    return new TextArea($name);
   }
 
   /**
