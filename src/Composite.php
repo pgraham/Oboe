@@ -15,7 +15,6 @@
 namespace oboe;
 
 use \oboe\struct\FlowContent;
-use \oboe\Body;
 
 /**
  * This class allows for a widget to be created by extending an oboe element
@@ -47,7 +46,7 @@ abstract class Composite {
    * Add this element to the body.
    */
   public function addToBody() {
-    Body::getInstance()->add($this);
+    Page::addElementToBody($this->elm);
   }
 
   /**
