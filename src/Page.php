@@ -153,6 +153,15 @@ class Page extends ElementComposite {
   }
 
   /**
+   * Setter for the page's title.
+   *
+   * @param string title
+   */
+  public function setPageTitle($title) {
+    $this->_head->setTitle($title);
+  }
+
+  /**
    * Adds the given element to the body.  For public access use the static
    * addElementToBody() method.
    *
@@ -178,15 +187,5 @@ class Page extends ElementComposite {
    */
   protected function dumpPage() {
     echo $this;
-  }
-
-  /**
-   * Setter for the page's title.  For public access use the static setTitle()
-   * method.
-   *
-   * @param string title
-   */
-  protected function setPageTitle($title) {
-    $this->_head->setTitle($title);
   }
 }
