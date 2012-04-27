@@ -123,6 +123,66 @@ class Element {
   }
 
   /**
+   * <h1> factory method.
+   *
+   * @param string $text
+   * @return Heading
+   */
+  public static function h1($text = null) {
+    return self::heading(1, $text);
+  }
+
+  /**
+   * <h2> factory method.
+   *
+   * @param string $text
+   * @return Heading
+   */
+  public static function h2($text = null) {
+    return self::heading(2, $text);
+  }
+
+  /**
+   * <h3> factory method.
+   *
+   * @param string $text
+   * @return Heading
+   */
+  public static function h3($text = null) {
+    return self::heading(3, $text);
+  }
+
+  /**
+   * <h4> factory method.
+   *
+   * @param string $text
+   * @return Heading
+   */
+  public static function h4($text = null) {
+    return self::heading(4, $text);
+  }
+
+  /**
+   * <h5> factory method.
+   *
+   * @param string $text
+   * @return Heading
+   */
+  public static function h5($text = null) {
+    return self::heading(5, $text);
+  }
+
+  /**
+   * <h6> factory method.
+   *
+   * @param string $text
+   * @return Heading
+   */
+  public static function h6($text = null) {
+    return self::heading(6, $text);
+  }
+
+  /**
    * <h#> factory method.
    *
    * @param integer $prominence The heading element's prominence. Default: 1

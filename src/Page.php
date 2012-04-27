@@ -167,7 +167,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function bodyAdd(FlowContent $element) {
+  public function bodyAdd(FlowContent $element) {
     $this->_body->add($element);
   }
 
@@ -177,7 +177,7 @@ class Page extends ElementComposite {
    *
    * @param element
    */
-  protected function headAdd($element) {
+  public function headAdd($element) {
     $this->_head->add($element);
   }
 
