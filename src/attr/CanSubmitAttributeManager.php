@@ -44,9 +44,13 @@ class CanSubmitAttributeManager implements CanSubmit {
   );
 
   public static function validateAction($action) {
-    if (!filter_var($action, FILTER_VALIDATE_URL)) {
+    /* TODO - relative URLs need to be accepted as well */
+    /*
+    $isUrl = filter_var($action, FILTER_VALIDATE_URL);
+    if (!) {
       return "Invalid action attribute: $action is not a valid URL";
     }
+    */
     return null;
   }
 
@@ -135,6 +139,7 @@ class CanSubmitAttributeManager implements CanSubmit {
   }
 
   public function setMethod($method) {
+    $method = strtolower($method);
     $msg = self::validateMethod($method);
     if ($msg !== null) {
       throw new InvalidArgumentException($msg);
