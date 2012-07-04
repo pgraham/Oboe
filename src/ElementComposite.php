@@ -144,10 +144,10 @@ abstract class ElementComposite extends ElementBase {
    * Intended to be overriden by implementing classes in order to perform any
    * additional checking when an element is added.  If the item being added is
    * not allowed, an exception should be generated using
-   * self::invalidElementException(...) and thrown.  If there the implementing
+   * self::invalidElementException(...) and thrown.  If the implementing element
    * wishes to swallow the add, i.e. not add the element but continue
-   * processing, it should return boolean false.  This should only be done in
-   * cases where the implementation wants to defer addition of the element.
+   * processing, it should return boolean false.  This is useful in cases where
+   * the implementation wants to defer addition of the element.
    *
    * @param mixed $elm The element being added.
    */
@@ -156,7 +156,7 @@ abstract class ElementComposite extends ElementBase {
   /**
    * Intended to be overriden by implementing classes in order to perform any
    * necessary work immediately prior to output, e.g. adding elements that have
-   * a required position in the element's element collection.
+   * a required position in the element's children.
    */
   protected function onDump() {}
 

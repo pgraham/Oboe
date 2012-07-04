@@ -166,10 +166,13 @@ abstract class ElementBase {
 
   /**
    * This method sets the given attribute to the given value.
-   * For style attributes, use the set style method.  If the attribute name
-   * is the same as the attribute value the value can be omitted,
-   * e.g. $element->setAttribute('selected') results in the attribute being
-   * output as selected="selected".
+   * For style attributes, use the set style method.  For boolean attributes,
+   * the value can either be ommitted or a boolean true or false.  If the value
+   * is ommitted the value is treated as true.
+   * e.g. $element->setAttribute('checked') results in the attribute being
+   * output as a boolean attribute.
+   *
+   *   <input type=checkbox checked/>.
    *
    * This method can also be used as a shorthand for setting the style
    * attribute:
@@ -184,7 +187,7 @@ abstract class ElementBase {
    */
   public function setAttribute($attribute, $value = null) {
     if ($value === null) {
-      $value = $attribute;
+      $value = true;
     }
 
     if($attribute == 'id') {
@@ -285,10 +288,21 @@ abstract class ElementBase {
       $str.= ' style="'.$style.'"';
     }
 
-    $attributes = '';
+    $attributes = array();
     foreach ($element->_attributes AS $attribute => $value) {
-      $attributes.= ' '.$attribute.'="'.$value.'"';
+      if ($value === true) {
+        $attributes[] = $attribute;
+      } else if ($value === false) {
+        // Don't output anything for a false attribute
+      } else {
+        $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8',
+          false /* Don't double quote */);
+
+        $attributes[] = "$attribute=$value";
+      }
     }
+    $attributes = implode(' ', $attributes);
+
     $str.= $attributes.'>';
     return $str;
   }
