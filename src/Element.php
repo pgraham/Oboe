@@ -55,6 +55,15 @@ class Element {
   }
 
   /**
+   * <address> element factory method.
+   *
+   * @return Address
+   */
+  public static function address() {
+    return new Address();
+  }
+
+  /**
    * <a/> element factory method. Aliases by a().
    *
    * @param string $href The value of the anchor's href attribute.
@@ -105,12 +114,35 @@ class Element {
   }
 
   /**
+   * <em/> element factory method.
+   *
+   * @return Em
+   */
+  public static function em($ctnt = null) {
+    $em = new Em();
+
+    if ($ctnt !== null) {
+      $em->add($ctnt);
+    }
+    return $em;
+  }
+
+  /**
    * <fieldset/> factory method.
    *
    * @return Fieldset
    */
   public static function fieldset() {
     return new Fieldset();
+  }
+
+  /**
+   * <footer> element factory method.
+   *
+   * @return Footer
+   */
+  public static function footer() {
+    return new Footer();
   }
 
   /**
@@ -180,6 +212,15 @@ class Element {
    */
   public static function h6($text = null) {
     return self::heading(6, $text);
+  }
+
+  /**
+   * <header/> element factory method.
+   *
+   * @return Header
+   */
+  public static function header() {
+    return new Header();
   }
 
   /**
@@ -289,6 +330,15 @@ class Element {
   }
 
   /**
+   * <nav/> element factory method.
+   *
+   * @return Nav
+   */
+  public static function nav() {
+    return new Nav();
+  }
+
+  /**
    * <p/> element factory method.  Alias for paragraph().
    *
    * @return Paragraph
@@ -314,6 +364,15 @@ class Element {
    */
   public static function password($name) {
     return new Password($name);
+  }
+
+  /**
+   * <section/> element factory method.
+   *
+   * @return Section
+   */
+  public static function section() {
+    return new Section();
   }
 
   /**
