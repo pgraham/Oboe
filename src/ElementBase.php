@@ -303,7 +303,7 @@ abstract class ElementBase {
     }
     $attributes = implode(' ', $attributes);
 
-    $str.= $attributes.'>';
+    $str.= " $attributes >";
     return $str;
   }
 
