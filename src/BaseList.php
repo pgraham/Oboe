@@ -19,16 +19,17 @@ use \oboe\struct\FlowContent;
 use \oboe\ListItem;
 
 /**
- * This class base functionality for list element (<<ol>>, <<ul>>).
+ * This class provides base functionality for list element (&lt;ol&gt;,
+ * &lt;ul&gt;).
  *
- * @author Philip Graham <philip@lightbox.org>
+ * @author Philip Graham <philip@zeptech.ca>
  */
 abstract class BaseList extends ElementComposite implements FlowContent {
 
   /**
    * Constructor.
    * 
-   * @param string $tag
+   * @param string tag The type of list.  Either 'ol' or 'ul'
    */
   protected function __construct($tag) {
     parent::__construct($tag);

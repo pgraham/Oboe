@@ -14,14 +14,12 @@
  */
 namespace oboe\form;
 
-use oboe\item\Body as BodyItem;
-
 /**
  * This class encapsulates a check box input control.
  *
  * @author Philip Graham <philip@zeptech.ca>
  */
-class Checkbox extends Input implements BodyItem {
+class Checkbox extends Input {
 
   /**
    * Create a new check box.

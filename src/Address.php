@@ -17,10 +17,10 @@ namespace oboe;
 use \oboe\struct\FlowContent;
 
 /**
- * This class encapsulates a <div> element.
+ * This class encapsulates a &lt;div&gt; element.
  *
- * TODO <address> elements cannot contain heading content, sectioning content,
- *      <header>, <footer> or <address> descendants
+ * @TODO &lt;address&gt; elements cannot contain heading content, sectioning
+ *   content, &lt;header&gt;, &lt;footer&gt; or &lt;address&gt; descendants
  *
  * @author Philip Graham <philip@lightbox.org>
  */

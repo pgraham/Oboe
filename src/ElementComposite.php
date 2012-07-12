@@ -44,22 +44,6 @@ abstract class ElementComposite extends ElementBase {
    */
   protected $_allowText = true;
 
-  /** 
-   * Constructor.  Calls parent constructor with given parameters and
-   * initializes array of child element array.
-   *
-   * NOTE: Use of the $id and $class parameters is deprecated.  Moving forward
-   *       all concrete class constructors will not accept parameters for which
-   *       there is a setter.  Id and class fall solidly into this category.
-   *
-   * @param string The element's tag
-   * @param string The id attribute of the element.
-   * @param string The class attribute of the element.
-   */
-  protected function __construct($tag, $id = null, $class = null) {
-    parent::__construct($tag, $id, $class);
-  }
-
   /**
    * Transforms the element into a string.
    *

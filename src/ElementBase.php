@@ -29,7 +29,7 @@ abstract class ElementBase {
   protected $_id;
 
   /** The element's css class attribute */
-  protected $_class = Array();
+  protected $_class = array();
 
   /** The element's style attribute */
   protected $_style;
@@ -40,9 +40,9 @@ abstract class ElementBase {
   /**
    * Base class constructor.
    *
-   * @param string The element's tag name
-   * @param string The element's id attribute
-   * @param string The element's class attribute
+   * @param string tag The element's tag name
+   * @param string id The element's id attribute
+   * @param string class The element's class attribute
    */
   protected function __construct($tag, $id = null, $class = null) {
     $this->_tag = $tag;

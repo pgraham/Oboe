@@ -12,7 +12,7 @@
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
-namespace oboe\Form;
+namespace oboe\form;
 
 /**
  * This class encapsulates an <input/> item with type="hidden".
