@@ -1,6 +1,5 @@
 <?php
 /**
- * =============================================================================
  * Copyright (c) 2010, Philip Graham
  * All rights reserved.
  *
@@ -8,7 +7,6 @@
  * 3-clause BSD License.  The full text of the license can be found in the
  * LICENSE.txt file included in the root directory of this distribution or at
  * the link below.
- * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
@@ -25,8 +23,9 @@ namespace oboe\event;
  * output.
  *
  * Replacing the element is useful for providing an interface that automatically
- * wraps text in an element, as with <ol>, <ul> wrapping text in <li>
- * elements or <select> wrapping text in <option> elements
+ * wraps text in an element, as with &lt;ol&gt;, &lt;ul&gt; wrapping text in
+ * &lt;li&gt; elements or &lt;select&gt; wrapping text in &lt;option&gt;
+ * elements.
  *
  * @author Philip Graham <philip@zeptech.ca>
  */
@@ -48,6 +47,9 @@ class AddElementEvent {
    * Getter for the element to return as a result of the AddElementEvent.
    * If null then the default is to maintain chainability by return the element
    * on which the AddElementEvent occured.
+   *
+   * @todo Where is this used?  It does not seem like a good design to not be
+   *   able to guarantee the return type of the add() method.
    *
    * @return string|oboe\struct\HtmlElement Default null
    */

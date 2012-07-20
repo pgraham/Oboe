@@ -133,23 +133,28 @@ abstract class ElementComposite extends ElementBase {
    * processing, it should return boolean false.  This is useful in cases where
    * the implementation wants to defer addition of the element.
    *
-   * @param mixed $elm The element being added.
+   * @param AddElementEvent $event Event object which encapsulates the element
+   *   being added and methods for prevent or change the element being added as
+   *   well to specify what to return from the add() method invocation that
+   *   resulted in the event.
    */
-  protected function onAdd(AddElementEvent $event) {}
+  protected function onAdd(AddElementEvent $event) {
+  }
 
   /**
    * Intended to be overriden by implementing classes in order to perform any
    * necessary work immediately prior to output, e.g. adding elements that have
    * a required position in the element's children.
    */
-  protected function onDump() {}
+  protected function onDump() {
+  }
 
   /**
    * This function checks that any objects added to the composite are of
    * the right type.
    *
-   * @param ElementComposite Parent element
-   * @param mixed Child element
+   * @param ElementComposite $parent Parent element
+   * @param mixed Child $child element
    */
   protected static function _checkElement(ElementComposite $parent, $child) {
     // If the child is not an object make sure that non-object's can be added to

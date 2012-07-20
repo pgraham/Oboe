@@ -1,6 +1,5 @@
 <?php
 /**
- * =============================================================================
  * Copyright (c) 2010, Philip Graham
  * All rights reserved.
  *
@@ -8,7 +7,6 @@
  * 3-clause BSD License.  The full text of the license can be found in the
  * LICENSE.txt file included in the root directory of this distribution or at
  * the link below.
- * =============================================================================
  *
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
@@ -17,17 +15,20 @@ namespace oboe;
 use \oboe\struct\FlowContent;
 
 /**
- * This class encapsulates a &lt;div&gt; element.
+ * This class encapsulates an `<address>` element.
  *
- * @TODO &lt;address&gt; elements cannot contain heading content, sectioning
- *   content, &lt;header&gt;, &lt;footer&gt; or &lt;address&gt; descendants
+ * <href=http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-address-element>
  *
- * @author Philip Graham <philip@lightbox.org>
+ * @TODO `<address>` elements cannot contain [heading content](http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#heading-content),
+ *   [sectioning content](http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#sectioning-content),
+ *   `<header>`, `<footer>` or `<address>` descendants
+ *
+ * @author Philip Graham <philip@zeptech.ca>
  */
 class Address extends ElementComposite implements FlowContent {
 
   /**
-   * Constructor.
+   * Create a new `<address>` element.
    */
   public function __construct() {
     parent::__construct('address');

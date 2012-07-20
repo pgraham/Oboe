@@ -21,13 +21,13 @@ use \oboe\table\Head as Thead;
 use \oboe\table\Row  as Tr;
 
 /**
- * This class encapsulates a <table> element. The table class can contain at
- * most one <thead> and <tfoot> elements and one or more <tbody> elements
+ * This class encapsulates a `<table>` element. The table class can contain at
+ * most one `<thead>` and `<tfoot>` elements and one or more `<tbody>` elements
  *
- *   http://www.whatwg.org/specs/web-apps/current-work/multipage/tabular-data.html#the-table-element
+ * <http://www.whatwg.org/specs/web-apps/current-work/multipage/tabular-data.html#the-table-element>
  *
- * TODO - Update this class to properly support a table's content model and
- *        attributes.
+ * @todo Update this class to properly support a table's content model and
+ *      attributes.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
@@ -44,6 +44,9 @@ class Table extends ElementComposite implements FlowContent {
 
   /**
    * Constructor.
+   *
+   * @param string $id The id attribute of the `<table>` element.
+   * @param string $class The class attribute of the `<table>` element.
    */
   public function __construct($id = null, $class = null) {
     parent::__construct('table', $id, $class);
@@ -58,7 +61,9 @@ class Table extends ElementComposite implements FlowContent {
   /**
    * Override the add() method to enforce table structure rules.
    *
-   * @param item\Table The item to add to the table
+   * @param item\Table $element The item to add to the table
+   * @param boolean $push `true` to add the push the element, `false` to shift.
+   *   Default: `true`
    */
   public function add($element, $push = true) {
     self::_checkElement($this, $element);

@@ -15,21 +15,44 @@
 namespace oboe;
 
 /**
- * This class encapsulates a <<ol>> element.
+ * This class encapsulates a &lt;ol&gt; element.
  *
- *   http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-ol-element
+ * <ul>
+ * <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-ol-element>http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-ol-element</a>
+ * </ul>
  *
  * @author Philip Graham <philip@zeptech.ca>
  */
 class OrderedList extends BaseList {
 
+  /** Constant for specifying that the list should use decimal numbering. */
   const MARKER_TYPE_DECIMAL     = 'decimal';
+
+  /**
+   * Constant for specifying that the list should use lower-case alphabetic
+   * numbering.
+   */
   const MARKER_TYPE_LOWER_ALPHA = 'lower-alpha';
+
+  /**
+   * Constant for specifying that the list should use upper-case alphabetic
+   * numbering.
+   */
   const MARKER_TYPE_UPPER_ALPHA = 'upper-alpha';
+
+  /**
+   * Constant for specifying that the list should use lower-case roman
+   * numerals.
+   */
   const MARKER_TYPE_LOWER_ROMAN = 'lower-roman';
+
+  /**
+   * Constant for specifying that the list should use upper-case roman numerals.
+   */
   const MARKER_TYPE_UPPER_ROMAN = 'upper-roman';
 
-  private static $_acceptedTypes = array(
+  /** List of accepted values for the element's type attribute */
+  protected static $_acceptedTypes = array(
     self::MARKER_TYPE_DECIMAL,
     self::MARKER_TYPE_LOWER_ALPHA,
     self::MARKER_TYPE_UPPER_ALPHA,

@@ -18,8 +18,8 @@ use \oboe\struct\FlowContent;
 use \oboe\struct\HtmlElement;
 
 /**
- * This class encapsulates the <body> element.  Since a document can only have
- * one <body> element it is implemented as a singleton.
+ * This class encapsulates the &lt;body&gt; element.  Since a document can only
+ * have one &lt;body&gt; element it is implemented as a singleton.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
