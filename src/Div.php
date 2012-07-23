@@ -17,19 +17,16 @@ namespace oboe;
 use \oboe\struct\FlowContent;
 
 /**
- * This class encapsulates a <div> element.
+ * This class encapsulates a `<div>` element.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
 class Div extends ElementComposite implements FlowContent {
 
   /**
-   * Constructor.  This constructor makes an exception to the rule of not
-   * providing shortcuts for mutables by providing a param for setting the div's
-   * ID. This is because setting the ID through a div's constructor is so
-   * commonly used.
+   * Constructor.
    *
-   * @param string The value for the element's id attribute.
+   * @param string $id [Optional] The value for the element's id attribute.
    */
   public function __construct($id = null) {
     parent::__construct('div');
