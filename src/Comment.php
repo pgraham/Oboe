@@ -19,7 +19,7 @@ use \oboe\struct\MetadataContent;
 
 /**
  * This class encapsulate an HTML comment. Comments are output between
- * <!-- ... --> tags
+ * `<!-- ... -->` tags
  *
  * @author Philip Graham <philip@lightbox.org>
  */
@@ -31,7 +31,8 @@ class Comment implements MetadataContent, EmbeddedContent {
   /**
    * Constructor.
    *
-   * @param string The comment.  Don't include opening and closing tags.
+   * @param string $comment The comment.  Don't include opening and closing
+   *   tags.
    */
   public function __construct($comment) {
     $this->_comment = $comment;

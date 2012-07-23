@@ -18,8 +18,8 @@ use \oboe\struct\FlowContent;
 use \oboe\struct\HtmlElement;
 
 /**
- * This class encapsulates the &lt;body&gt; element.  Since a document can only
- * have one &lt;body&gt; element it is implemented as a singleton.
+ * This class encapsulates the `<body>` element.  Since a document can only
+ * have one `<body>` element it is implemented as a singleton.
  *
  * @author Philip Graham <philip@lightbox.org>
  */
@@ -36,7 +36,7 @@ final class Body extends ElementComposite implements HtmlElement {
   /**
    * Instance method of the Singleton pattern.
    *
-   * @return Body
+   * @return Body The documents `<body>` element.
    */
   public static function getInstance() {
     if (self::$_instance === null) {
@@ -51,7 +51,7 @@ final class Body extends ElementComposite implements HtmlElement {
    * ========================================================================
    */
     
-  /** Constructor. Initializes parent with 'body' tag */
+  /** Constructor. Initializes parent with 'body' tag. */
   protected function __construct() {
     parent::__construct('body');
 

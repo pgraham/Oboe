@@ -17,7 +17,7 @@ namespace oboe;
 use \oboe\struct\PhrasingContent;
 
 /**
- * This class encapsulates a button element.
+ * This class encapsulates a `<button>` element.
  *
  * TODO This class needs to filter Interactive content.
  *
@@ -25,6 +25,11 @@ use \oboe\struct\PhrasingContent;
  */
 class Button extends ElementComposite implements PhrasingContent {
 
+  /**
+   * Constructor. Creates a new button element.
+   *
+   * @param string $lbl [Optional] Label for the button
+   */
   public function __construct($lbl = null) {
     parent::__construct('button');
     $this->_objectTypes = array('oboe\struct\PhrasingContent');
