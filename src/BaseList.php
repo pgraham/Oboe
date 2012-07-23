@@ -41,7 +41,7 @@ abstract class BaseList extends ElementComposite implements FlowContent {
    * Add a single item to the list.  If the element encapsulated in the event
    * object is not an instance of {@link oboe\ListItem} then it will be wrapped.
    *
-   * @param AddElementEvent $event 
+   * @param AddElementEvent $event Event object
    */
   protected function onAdd(AddElementEvent $event) {
     $element = $event->getElement();
