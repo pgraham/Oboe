@@ -62,7 +62,7 @@ class Table extends ElementComposite implements FlowContent {
    * Override the add() method to enforce table structure rules.
    *
    * @param item\Table $element The item to add to the table
-   * @param boolean $push `true` to add the push the element, `false` to shift.
+   * @param boolean $push `true` to push the element, `false` to shift.
    *   Default: `true`
    */
   public function add($element, $push = true) {
@@ -136,9 +136,15 @@ class Table extends ElementComposite implements FlowContent {
    */
 
   /**
-   * Adds a <td> to the table's <thead> and returns it
+   * Adds a `<td>` to the table's `<thead>` and returns it
    *
-   * @param string The header
+   * @param string $header The header to add.  If the table doesn't already have
+   *   a `<thead>` element one will be added automatically.  The given element
+   *   is wrapped in a {@link table\Data} element.
+   * @todo Create a class for `<th>` elements and wrap the given element with
+   *   it instead of `<td>`.
+   * @todo Accept a `<th>` element directly and only wrap if given element is
+   *   not a `<th>`.
    */
   public function addHeader($header) {
     if ($this->_head === null) {
@@ -154,7 +160,7 @@ class Table extends ElementComposite implements FlowContent {
   /**
    * Adds a row to the table body and returns it.
    *
-   * @return Tr
+   * @return table\Row
    */
   public function addRow() {
     $this->_checkBody();
