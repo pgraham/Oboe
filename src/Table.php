@@ -61,7 +61,7 @@ class Table extends ElementComposite implements FlowContent {
   /**
    * Override the add() method to enforce table structure rules.
    *
-   * @param item\Table $element The item to add to the table
+   * @param object $element The item to add to the table
    * @param boolean $push `true` to push the element, `false` to shift.
    *   Default: `true`
    */
@@ -173,11 +173,10 @@ class Table extends ElementComposite implements FlowContent {
    * Adds a cell to the table.  In order to build a table using this notation
    * you need to give a row id.
    *
-   * @param integer The index of the row to add the cell to.  If the row
-   *     doesn't exist it will be created.
-   * @param string The value of the cell element's id attribute
-   * @param string The value of the cell element's class attribute
-   * @return Td
+   * @param integer $rowIndex The index of the row to add the cell to.  If the
+   *   row doesn't exist it will be created.
+   * @param string $cellContents The cell's content
+   * @return table\Data
    */
   public function addCell($rowIndex, $cellContents = null) {
     $this->_checkBody();
@@ -202,9 +201,9 @@ class Table extends ElementComposite implements FlowContent {
    * Populates the table with empty objects for the given dimensions and
    * returns a 2d array containing references to the table's elements
    *
-   * @param integer Number of headers to add
-   * @param integer Number of rows to add
-   * @param integer Number of columns to add
+   * @param integer $numHeaders Number of headers to add
+   * @param integer $numRows Number of rows to add
+   * @param integer $numCols Number of columns to add
    */
   public function populate($numHeaders, $numRows, $numCols) {
     $tArr = array();
