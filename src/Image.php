@@ -41,6 +41,8 @@ class Image extends ElementBase implements EmbeddedContent {
   public function __construct($src, $alt = '') {
     parent::__construct('img');
     $this->setAttribute('src', $src);
-    $this->setAttribute('alt', $alt);
+    if ($alt) {
+      $this->setAttribute('alt', $alt);
+    }
   }
 }
