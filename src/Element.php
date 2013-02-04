@@ -19,6 +19,7 @@ use \oboe\form\Select;
 use \oboe\form\Submit;
 use \oboe\form\TextArea;
 use \oboe\form\TextInput;
+use \oboe\head\MetaTag;
 use \oboe\head\StyleSheet;
 use \oboe\table\Data;
 use \oboe\text\VSpace;
@@ -327,6 +328,16 @@ class Element {
    */
   public static function listItem($text = null) {
     return new ListItem($text);
+  }
+
+  /**
+   * <meta/> element factory method.
+   *
+   * @param string $name The name of the meta data
+   * @param string $content The content of the meta content
+   */
+  public static function meta($name, $content) {
+    return new MetaTag($name, $content);
   }
 
   /**
