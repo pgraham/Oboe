@@ -295,11 +295,14 @@ abstract class ElementBase {
       } else if ($value === false) {
         // Don't output anything for a false attribute
       } else {
-        $value = htmlentities($value, ENT_QUOTES, 'UTF-8',
-          false /* Don't double quote */);
 
         // htmlentities won't encode spaces
-        $value = str_replace(' ', '&nbsp;', $value);
+        if (strpos($value, ' ') === false) {
+          $value = htmlentities($value, ENT_QUOTES, 'UTF-8',
+            false /* Don't double quote */);
+        } else {
+          $value = "\"$value\"";
+        }
 
         $attributes[] = "$attribute=$value";
       }
