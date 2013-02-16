@@ -76,6 +76,12 @@ abstract class ElementComposite extends ElementBase {
       return $this;
     }
 
+    // Non-Oboe objects are simply cast to a string and added as text.
+    // Document structure enforcement only applies to Oboe object instances
+    if (is_object($element) && !($element instanceof ElementBase)) {
+      return $this->add((string) $element, $push);
+    }
+
     // Allow implementing classes to perform any additional checking, prevent
     // the addition or replace the element being added.
     $event = new AddElementEvent($element);
@@ -176,7 +182,9 @@ abstract class ElementComposite extends ElementBase {
 
     // Handle oboe\Composite implementations
     if ($child instanceof Composite) {
-      return in_array($child->getElementType(), $parent->_objectTypes);
+      if (in_array($child->getElementType(), $parent->_objectTypes)) {
+        return;
+      }
     }
 
     // Check if the object is a valid type for the composite
