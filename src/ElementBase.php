@@ -38,6 +38,9 @@ abstract class ElementBase
     /** The element's attributes */
     protected $attributes;
 
+    /** THe element's data attributes */
+    protected $data = array();
+
     /**
      * Base class constructor.
      *
@@ -121,6 +124,8 @@ abstract class ElementBase
             return $this->getClass();
         } elseif ($attribute == 'style') {
             return $this->getStyle();
+        } elseif (substr($attribute, 0, 5) === 'data-') {
+            return $this->getData($attribute);
         } elseif (array_key_exists($attribute, $this->attributes)) {
             return $this->attributes[$attribute];
         } else {
@@ -136,6 +141,20 @@ abstract class ElementBase
     public function getClass()
     {
         return implode(' ', $this->class);
+    }
+
+    /**
+     * Getter for the element's data attribute of the given name.
+     *
+     * @param string $name
+     * @return string
+     */
+    public function getData($name)
+    {
+      if (substr($name, 0, 5) === 'data-') {
+        $name = substr($name, 5);
+      }
+      return isset($this->data[$name]) ? $this->data[$name] : null;
     }
 
     /**
@@ -206,6 +225,8 @@ abstract class ElementBase
             $this->setId($value);
         } elseif ($attribute == 'class') {
             $this->setClass($value);
+        } elseif (substr($attribute, 0, 5) === 'data-') {
+          $this->setData($attribute, $value);
         } elseif ($attribute == 'style') {
             $styles = array();
             $validStyle = preg_match_all(
@@ -242,6 +263,22 @@ abstract class ElementBase
         }
 
         return $this;
+    }
+
+    /**
+     * Setter for the data attribute of the given name.
+     *
+     * @param string $name Data attribute name. 'data-' prefix will be stripped.
+     * @param string $value The data attribute's value.
+     * @return $this
+     */
+    public function setData($name, $value)
+    {
+        if (substr($name, 0, 5) === 'data-') {
+          $name = substr($name, 5);
+        }
+
+        $this->data[$name] = $value;
     }
 
     /**
@@ -300,7 +337,7 @@ abstract class ElementBase
     {
         $str = '<'.$element->tag;
         if ($element->id !== null) {
-            $str.= ' id="'.$element->id.'"';
+            $str.= " id=\"$element->id\"";
         }
         if (count($element->class) > 0) {
             $str.= ' class="' . implode(' ', $element->class) . '"';
@@ -308,11 +345,15 @@ abstract class ElementBase
             
         if (count($element->style) > 0) {
             $style = self::buildStyleString($element);
-            $str.= ' style="'.$style.'"';
+            $str.= " style=\"$style\"";
+        }
+
+        foreach ($element->data as $data => $value) {
+            $str.= " data-$data=\"$value\"";
         }
 
         $attributes = array();
-        foreach ($element->attributes AS $attribute => $value) {
+        foreach ($element->attributes as $attribute => $value) {
             if ($value === true) {
                 $attributes[] = $attribute;
             } else if ($value === false) {
