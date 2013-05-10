@@ -1,4 +1,6 @@
 commit.txt
 phpdoctor.ini
 phpdoc.log
+composer.lock
+vendor/
 

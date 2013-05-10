@@ -1,0 +1,22 @@
+{
+	"name": "zeptech/oobo",
+	"type": "library",
+	"description": "HTML Tag library",
+	"keywords": [ "tags", "html" ],
+	"homepage": "https://github.com/pgraham/oobo",
+	"license": "BSD",
+	"authors": [
+		{
+			"name": "Philip Graham",
+			"email": "philip@zeptech.ca"
+		}
+	],
+	"autoload": {
+		"psr-0": {
+			"zpt\\oobo": ""
+		}
+	},
+	"require": {
+		"php": ">=5.3.0"
+	}
+}
