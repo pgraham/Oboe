@@ -1,0 +1,13 @@
+#!/usr/bin/php
+<?php
+chdir(__DIR__);
+
+$log = fopen(__DIR__ . '/phpdoc.log', 'w');
+fputs($log, "Generating API...\n");
+fclose($log);
+
+exec('phpdoc >> phpdoc.log');
+
+$log = fopen(__DIR__ . '/phpdoc.log', 'a');
+fputs($log, "  Done\n");
+fclose($log);
