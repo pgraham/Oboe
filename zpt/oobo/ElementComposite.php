@@ -78,7 +78,7 @@ abstract class ElementComposite extends ElementBase {
 
     // Non OO-bo objects are simply cast to a string and added as text.
     // Document structure enforcement only applies to OO-bo object instances
-    if (is_object($element) && !($element instanceof ElementBase)) {
+    if (is_object($element) && !($element instanceof ElementBase) && !($element instanceof Composite)) {
       return $this->add((string) $element, $push);
     }
 
@@ -122,7 +122,7 @@ abstract class ElementComposite extends ElementBase {
     return count($this->_elements);
   }
 
-  /** 
+  /**
    * This method removes all of the element's children.
    */
   public function removeAll() {
@@ -229,7 +229,7 @@ abstract class ElementComposite extends ElementBase {
 
   private static function _visitBreadthFirst(ElementComposite $elm, $fn) {
     $queue = array($elm);
-    
+
     while (count($queue) > 0) {
       $node = array_shift($queue);
       if (!$fn($node)) {
