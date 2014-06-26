@@ -14,16 +14,15 @@
  */
 namespace zpt\oobo;
 
-use \zpt\oobo\form\Password;
-use \zpt\oobo\form\Select;
-use \zpt\oobo\form\Submit;
-use \zpt\oobo\form\TextArea;
-use \zpt\oobo\form\TextInput;
-use \zpt\oobo\head\MetaTag;
-use \zpt\oobo\head\StyleSheet;
-use \zpt\oobo\table\Data;
-use \zpt\oobo\text\VSpace;
-use \zpt\oobo\Javascript;
+use zpt\oobo\form\Password;
+use zpt\oobo\form\Select;
+use zpt\oobo\form\Submit;
+use zpt\oobo\form\TextArea;
+use zpt\oobo\form\TextInput;
+use zpt\oobo\head\MetaTag;
+use zpt\oobo\head\StyleSheet;
+use zpt\oobo\table\Data;
+use zpt\oobo\text\VSpace;
 
 /**
  * This class provides factory methods for different elements.  The purpose of
@@ -42,7 +41,7 @@ use \zpt\oobo\Javascript;
  * @author Philip Graham <philip@zeptech.ca>
  */
 class Element {
-  
+
   /**
    * <a/> element factory method.  Alias for anchor().
    *

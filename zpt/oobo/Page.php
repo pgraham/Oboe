@@ -42,7 +42,7 @@ class Page extends ElementComposite {
   public static function addElementToBody(FlowContent $elm) {
     self::getInstance()->bodyAdd($elm);
   }
-    
+
   /**
    * Convenience method for adding an element to the <head> element.
    *
